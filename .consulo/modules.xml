@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ModuleManager">
+    <modules>
+      <module name="dotnet-msil-decompiler" dirurl="file://$PROJECT_DIR$" current-layer="Default">
+        <module-layer name="Default">
+          <extension id="java" sdk-module-name="" sdk-name="1.6" language-level-module-name="" language-level-name="JDK_1_6" special-dir-location="SOURCE_DIR" />
+          <extension id="lombok" />
+          <content url="file://$MODULE_DIR$">
+            <content-folder type="EXCLUDED" url="file://$MODULE_DIR$/.consulo" />
+            <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
+            <content-folder type="TEST_RESOURCE" url="file://$MODULE_DIR$/testData" />
+            <content-folder type="TEST" url="file://$MODULE_DIR$/testSrc" />
+          </content>
+          <orderEntry type="module-extension-sdk" extension-id="java" />
+          <orderEntry type="sourceFolder" />
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/consulo-core.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/jdom.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/trove4j.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/dotnet-asm.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/annotations.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/lombok-consulo-0.11.9.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/lombok-core-0.11.9.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/util.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
+        </module-layer>
+      </module>
+    </modules>
+  </component>
+</project>
