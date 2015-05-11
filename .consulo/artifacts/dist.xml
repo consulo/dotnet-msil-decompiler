@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="dist">
+    <output-path>$PROJECT_DIR$/out/artifacts/dist</output-path>
+    <root id="root">
+      <element id="zip-archive" name="dotnet-msil-decompiler.jar">
+        <element id="module-output" name="dotnet-msil-decompiler" />
+      </element>
+      <element id="zip-archive" name="dotnet-msil-decompiler-sources.jar">
+        <element id="dir-copy" path="$PROJECT_DIR$/src" />
+      </element>
+    </root>
+  </artifact>
+</component>
