@@ -70,6 +70,13 @@
               </binaries>
             </library>
           </orderEntry>
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="jar://$MODULE_DIR$/lib/junit-4.10.jar!/" />
+              </binaries>
+            </library>
+          </orderEntry>
         </module-layer>
       </module>
     </modules>
