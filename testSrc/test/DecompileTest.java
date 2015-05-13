@@ -23,6 +23,7 @@ import java.util.zip.ZipFile;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mustbe.dotnet.msil.decompiler.Main;
 import org.mustbe.dotnet.msil.decompiler.file.DotNetArchiveFile;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.vfs.ArchiveEntry;
@@ -36,9 +37,15 @@ import edu.arizona.cs.mbel.mbel.ModuleParser;
 public class DecompileTest extends Assert
 {
 	@Test
-	public void testMscorlib() throws Throwable
+	public void testTest1Mscorlib() throws Throwable
 	{
 		doTest("test1/mscorlib.dll");
+	}
+
+	@Test
+	public void testTest2IkvmCore() throws Throwable
+	{
+		doTest("test2/IkvmCore.dll");
 	}
 
 	public static void doTest(String path) throws Throwable
@@ -57,7 +64,8 @@ public class DecompileTest extends Assert
 		File targetFile = new File(file.getParentFile(), FileUtil.getNameWithoutExtension(file.getName()) + ".zip");
 		if(!targetFile.exists())
 		{
-			throw new IllegalArgumentException(targetFile.getAbsolutePath() + " is not exists");
+			Main.main(new String[] {file.getAbsolutePath()});
+			throw new IllegalArgumentException(targetFile.getAbsolutePath() + " is not exists. File generated");
 		}
 
 		ZipFile zipFile = new ZipFile(targetFile);
