@@ -31,11 +31,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
+import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.ArchiveEntry;
 import com.intellij.openapi.vfs.ArchiveFile;
 import com.intellij.util.ArrayUtil;
 import edu.arizona.cs.mbel.mbel.AssemblyInfo;
+import edu.arizona.cs.mbel.mbel.CustomAttribute;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
 import edu.arizona.cs.mbel.mbel.TypeDef;
 import lombok.val;
@@ -61,15 +63,24 @@ public class DotNetArchiveFile implements ArchiveFile
 
 		val duplicateMap = new HashMap<String, DotNetBaseFileArchiveEntry>(); // map used for collect types with same name but different signature
 
+		TypeDef moduleTypeDef = null;
+
 		// iterate type def add as files
 		for(TypeDef typeDef : typeDefs)
 		{
-			if(XStubUtil.isInvisibleMember(typeDef.getName()) || typeDef.getParent() != null)
+			String name = typeDef.getName();
+			if(Comparing.equal(name, DotNetModuleFileArchiveEntry.ModuleTypeDef))
+			{
+				moduleTypeDef = typeDef;
+				continue;
+			}
+
+			if(XStubUtil.isInvisibleMember(name) || typeDef.getParent() != null)
 			{
 				continue;
 			}
 
-			String userName = MsilHelper.cutGenericMarker(typeDef.getName());
+			String userName = MsilHelper.cutGenericMarker(name);
 
 			String path;
 			String namespace = typeDef.getNamespace();
@@ -99,6 +110,15 @@ public class DotNetArchiveFile implements ArchiveFile
 		if(assemblyInfo != null)
 		{
 			fileList.add(new DotNetAssemblyFileArchiveEntry(originalFile, moduleParser, assemblyInfo, lastModifier));
+		}
+
+		if(moduleTypeDef != null)
+		{
+			List<CustomAttribute> customAttributes = moduleTypeDef.getCustomAttributes();
+			if(!customAttributes.isEmpty())
+			{
+				fileList.add(new DotNetModuleFileArchiveEntry(originalFile, moduleParser, moduleTypeDef, lastModifier));
+			}
 		}
 
 		// sort - at to head, files without namespaces

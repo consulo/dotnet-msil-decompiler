@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2014 must-be.org
+ * Copyright 2013-2015 must-be.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,52 +17,38 @@
 package org.mustbe.dotnet.msil.decompiler.file;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
-import org.consulo.lombok.annotations.Logger;
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
+import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import com.intellij.util.SmartList;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
 import edu.arizona.cs.mbel.mbel.TypeDef;
 
 /**
  * @author VISTALL
- * @since 11.12.13.
+ * @since 18.05.2015
  */
-@Logger
-public class DotNetBaseFileArchiveEntry extends DotNetAbstractFileArchiveEntry
+public class DotNetModuleFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 {
-	private List<TypeDef> myTypeDefs;
+	public static final String ModuleInfo = "ModuleInfo.msil";
+	public static final String ModuleTypeDef = "<Module>";
 
-	private final String myNamespace;
+	private TypeDef myModuleTypeDef;
 
-	public DotNetBaseFileArchiveEntry(File originalFile, ModuleParser moduleParser, TypeDef typeDef, String name, long lastModified)
+	public DotNetModuleFileArchiveEntry(File originalFile, ModuleParser moduleParser, TypeDef assemblyInfo, long lastModified)
 	{
-		super(originalFile, moduleParser, name, lastModified);
-		myTypeDefs = new SmartList<TypeDef>(typeDef);
-		myNamespace = typeDef.getNamespace();
-	}
-
-	public void addTypeDef(@NotNull TypeDef typeDef)
-	{
-		myTypeDefs.add(typeDef);
-	}
-
-	@Override
-	@NotNull
-	public String getNamespace()
-	{
-		return myNamespace;
+		super(originalFile, moduleParser, ModuleInfo, lastModified);
+		myModuleTypeDef = assemblyInfo;
 	}
 
 	@NotNull
 	@Override
 	public List<? extends StubBlock> build()
 	{
-		List<TypeDef> typeDefs = myTypeDefs;
-		myTypeDefs = null;
-		return MsilStubBuilder.parseTypeDef(typeDefs);
+		TypeDef moduleTypeDef = myModuleTypeDef;
+		myModuleTypeDef = null;
+		return Arrays.asList(MsilTypeBuilder.processTypeDef(moduleTypeDef));
 	}
 }

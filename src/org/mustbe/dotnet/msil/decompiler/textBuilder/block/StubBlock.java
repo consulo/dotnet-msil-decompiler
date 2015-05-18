@@ -16,8 +16,11 @@
 
 package org.mustbe.dotnet.msil.decompiler.textBuilder.block;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import com.intellij.util.SmartList;
 
 /**
  * @author VISTALL
@@ -30,34 +33,43 @@ public class StubBlock
 			'}'
 	};
 
+	public static final char[] PAR = {
+			'(',
+			')'
+	};
+
 	private CharSequence myStartText;
 	private CharSequence myInnerText;
 	private char[] myIndents;
 
-	private List<StubBlock> myBlocks = new ArrayList<StubBlock>(2);
+	private List<StubBlock> myBlocks = new SmartList<StubBlock>();
 
-	public StubBlock(CharSequence startText, CharSequence innerText, char[] indents)
+	public StubBlock(@NotNull CharSequence startText, @Nullable CharSequence innerText, @NotNull char[] indents)
 	{
 		myStartText = startText;
 		myInnerText = innerText;
 		myIndents = indents;
 	}
 
+	@NotNull
 	public List<StubBlock> getBlocks()
 	{
 		return myBlocks;
 	}
 
+	@NotNull
 	public char[] getIndents()
 	{
 		return myIndents;
 	}
 
+	@NotNull
 	public CharSequence getStartText()
 	{
 		return myStartText;
 	}
 
+	@Nullable
 	public CharSequence getInnerText()
 	{
 		return myInnerText;

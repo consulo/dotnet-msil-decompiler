@@ -18,6 +18,8 @@ package org.mustbe.dotnet.msil.decompiler.textBuilder;
 
 import java.util.List;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
@@ -111,9 +113,42 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 		builder.append(" ");
 		appendValidName(builder, methodDef.getName());
 		processGeneric(builder, methodDef, typeDef);
-		builder.append("(");
 
 		List<ParameterSignature> parameters = signature.getParameters();
+
+		buildParameters(builder, parameters, typeDef, true);
+
+		StubBlock e = new StubBlock(builder, null, StubBlock.BRACES);
+
+		processAttributes(e, methodDef);
+
+		for(int i = 0; i < parameters.size(); i++)
+		{
+			ParameterSignature parameterSignature = parameters.get(i);
+
+			ParameterInfo parameterInfo = parameterSignature.getParameterInfo();
+			if(parameterInfo == null)
+			{
+				continue;
+			}
+
+			if(!parameterInfo.getCustomAttributes().isEmpty())
+			{
+				e.getBlocks().add(new LineStubBlock(".param [" + (i + 1) + "]"));
+				processAttributes(e, parameterInfo);
+			}
+		}
+
+		block.getBlocks().add(e);
+	}
+
+	public static void buildParameters(@NotNull StringBuilder builder,
+			@NotNull final List<ParameterSignature> parameters,
+			@Nullable final TypeDef typeDef,
+			final boolean appendName)
+	{
+		builder.append("(");
+
 		join(builder, parameters, new PairFunction<StringBuilder, ParameterSignature, Void>()
 		{
 			@Override
@@ -146,7 +181,7 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 
 				typeToString(builder, typeSignature, typeDef);
 
-				if(parameterInfo != null)
+				if(appendName && parameterInfo != null)
 				{
 					builder.append(" ");
 					appendValidName(builder, parameterInfo.getName());
@@ -155,28 +190,5 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 			}
 		}, ", ");
 		builder.append(")");
-
-		StubBlock e = new StubBlock(builder, null, StubBlock.BRACES);
-
-		processAttributes(e, methodDef);
-
-		for(int i = 0; i < parameters.size(); i++)
-		{
-			ParameterSignature parameterSignature = parameters.get(i);
-
-			ParameterInfo parameterInfo = parameterSignature.getParameterInfo();
-			if(parameterInfo == null)
-			{
-				continue;
-			}
-
-			if(!parameterInfo.getCustomAttributes().isEmpty())
-			{
-				e.getBlocks().add(new LineStubBlock(".param [" + (i + 1) + "]"));
-				processAttributes(e, parameterInfo);
-			}
-		}
-
-		block.getBlocks().add(e);
 	}
 }

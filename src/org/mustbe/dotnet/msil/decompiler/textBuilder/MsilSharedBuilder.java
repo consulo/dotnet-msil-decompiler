@@ -16,6 +16,7 @@
 
 package org.mustbe.dotnet.msil.decompiler.textBuilder;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.consulo.lombok.annotations.Logger;
@@ -23,6 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
 import org.mustbe.dotnet.msil.decompiler.util.MsilUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.BitUtil;
@@ -32,6 +34,7 @@ import edu.arizona.cs.mbel.mbel.GenericParamDef;
 import edu.arizona.cs.mbel.mbel.GenericParamOwner;
 import edu.arizona.cs.mbel.mbel.MethodDef;
 import edu.arizona.cs.mbel.mbel.MethodDefOrRef;
+import edu.arizona.cs.mbel.mbel.MethodRef;
 import edu.arizona.cs.mbel.mbel.TypeDef;
 import edu.arizona.cs.mbel.mbel.TypeRef;
 import edu.arizona.cs.mbel.mbel.TypeSpec;
@@ -144,9 +147,63 @@ public class MsilSharedBuilder implements SignatureConstants
 
 			MethodDefOrRef constructor = customAttribute.getConstructor();
 			toStringFromDefRefSpec(builder, constructor.getParent(), null);
-			builder.append("::").append(constructor.getName()).append("() = ()\n");
+			builder.append("::");
+			builder.append(constructor.getName());
 
-			parent.getBlocks().add(new LineStubBlock(builder));
+			List<ParameterSignature> parameterSignatures = Collections.emptyList();
+			if(constructor instanceof MethodRef)
+			{
+				MethodSignature callsiteSignature = ((MethodRef) constructor).getCallsiteSignature();
+				parameterSignatures = callsiteSignature.getParameters();
+			}
+			else if(constructor instanceof MethodDef)
+			{
+				MethodSignature signature = ((MethodDef) constructor).getSignature();
+				parameterSignatures = signature.getParameters();
+			}
+
+			MsilMethodBuilder.buildParameters(builder, parameterSignatures, null, false);
+
+			builder.append(" = ");
+			byte[] signature = customAttribute.getSignature();
+
+			StubBlock block = new StubBlock(builder, null, StubBlock.PAR);
+			StringBuilder lineBuilder = null;
+			for(int i = 0; i < signature.length; i++)
+			{
+				byte b = signature[i];
+
+				int pos = i % 16;
+
+				if(pos == 0)
+				{
+					lineBuilder = new StringBuilder(40);
+				}
+
+				lineBuilder.append(String.format("%02X", b & 0xFF));
+
+				boolean isLastByte = i == (signature.length - 1);
+				if(pos == 15)
+				{
+					if(isLastByte)
+					{
+						lineBuilder.append('\n');
+					}
+
+					block.getBlocks().add(new LineStubBlock(lineBuilder));
+				}
+				else if(!isLastByte)
+				{
+					lineBuilder.append(' ');
+				}
+				else
+				{
+					lineBuilder.append('\n');
+					block.getBlocks().add(new LineStubBlock(lineBuilder));
+				}
+			}
+
+			parent.getBlocks().add(block);
 		}
 	}
 
@@ -428,7 +485,7 @@ public class MsilSharedBuilder implements SignatureConstants
 			if(parent != null)
 			{
 				toStringFromDefRefSpec(builder, parent, parent);
-				builder.append("/");
+				builder.append(MsilHelper.NESTED_SEPARATOR_IN_NAME);
 				appendValidName(builder, ((TypeDef) o).getName());
 			}
 			else

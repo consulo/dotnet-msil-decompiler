@@ -39,7 +39,7 @@ public class MsilStubBuilder extends MsilSharedBuilder
 		return Collections.singletonList(stubBlock);
 	}
 
-	public static List<? extends StubBlock> parseTypeDef(String namespace, List<TypeDef> typeDefs)
+	public static List<? extends StubBlock> parseTypeDef(List<TypeDef> typeDefs)
 	{
 		List<StubBlock> list = new ArrayList<StubBlock>(typeDefs.size());
 		for(int i = 0; i < typeDefs.size(); i++)
