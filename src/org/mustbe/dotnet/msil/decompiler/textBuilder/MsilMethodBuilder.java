@@ -25,6 +25,7 @@ import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
+import edu.arizona.cs.mbel.mbel.CustomAttribute;
 import edu.arizona.cs.mbel.mbel.MethodDef;
 import edu.arizona.cs.mbel.mbel.TypeDef;
 import edu.arizona.cs.mbel.signature.CallingConvention;
@@ -132,9 +133,23 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 				continue;
 			}
 
-			if(!parameterInfo.getCustomAttributes().isEmpty())
+			byte[] defaultValue = parameterInfo.getDefaultValue();
+			List<CustomAttribute> customAttributes = parameterInfo.getCustomAttributes();
+
+			if(defaultValue != null || !customAttributes.isEmpty())
 			{
-				e.getBlocks().add(new LineStubBlock(".param [" + (i + 1) + "]"));
+				StringBuilder lineBuilder = new StringBuilder().append(".param [").append(i + 1).append("]");
+
+				TypeSignature typeSignature = parameterSignature;
+				if(parameterSignature.getType() == SignatureConstants.ELEMENT_TYPE_TYPEONLY)
+				{
+					typeSignature = parameterSignature.getInnerType();
+				}
+
+				appendValue(lineBuilder, typeSignature, defaultValue);
+				lineBuilder.append("\n");
+
+				e.getBlocks().add(new LineStubBlock(lineBuilder));
 				processAttributes(e, parameterInfo);
 			}
 		}

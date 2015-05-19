@@ -16,6 +16,7 @@
 
 package org.mustbe.dotnet.msil.decompiler.textBuilder;
 
+import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,6 +28,7 @@ import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
 import org.mustbe.dotnet.msil.decompiler.util.MsilUtil;
 import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.openapi.vfs.CharsetToolkit;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
 import edu.arizona.cs.mbel.mbel.CustomAttribute;
@@ -57,6 +59,7 @@ public class MsilSharedBuilder implements SignatureConstants
 			"uint32",
 			"object",
 			"float",
+			"float32",
 			"private",
 			"uint16",
 			"protected",
@@ -70,7 +73,6 @@ public class MsilSharedBuilder implements SignatureConstants
 			"abstract",
 			"specialname",
 			"final",
-			"uint64",
 			"static",
 			"famorassembly",
 			"int8",
@@ -91,6 +93,7 @@ public class MsilSharedBuilder implements SignatureConstants
 			"public",
 			"uint",
 			"literal",
+			"uint64",
 	};
 
 	private static final char[] INVALID_CHARS = {
@@ -204,6 +207,71 @@ public class MsilSharedBuilder implements SignatureConstants
 			}
 
 			parent.getBlocks().add(block);
+		}
+	}
+
+	protected static void appendValue(StringBuilder builder, TypeSignature typeSignature, byte[] defaultValue)
+	{
+		if(defaultValue == null || defaultValue.length == 0 || typeSignature == null)
+		{
+			return;
+		}
+
+		builder.append(" = ");
+		try
+		{
+			byte type = typeSignature.getType();
+			switch(type)
+			{
+				case ELEMENT_TYPE_BOOLEAN:
+					builder.append("bool(").append(defaultValue[0] == 1).append(")");
+					break;
+				case ELEMENT_TYPE_I:
+					builder.append("int8(").append(defaultValue[0]).append(")");
+					break;
+				case ELEMENT_TYPE_U:
+					builder.append("uint8(").append(defaultValue[0] & 0xFF).append(")");
+					break;
+				case ELEMENT_TYPE_I2:
+					builder.append("int16(").append(MsilUtil.getShort(defaultValue)).append(")");
+					break;
+				case ELEMENT_TYPE_U2:
+					builder.append("uint16(").append(MsilUtil.getShort(defaultValue) & 0xFFFF).append(")");
+					break;
+				case ELEMENT_TYPE_I4:
+					builder.append("int32(").append(MsilUtil.getInt(defaultValue)).append(")");
+					break;
+				case ELEMENT_TYPE_U4:
+					builder.append("uint32(").append(MsilUtil.getInt(defaultValue) & 0xFFFFFFFFL).append(")");
+					break;
+				case ELEMENT_TYPE_I8:
+					builder.append("int64(").append(MsilUtil.getLong(defaultValue)).append(")");
+					break;
+				case ELEMENT_TYPE_U8:
+					BigInteger bigInteger = new BigInteger(defaultValue);
+					builder.append("uint64(").append(bigInteger.toString()).append(")");
+					break;
+				case ELEMENT_TYPE_R4:
+					//TODO [VISTALL] float32()
+					builder.append("float(").append(Float.intBitsToFloat(MsilUtil.getInt(defaultValue))).append(")");
+					break;
+				case ELEMENT_TYPE_R8:
+					builder.append("float64(").append(Double.longBitsToDouble(MsilUtil.getLong(defaultValue))).append(")");
+					break;
+				case ELEMENT_TYPE_CHAR:
+					builder.append("char(").append(StringUtil.SINGLE_QUOTER.fun(String.valueOf(MsilUtil.getChar(defaultValue)))).append(")");
+					break;
+				case ELEMENT_TYPE_STRING:
+					builder.append(StringUtil.QUOTER.fun(new String(defaultValue, CharsetToolkit.UTF8_CHARSET)));
+					break;
+				default:
+					builder.append(StringUtil.QUOTER.fun("unknown how read 0x" + String.format("%02X", type)));
+					break;
+			}
+		}
+		catch(Exception e)
+		{
+			builder.append(StringUtil.QUOTER.fun("error"));
 		}
 	}
 
@@ -351,6 +419,7 @@ public class MsilSharedBuilder implements SignatureConstants
 				builder.append("uint64");
 				break;
 			case ELEMENT_TYPE_R4:
+				//TODO [VISTALL] float32()
 				builder.append("float");
 				break;
 			case ELEMENT_TYPE_R8:
