@@ -1,10 +1,8 @@
 package org.mustbe.dotnet.msil.decompiler.file;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
-import java.io.OutputStreamWriter;
 import java.util.List;
 
 import org.consulo.lombok.annotations.Logger;
@@ -12,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
 import com.intellij.openapi.util.NotNullLazyValue;
+import com.intellij.openapi.vfs.CharsetToolkit;
 import com.intellij.util.ArrayUtil;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
 
@@ -59,20 +58,9 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 
 				CharSequence charSequence = StubBlockUtil.buildText(builder);
 
-				ByteArrayOutputStream out = new ByteArrayOutputStream();
-				OutputStreamWriter writer = new OutputStreamWriter(out);
-				try
-				{
-					for(int i = 0; i < charSequence.length(); i++)
-					{
-						writer.write(charSequence.charAt(i));
-					}
-				}
-				finally
-				{
-					writer.close();
-				}
-				return out.toByteArray();
+				String text = charSequence.toString();
+
+				return text.getBytes(CharsetToolkit.UTF8_CHARSET);
 			}
 			catch(Throwable e)
 			{

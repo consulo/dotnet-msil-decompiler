@@ -267,7 +267,7 @@ public class MsilSharedBuilder implements SignatureConstants
 					builder.append("char(").append(StringUtil.SINGLE_QUOTER.fun(String.valueOf(MsilUtil.getChar(defaultValue)))).append(")");
 					break;
 				case ELEMENT_TYPE_STRING:
-					builder.append(StringUtil.QUOTER.fun(new String(defaultValue, CharsetToolkit.UTF8_CHARSET)));
+					builder.append(StringUtil.QUOTER.fun(new String(defaultValue, CharsetToolkit.UTF_16LE_CHARSET)));
 					break;
 				default:
 					builder.append(StringUtil.QUOTER.fun("unknown how read 0x" + String.format("%02X", type)));
