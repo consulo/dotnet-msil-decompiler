@@ -58,7 +58,6 @@ public class MsilSharedBuilder implements SignatureConstants
 			"assembly",
 			"uint32",
 			"object",
-			"float",
 			"float32",
 			"private",
 			"uint16",
@@ -252,8 +251,7 @@ public class MsilSharedBuilder implements SignatureConstants
 					builder.append("uint64(").append(bigInteger.toString()).append(")");
 					break;
 				case ELEMENT_TYPE_R4:
-					//TODO [VISTALL] float32()
-					builder.append("float(").append(Float.intBitsToFloat(MsilUtil.getInt(defaultValue))).append(")");
+					builder.append("float32(").append(Float.intBitsToFloat(MsilUtil.getInt(defaultValue))).append(")");
 					break;
 				case ELEMENT_TYPE_R8:
 					builder.append("float64(").append(Double.longBitsToDouble(MsilUtil.getLong(defaultValue))).append(")");
@@ -419,8 +417,7 @@ public class MsilSharedBuilder implements SignatureConstants
 				builder.append("uint64");
 				break;
 			case ELEMENT_TYPE_R4:
-				//TODO [VISTALL] float32()
-				builder.append("float");
+				builder.append("float32");
 				break;
 			case ELEMENT_TYPE_R8:
 				builder.append("float64");
