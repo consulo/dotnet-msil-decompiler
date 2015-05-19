@@ -93,6 +93,7 @@ public class MsilSharedBuilder implements SignatureConstants
 			"uint",
 			"literal",
 			"uint64",
+			"nullref"
 	};
 
 	private static final char[] INVALID_CHARS = {
@@ -252,6 +253,12 @@ public class MsilSharedBuilder implements SignatureConstants
 					break;
 				case ELEMENT_TYPE_R4:
 					builder.append("float32(").append(Float.intBitsToFloat(MsilUtil.getInt(defaultValue))).append(")");
+					break;
+				case ELEMENT_TYPE_OBJECT:
+					if(MsilUtil.getInt(defaultValue) == 0)
+					{
+						builder.append("nullref");
+					}
 					break;
 				case ELEMENT_TYPE_R8:
 					builder.append("float64(").append(Double.longBitsToDouble(MsilUtil.getLong(defaultValue))).append(")");

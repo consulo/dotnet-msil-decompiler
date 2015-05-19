@@ -48,6 +48,12 @@ public class DecompileTest extends Assert
 		doTest("test2/IkvmCore.dll");
 	}
 
+	@Test
+	public void testNullRef() throws Throwable
+	{
+		doTest("nullRef/untitled168.exe");
+	}
+
 	public static void doTest(String path) throws Throwable
 	{
 		File file = new File("testData", path);
