@@ -31,6 +31,7 @@ public class MsilHelper
 
 	public static final String CONSTRUCTOR_NAME = ".ctor";
 	public static final String STATIC_CONSTRUCTOR_NAME = ".cctor";
+	public static final String ENUM_VALUE_FIEND_NAME = "value__";
 
 	@NotNull
 	public static String prepareForUser(@NotNull String name)

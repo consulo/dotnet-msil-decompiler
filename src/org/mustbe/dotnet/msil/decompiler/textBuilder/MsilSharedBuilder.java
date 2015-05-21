@@ -31,15 +31,7 @@ import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.CharsetToolkit;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
-import edu.arizona.cs.mbel.mbel.CustomAttribute;
-import edu.arizona.cs.mbel.mbel.GenericParamDef;
-import edu.arizona.cs.mbel.mbel.GenericParamOwner;
-import edu.arizona.cs.mbel.mbel.MethodDef;
-import edu.arizona.cs.mbel.mbel.MethodDefOrRef;
-import edu.arizona.cs.mbel.mbel.MethodRef;
-import edu.arizona.cs.mbel.mbel.TypeDef;
-import edu.arizona.cs.mbel.mbel.TypeRef;
-import edu.arizona.cs.mbel.mbel.TypeSpec;
+import edu.arizona.cs.mbel.mbel.*;
 import edu.arizona.cs.mbel.signature.*;
 
 /**
@@ -218,6 +210,12 @@ public class MsilSharedBuilder implements SignatureConstants
 		}
 
 		builder.append(" = ");
+
+		appendValueImpl(builder, typeSignature, defaultValue);
+	}
+
+	private static void appendValueImpl(StringBuilder builder, TypeSignature typeSignature, byte[] defaultValue)
+	{
 		try
 		{
 			byte type = typeSignature.getType();
@@ -227,9 +225,11 @@ public class MsilSharedBuilder implements SignatureConstants
 					builder.append("bool(").append(defaultValue[0] == 1).append(")");
 					break;
 				case ELEMENT_TYPE_I:
+				case ELEMENT_TYPE_I1:
 					builder.append("int8(").append(defaultValue[0]).append(")");
 					break;
 				case ELEMENT_TYPE_U:
+				case ELEMENT_TYPE_U1:
 					builder.append("uint8(").append(defaultValue[0] & 0xFF).append(")");
 					break;
 				case ELEMENT_TYPE_I2:
@@ -269,6 +269,35 @@ public class MsilSharedBuilder implements SignatureConstants
 				case ELEMENT_TYPE_STRING:
 					builder.append(StringUtil.QUOTER.fun(new String(defaultValue, CharsetToolkit.UTF_16LE_CHARSET)));
 					break;
+				case ELEMENT_TYPE_VALUETYPE:
+					if(!(typeSignature instanceof ValueTypeSignature))
+					{
+						builder.append(StringUtil.QUOTER.fun("valuetype is not ValueTypeSignature"));
+						return;
+					}
+					AbstractTypeReference valueType = ((ValueTypeSignature) typeSignature).getValueType();
+					if(valueType instanceof TypeDef)
+					{
+						Field field = ((TypeDef) valueType).getFieldByName(MsilHelper.ENUM_VALUE_FIEND_NAME);
+						if(field == null)
+						{
+							builder.append(StringUtil.QUOTER.fun("\'" + MsilHelper.ENUM_VALUE_FIEND_NAME + "\' not found"));
+							return;
+						}
+						appendValueImpl(builder, field.getSignature().getType(), defaultValue);
+					}
+					else
+					{
+						TypeSignature guessType = guessTypeFromByteArray(defaultValue);
+						if(guessType == null)
+						{
+							builder.append(StringUtil.QUOTER.fun("no guess type: " + defaultValue.length));
+							return;
+						}
+
+						appendValueImpl(builder, guessType, defaultValue);
+					}
+					break;
 				default:
 					builder.append(StringUtil.QUOTER.fun("unknown how read 0x" + String.format("%02X", type)));
 					break;
@@ -278,6 +307,28 @@ public class MsilSharedBuilder implements SignatureConstants
 		{
 			builder.append(StringUtil.QUOTER.fun("error"));
 		}
+	}
+
+	@Nullable
+	private static TypeSignature guessTypeFromByteArray(byte[] bytes)
+	{
+		if(bytes.length == 1)
+		{
+			return TypeSignature.I1;
+		}
+		if(bytes.length == 2)
+		{
+			return TypeSignature.I2;
+		}
+		if(bytes.length == 4)
+		{
+			return TypeSignature.I4;
+		}
+		if(bytes.length == 8)
+		{
+			return TypeSignature.I8;
+		}
+		return null;
 	}
 
 	protected static void appendAccessor(String name, final TypeDef typeDef, MethodDef methodDef, StubBlock block)

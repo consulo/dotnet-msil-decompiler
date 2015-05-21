@@ -17,18 +17,28 @@
 package test;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mustbe.dotnet.msil.decompiler.Main;
 import org.mustbe.dotnet.msil.decompiler.file.DotNetArchiveFile;
+import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
+import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import org.mustbe.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
+import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.ArchiveEntry;
+import com.intellij.psi.util.QualifiedName;
 import com.intellij.util.FileComparisonFailure;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
+import edu.arizona.cs.mbel.mbel.TypeDef;
 
 /**
  * @author VISTALL
@@ -51,10 +61,70 @@ public class DecompileTest extends Assert
 	@Test
 	public void testNullRef() throws Throwable
 	{
-		doTest("nullRef/untitled168.exe");
+		doTest("nullRef/untitled168.exe", "Program.msil");
 	}
 
-	public static void doTest(String path) throws Throwable
+	@Test
+	public void testValueTyperef() throws Throwable
+	{
+		doTest("valueTypeRef/untitled168.exe", "Program.msil");
+	}
+
+	@Test
+	public void testValueTypeRefByte() throws Throwable
+	{
+		doTest("ValueTypeRefByte/untitled168.exe", "Program.msil");
+	}
+
+	public static void doTest(@NotNull String path, @Nullable String fileToTest) throws Throwable
+	{
+		File file = new File("testData", path);
+		if(!file.exists())
+		{
+			throw new IllegalArgumentException(file.getAbsolutePath() + " is not exists");
+		}
+
+		ModuleParser moduleParser = new ModuleParser(file);
+		moduleParser.parseNext();
+
+		QualifiedName qualifiedName = QualifiedName.fromComponents(StringUtil.getPackageName(fileToTest).replace("/", "."));
+
+		TypeDef target = null;
+		String qNameAsString = qualifiedName.toString();
+		for(TypeDef typeDef : moduleParser.getTypeDefs())
+		{
+			if(qNameAsString.equals(typeDef.getFullName()))
+			{
+				target = typeDef;
+				break;
+			}
+		}
+
+		if(target == null)
+		{
+			throw new IllegalArgumentException("TypeDef " + qNameAsString + " is not found");
+		}
+
+		StubBlock block = MsilTypeBuilder.processTypeDef(target);
+		CharSequence actualData = StubBlockUtil.buildText(Collections.singletonList(block));
+
+		File targetFile = new File(file.getParentFile(), fileToTest);
+		if(!targetFile.exists())
+		{
+			FileUtil.writeToFile(targetFile, actualData.toString());
+
+			throw new IllegalArgumentException(targetFile.getAbsolutePath() + " is not exists. File generated");
+		}
+
+		String expectedData = FileUtil.loadFile(targetFile, "UTF-8", true);
+		if(!Comparing.equal(actualData, expectedData))
+		{
+			throw new FileComparisonFailure("File '" + fileToTest + "' content is not equal", expectedData.toString(), actualData.toString(),
+					fileToTest);
+		}
+	}
+
+	public static void doTest(@NotNull String path) throws Throwable
 	{
 		File file = new File("testData", path);
 		if(!file.exists())
@@ -70,7 +140,7 @@ public class DecompileTest extends Assert
 		File targetFile = new File(file.getParentFile(), FileUtil.getNameWithoutExtension(file.getName()) + ".zip");
 		if(!targetFile.exists())
 		{
-			Main.main(new String[] {file.getAbsolutePath()});
+			Main.main(new String[]{file.getAbsolutePath()});
 			throw new IllegalArgumentException(targetFile.getAbsolutePath() + " is not exists. File generated");
 		}
 
