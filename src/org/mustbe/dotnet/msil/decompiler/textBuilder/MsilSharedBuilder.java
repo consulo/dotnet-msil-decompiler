@@ -135,6 +135,19 @@ public class MsilSharedBuilder implements SignatureConstants
 		return true;
 	}
 
+	public static void processGenericParamAttribute(StubBlock parent, GenericParamOwner owner)
+	{
+		for(GenericParamDef genericParamDef : owner.getGenericParams())
+		{
+			List<CustomAttribute> customAttributes = genericParamDef.getCustomAttributes();
+			if(!customAttributes.isEmpty())
+			{
+				parent.getBlocks().add(new LineStubBlock(".param type " + genericParamDef.getName() + "\n"));
+				processAttributes(parent, genericParamDef);
+			}
+		}
+	}
+
 	public static void processAttributes(StubBlock parent, CustomAttributeOwner owner)
 	{
 		for(CustomAttribute customAttribute : owner.getCustomAttributes())
