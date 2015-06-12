@@ -61,11 +61,6 @@ public class MsilFieldBuilder extends MsilSharedBuilder implements FieldAttribut
 			builder.append("initonly ");
 		}
 
-		if(XStubUtil.isSet(field.getFlags(), Static))
-		{
-			builder.append("static ");
-		}
-
 		typeToString(builder, field.getSignature().getType(), typeDef);
 		builder.append(" ");
 		appendValidName(builder, field.getName());
