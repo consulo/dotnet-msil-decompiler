@@ -68,5 +68,7 @@ public class MsilFieldBuilder extends MsilSharedBuilder implements FieldAttribut
  		builder.append("\n");
 
 		block.getBlocks().add(new LineStubBlock(builder));
+
+		processAttributes(block, field);
 	}
 }
