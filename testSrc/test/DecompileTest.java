@@ -76,6 +76,12 @@ public class DecompileTest extends Assert
 		doTest("ValueTypeRefByte/untitled168.exe", "Program.msil");
 	}
 
+	@Test
+	public void testGenericParameterCustomAttributes() throws Throwable
+	{
+		doTest("genericParameterCustomAttributes/FSharpCore.dll");
+	}
+
 	public static void doTest(@NotNull String path, @Nullable String fileToTest) throws Throwable
 	{
 		File file = new File("testData", path);

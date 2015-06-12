@@ -18,11 +18,14 @@ package org.mustbe.dotnet.msil.decompiler.textBuilder;
 
 import java.util.List;
 
+import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import com.intellij.util.PairFunction;
+import edu.arizona.cs.mbel.mbel.CustomAttribute;
 import edu.arizona.cs.mbel.mbel.Event;
 import edu.arizona.cs.mbel.mbel.Field;
+import edu.arizona.cs.mbel.mbel.GenericParamDef;
 import edu.arizona.cs.mbel.mbel.InterfaceImplementation;
 import edu.arizona.cs.mbel.mbel.MethodDef;
 import edu.arizona.cs.mbel.mbel.Property;
@@ -120,6 +123,16 @@ public class MsilTypeBuilder extends MsilSharedBuilder implements TypeAttributes
 
 		StubBlock e = new StubBlock(builder, null, StubBlock.BRACES);
 		processAttributes(e, typeDef);
+
+		for(GenericParamDef genericParamDef : typeDef.getGenericParams())
+		{
+			List<CustomAttribute> customAttributes = genericParamDef.getCustomAttributes();
+			if(!customAttributes.isEmpty())
+			{
+				e.getBlocks().add(new LineStubBlock(".param type " + genericParamDef.getName() + "\n"));
+				processAttributes(e, genericParamDef);
+			}
+		}
 
 		for(int k = 0; k < typeDef.getNestedClasses().size(); k++)
 		{

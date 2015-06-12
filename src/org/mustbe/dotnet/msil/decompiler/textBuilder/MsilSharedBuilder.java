@@ -92,7 +92,8 @@ public class MsilSharedBuilder implements SignatureConstants
 	private static final char[] INVALID_CHARS = {
 			'<',
 			'/',
-			'>'
+			'>',
+			'-'
 	};
 
 	public static void appendValidName(StringBuilder builder, String name)
