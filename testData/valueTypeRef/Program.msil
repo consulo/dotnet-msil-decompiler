@@ -3,7 +3,7 @@
 
 .class public Program extends System.Object
 {
-	.field private static literal static valuetype DebuggingModes mode = int32(4)
+	.field private static literal valuetype DebuggingModes mode = int32(4)
 
 	.method public hidebysig specialname rtspecialname void .ctor()
 	{

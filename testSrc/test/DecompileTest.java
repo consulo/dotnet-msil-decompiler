@@ -169,7 +169,7 @@ public class DecompileTest extends Assert
 
 				if(!actual.equals(expected))
 				{
-					throw new FileComparisonFailure("File '" + next.getName() + "' content is not equal", expected, actual, next.getName());
+					throw new FileComparisonFailure("File '" + next.getName() + "' content is not equal", actual, expected, next.getName());
 				}
 			}
 		}

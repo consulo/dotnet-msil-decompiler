@@ -7,9 +7,9 @@
 	{
 		.field public uint8 value__
 
-		.field public static literal static valuetype Program/A a = uint8(1)
+		.field public static literal valuetype Program/A a = uint8(1)
 
-		.field public static literal static valuetype Program/A b = uint8(2)
+		.field public static literal valuetype Program/A b = uint8(2)
 	}
 
 	.method public hidebysig specialname rtspecialname void .ctor()
