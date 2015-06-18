@@ -18,6 +18,7 @@ package org.mustbe.dotnet.msil.decompiler.textBuilder.util;
 
 import java.io.UnsupportedEncodingException;
 
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.util.text.StringUtil;
 import edu.arizona.cs.mbel.io.ByteBuffer;
 import edu.arizona.cs.mbel.signature.Signature;
@@ -43,9 +44,10 @@ public class XStubUtil
 		return (value & mod) == v;
 	}
 
-	public static String getUtf8(ByteBuffer byteBuffer)
+	@NotNull
+	public static CharSequence getUtf8(ByteBuffer byteBuffer)
 	{
-		byte b = byteBuffer.get();
+		int b = byteBuffer.get() & 0xFF;
 		if(b == 0xFF)
 		{
 			return "";
@@ -62,7 +64,7 @@ public class XStubUtil
 			{
 				try
 				{
-					return convertTo(new String(byteBuffer.get(size), "UTF-8"));
+					return escapeChars(new String(byteBuffer.get(size), "UTF-8"));
 				}
 				catch(UnsupportedEncodingException e)
 				{
@@ -72,19 +74,21 @@ public class XStubUtil
 		}
 	}
 
-	public static String convertTo(String old)
+	@NotNull
+	public static CharSequence escapeChars(@NotNull CharSequence charSequence)
 	{
-		char[] chars = old.toCharArray();
-		StringBuilder builder = new StringBuilder(chars.length);
-		for(int i = 0; i < chars.length; i++)
+		final int length = charSequence.length();
+		StringBuilder builder = new StringBuilder(length);
+		for(int i = 0; i < length; i++)
 		{
-			char aChar = chars[i];
-			builder.append(toValidStringSymbol(aChar));
+			char aChar = charSequence.charAt(i);
+			builder.append(escapeChar(aChar));
 		}
-		return builder.capacity() == old.length() ? old : builder.toString();
+		return builder.capacity() == length ? charSequence : builder;
 	}
 
-	public static Object toValidStringSymbol(char a)
+	@NotNull
+	public static Object escapeChar(char a)
 	{
 		switch(a)
 		{
@@ -105,7 +109,6 @@ public class XStubUtil
 		}
 		return a;
 	}
-
 
 	public static boolean isInvisibleMember(String name)
 	{

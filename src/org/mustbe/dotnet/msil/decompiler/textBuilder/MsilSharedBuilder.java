@@ -25,6 +25,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
 import org.mustbe.dotnet.msil.decompiler.util.MsilUtil;
 import com.intellij.openapi.util.text.StringUtil;
@@ -279,7 +280,10 @@ public class MsilSharedBuilder implements SignatureConstants
 					builder.append("float64(").append(Double.longBitsToDouble(MsilUtil.getLong(defaultValue))).append(")");
 					break;
 				case ELEMENT_TYPE_CHAR:
-					builder.append("char(").append(StringUtil.SINGLE_QUOTER.fun(String.valueOf(MsilUtil.getChar(defaultValue)))).append(")");
+					builder.append("char(");
+					Object escapedValue = XStubUtil.escapeChar(MsilUtil.getChar(defaultValue));
+					builder.append(StringUtil.SINGLE_QUOTER.fun(String.valueOf(escapedValue)));
+					builder.append(")");
 					break;
 				case ELEMENT_TYPE_STRING:
 					builder.append(StringUtil.QUOTER.fun(new String(defaultValue, CharsetToolkit.UTF_16LE_CHARSET)));
