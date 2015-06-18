@@ -77,6 +77,12 @@ public class DecompileTest extends Assert
 	}
 
 	@Test
+	public void testStringEscape() throws Throwable
+	{
+		doTest("stringEscape/untitled194.exe", "Program.msil");
+	}
+
+	@Test
 	public void testGenericParameterCustomAttributes() throws Throwable
 	{
 		doTest("genericParameterCustomAttributes/FSharpCore.dll");

@@ -16,10 +16,11 @@
 
 package org.mustbe.dotnet.msil.decompiler.textBuilder.util;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.openapi.vfs.CharsetToolkit;
 import edu.arizona.cs.mbel.io.ByteBuffer;
 import edu.arizona.cs.mbel.signature.Signature;
 
@@ -29,6 +30,8 @@ import edu.arizona.cs.mbel.signature.Signature;
  */
 public class XStubUtil
 {
+	public static final Charset STRING_CHARSET = CharsetToolkit.UTF_16LE_CHARSET;
+
 	public static final String CONSTRUCTOR_NAME = ".ctor";
 	public static final String STATIC_CONSTRUCTOR_NAME = ".cctor";
 
@@ -62,14 +65,7 @@ public class XStubUtil
 			}
 			else
 			{
-				try
-				{
-					return escapeChars(new String(byteBuffer.get(size), "UTF-8"));
-				}
-				catch(UnsupportedEncodingException e)
-				{
-					return "UnsupportedEncodingException";
-				}
+				return escapeChars(new String(byteBuffer.get(size), XStubUtil.STRING_CHARSET));
 			}
 		}
 	}

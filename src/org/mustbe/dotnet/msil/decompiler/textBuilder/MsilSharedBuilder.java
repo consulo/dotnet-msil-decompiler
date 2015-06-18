@@ -29,7 +29,6 @@ import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
 import org.mustbe.dotnet.msil.decompiler.util.MsilUtil;
 import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.CharsetToolkit;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
 import edu.arizona.cs.mbel.mbel.*;
@@ -281,12 +280,24 @@ public class MsilSharedBuilder implements SignatureConstants
 					break;
 				case ELEMENT_TYPE_CHAR:
 					builder.append("char(");
-					Object escapedValue = XStubUtil.escapeChar(MsilUtil.getChar(defaultValue));
-					builder.append(StringUtil.SINGLE_QUOTER.fun(String.valueOf(escapedValue)));
+					builder.append("\'");
+					Object obj = XStubUtil.escapeChar(MsilUtil.getChar(defaultValue));
+					if(obj instanceof CharSequence)
+					{
+						builder.append((CharSequence)obj);
+					}
+					else
+					{
+						builder.append(obj);
+					}
+					builder.append("\'");
 					builder.append(")");
 					break;
 				case ELEMENT_TYPE_STRING:
-					builder.append(StringUtil.QUOTER.fun(new String(defaultValue, CharsetToolkit.UTF_16LE_CHARSET)));
+					String stringValue = new String(defaultValue, XStubUtil.STRING_CHARSET);
+					builder.append("\"");
+					builder.append(XStubUtil.escapeChars(stringValue));
+					builder.append("\"");
 					break;
 				case ELEMENT_TYPE_VALUETYPE:
 					if(!(typeSignature instanceof ValueTypeSignature))
