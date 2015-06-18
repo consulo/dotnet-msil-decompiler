@@ -7,11 +7,11 @@
 
 	.field public static literal string EnglishText = "this will be\nat new line"
 
-	.field public static literal char NewLineChar = char('\n')
+	.field public static literal char NewLineChar = char(10)
 
-	.field public static literal char TabChar = char('\t')
+	.field public static literal char TabChar = char(9)
 
-	.field public static literal char AChar = char('A')
+	.field public static literal char AChar = char(65)
 
 	.method public hidebysig specialname rtspecialname void .ctor()
 	{

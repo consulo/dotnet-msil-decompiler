@@ -280,17 +280,8 @@ public class MsilSharedBuilder implements SignatureConstants
 					break;
 				case ELEMENT_TYPE_CHAR:
 					builder.append("char(");
-					builder.append("\'");
-					Object obj = XStubUtil.escapeChar(MsilUtil.getChar(defaultValue));
-					if(obj instanceof CharSequence)
-					{
-						builder.append((CharSequence)obj);
-					}
-					else
-					{
-						builder.append(obj);
-					}
-					builder.append("\'");
+					char aChar = MsilUtil.getChar(defaultValue);
+					builder.append((int)aChar);
 					builder.append(")");
 					break;
 				case ELEMENT_TYPE_STRING:
