@@ -48,7 +48,7 @@ public class XStubUtil
 	}
 
 	@NotNull
-	public static CharSequence getUtf8(ByteBuffer byteBuffer)
+	public static CharSequence getString(@NotNull ByteBuffer byteBuffer, @NotNull Charset charset)
 	{
 		int b = byteBuffer.get() & 0xFF;
 		if(b == 0xFF)
@@ -65,7 +65,7 @@ public class XStubUtil
 			}
 			else
 			{
-				return escapeChars(new String(byteBuffer.get(size), XStubUtil.STRING_CHARSET));
+				return escapeChars(new String(byteBuffer.get(size), charset));
 			}
 		}
 	}
