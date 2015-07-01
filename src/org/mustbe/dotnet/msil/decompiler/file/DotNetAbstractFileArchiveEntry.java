@@ -46,7 +46,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 				}
 				catch(Throwable e)
 				{
-					DotNetAbstractFileArchiveEntry.LOGGER.error("File '" + myOriginalFile.getPath() + "' cant decompiled correctly please create issue with this file", e);
+					LOGGER.error("File '" + myOriginalFile.getPath() + "' cant decompiled correctly please create issue with this file", e);
 					return ArrayUtil.EMPTY_BYTE_ARRAY;
 				}
 				finally
@@ -64,7 +64,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 			}
 			catch(Throwable e)
 			{
-				DotNetAbstractFileArchiveEntry.LOGGER.error("File '" + myOriginalFile.getPath() + "' cant decompiled correctly please create issue with this file", e);
+				LOGGER.error("File '" + myOriginalFile.getPath() + "' cant decompiled correctly please create issue with this file", e);
 				return ArrayUtil.EMPTY_BYTE_ARRAY;
 			}
 		}
