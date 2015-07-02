@@ -86,7 +86,9 @@ public class MsilSharedBuilder implements SignatureConstants
 			"literal",
 			"uint64",
 			"nullref",
-			"type"
+			"type",
+			"false",
+			"true"
 	};
 
 	private static final char[] INVALID_CHARS = {
