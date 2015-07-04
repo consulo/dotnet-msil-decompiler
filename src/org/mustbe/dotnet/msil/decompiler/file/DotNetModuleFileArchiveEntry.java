@@ -23,6 +23,7 @@ import java.util.List;
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import com.intellij.openapi.util.Ref;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
 import edu.arizona.cs.mbel.mbel.TypeDef;
 
@@ -37,9 +38,9 @@ public class DotNetModuleFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 
 	private TypeDef myModuleTypeDef;
 
-	public DotNetModuleFileArchiveEntry(File originalFile, ModuleParser moduleParser, TypeDef assemblyInfo, long lastModified)
+	public DotNetModuleFileArchiveEntry(File originalFile, Ref<ModuleParser> moduleParserRef, TypeDef assemblyInfo, long lastModified)
 	{
-		super(originalFile, moduleParser, ModuleInfo, lastModified);
+		super(originalFile, moduleParserRef, ModuleInfo, lastModified);
 		myModuleTypeDef = assemblyInfo;
 	}
 

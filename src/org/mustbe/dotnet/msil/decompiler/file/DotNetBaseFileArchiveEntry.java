@@ -23,6 +23,7 @@ import org.consulo.lombok.annotations.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import com.intellij.openapi.util.Ref;
 import com.intellij.util.SmartList;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
 import edu.arizona.cs.mbel.mbel.TypeDef;
@@ -38,9 +39,9 @@ public class DotNetBaseFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 
 	private final String myNamespace;
 
-	public DotNetBaseFileArchiveEntry(File originalFile, ModuleParser moduleParser, TypeDef typeDef, String name, long lastModified)
+	public DotNetBaseFileArchiveEntry(File originalFile, Ref<ModuleParser> moduleParserRef, TypeDef typeDef, String name, long lastModified)
 	{
-		super(originalFile, moduleParser, name, lastModified);
+		super(originalFile, moduleParserRef, name, lastModified);
 		myTypeDefs = new SmartList<TypeDef>(typeDef);
 		myNamespace = typeDef.getNamespace();
 	}

@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
 import com.intellij.openapi.util.NotNullLazyValue;
+import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.vfs.CharsetToolkit;
 import com.intellij.util.ArrayUtil;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
@@ -25,12 +26,12 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 	{
 		private final DotNetAbstractFileArchiveEntry myEntry;
 		private final File myOriginalFile;
-		private ModuleParser myModuleParser;
+		private final Ref<ModuleParser> myModuleParserRef;
 
-		public LazyValue(File originalFile, ModuleParser moduleParser, DotNetAbstractFileArchiveEntry entry)
+		public LazyValue(File originalFile, Ref<ModuleParser> moduleParserRef, DotNetAbstractFileArchiveEntry entry)
 		{
 			myOriginalFile = originalFile;
-			myModuleParser = moduleParser;
+			myModuleParserRef = moduleParserRef;
 			myEntry = entry;
 		}
 
@@ -40,18 +41,20 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 		{
 			try
 			{
+				ModuleParser moduleParser = myModuleParserRef.get();
+
 				try
 				{
-					myModuleParser.parseNext();
+					if(moduleParser != null)
+					{
+						moduleParser.parseNext();
+						myModuleParserRef.set(null);
+					}
 				}
 				catch(Throwable e)
 				{
 					LOGGER.error("File '" + myOriginalFile.getPath() + "' cant decompiled correctly please create issue with this file", e);
 					return ArrayUtil.EMPTY_BYTE_ARRAY;
-				}
-				finally
-				{
-					myModuleParser = null;
 				}
 
 				List<? extends StubBlock> builder = myEntry.build();
@@ -75,11 +78,11 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 
 	private final NotNullLazyValue<byte[]> myByteArrayValue;
 
-	public DotNetAbstractFileArchiveEntry(File originalFile, ModuleParser moduleParser, String name, long lastModified)
+	public DotNetAbstractFileArchiveEntry(File originalFile, @NotNull Ref<ModuleParser> moduleParserRef, String name, long lastModified)
 	{
 		myName = name;
 		myLastModified = lastModified;
-		myByteArrayValue = new LazyValue(originalFile, moduleParser, this);
+		myByteArrayValue = new LazyValue(originalFile, moduleParserRef, this);
 	}
 
 	@NotNull

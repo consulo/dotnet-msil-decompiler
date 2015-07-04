@@ -26,12 +26,14 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
 import com.intellij.openapi.util.Comparing;
+import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.ArchiveEntry;
 import com.intellij.openapi.vfs.ArchiveFile;
@@ -58,10 +60,11 @@ public class DotNetArchiveFile implements ArchiveFile
 	@NotNull
 	private static List<ArchiveEntry> map(@NotNull File originalFile, @NotNull ModuleParser moduleParser, long lastModifier)
 	{
-		val typeDefs = moduleParser.getTypeDefs();
-		val fileList = new ArrayList<DotNetFileArchiveEntry>();
+		Ref<ModuleParser> moduleParserRef = Ref.create(moduleParser);
+		TypeDef[] typeDefs = moduleParser.getTypeDefs();
+		List<DotNetFileArchiveEntry> fileList = new ArrayList<DotNetFileArchiveEntry>();
 
-		val duplicateMap = new HashMap<String, DotNetBaseFileArchiveEntry>(); // map used for collect types with same name but different signature
+		Map<String, DotNetBaseFileArchiveEntry> duplicateMap = new HashMap<String, DotNetBaseFileArchiveEntry>(); // map used for collect types with same name but different signature
 
 		TypeDef moduleTypeDef = null;
 
@@ -100,7 +103,7 @@ public class DotNetArchiveFile implements ArchiveFile
 			}
 			else
 			{
-				DotNetBaseFileArchiveEntry e = new DotNetBaseFileArchiveEntry(originalFile, moduleParser, typeDef, path, lastModifier);
+				DotNetBaseFileArchiveEntry e = new DotNetBaseFileArchiveEntry(originalFile, moduleParserRef, typeDef, path, lastModifier);
 				fileList.add(e);
 				duplicateMap.put(path, e);
 			}
@@ -109,7 +112,7 @@ public class DotNetArchiveFile implements ArchiveFile
 		AssemblyInfo assemblyInfo = moduleParser.getAssemblyInfo();
 		if(assemblyInfo != null)
 		{
-			fileList.add(new DotNetAssemblyFileArchiveEntry(originalFile, moduleParser, assemblyInfo, lastModifier));
+			fileList.add(new DotNetAssemblyFileArchiveEntry(originalFile, moduleParserRef, assemblyInfo, lastModifier));
 		}
 
 		if(moduleTypeDef != null)
@@ -117,7 +120,7 @@ public class DotNetArchiveFile implements ArchiveFile
 			List<CustomAttribute> customAttributes = moduleTypeDef.getCustomAttributes();
 			if(!customAttributes.isEmpty())
 			{
-				fileList.add(new DotNetModuleFileArchiveEntry(originalFile, moduleParser, moduleTypeDef, lastModifier));
+				fileList.add(new DotNetModuleFileArchiveEntry(originalFile, moduleParserRef, moduleTypeDef, lastModifier));
 			}
 		}
 

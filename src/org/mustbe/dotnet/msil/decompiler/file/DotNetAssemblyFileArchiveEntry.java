@@ -23,6 +23,7 @@ import org.consulo.lombok.annotations.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import com.intellij.openapi.util.Ref;
 import edu.arizona.cs.mbel.mbel.AssemblyInfo;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
 
@@ -37,9 +38,9 @@ public class DotNetAssemblyFileArchiveEntry extends DotNetAbstractFileArchiveEnt
 
 	private AssemblyInfo myAssemblyInfo;
 
-	public DotNetAssemblyFileArchiveEntry(File originalFile, ModuleParser moduleParser, AssemblyInfo assemblyInfo, long lastModified)
+	public DotNetAssemblyFileArchiveEntry(File originalFile, Ref<ModuleParser> moduleParserRef, AssemblyInfo assemblyInfo, long lastModified)
 	{
-		super(originalFile, moduleParser, AssemblyInfo, lastModified);
+		super(originalFile, moduleParserRef, AssemblyInfo, lastModified);
 		myAssemblyInfo = assemblyInfo;
 	}
 
