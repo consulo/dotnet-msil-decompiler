@@ -73,13 +73,19 @@ public class DecompileTest extends Assert
 	@Test
 	public void testValueTypeRefByte() throws Throwable
 	{
-		doTest("ValueTypeRefByte/untitled168.exe", "Program.msil");
+		doTest("valueTypeRefByte/untitled168.exe", "Program.msil");
 	}
 
 	@Test
 	public void testStringEscape() throws Throwable
 	{
 		doTest("stringEscape/untitled194.exe", "Program.msil");
+	}
+
+	@Test
+	public void testStringParameterDefaultValue() throws Throwable
+	{
+		doTest("stringParameterDefaultValue/untitled1.dll", "Program.msil");
 	}
 
 	@Test

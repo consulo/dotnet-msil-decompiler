@@ -221,7 +221,7 @@ public class MsilSharedBuilder implements SignatureConstants
 
 	protected static void appendValue(StringBuilder builder, TypeSignature typeSignature, byte[] defaultValue)
 	{
-		if(defaultValue == null || defaultValue.length == 0 || typeSignature == null)
+		if(defaultValue == null || typeSignature == null)
 		{
 			return;
 		}
