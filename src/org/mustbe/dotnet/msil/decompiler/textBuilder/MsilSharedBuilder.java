@@ -272,6 +272,7 @@ public class MsilSharedBuilder implements SignatureConstants
 					builder.append("float32(").append(Float.intBitsToFloat(MsilUtil.getInt(defaultValue))).append(")");
 					break;
 				case ELEMENT_TYPE_OBJECT:
+				case ELEMENT_TYPE_CLASS:
 					if(MsilUtil.getInt(defaultValue) == 0)
 					{
 						builder.append("nullref");
