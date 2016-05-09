@@ -42,7 +42,6 @@ import edu.arizona.cs.mbel.mbel.AssemblyInfo;
 import edu.arizona.cs.mbel.mbel.CustomAttribute;
 import edu.arizona.cs.mbel.mbel.ModuleParser;
 import edu.arizona.cs.mbel.mbel.TypeDef;
-import lombok.val;
 
 /**
  * @author VISTALL
@@ -140,9 +139,9 @@ public class DotNetArchiveFile implements ArchiveFile
 			}
 		});
 
-		val list = new ArrayList<ArchiveEntry>(fileList.size() + 10);
+		List<ArchiveEntry> list = new ArrayList<ArchiveEntry>(fileList.size() + 10);
 
-		val alreadyAddedNamespaces = new ArrayList<String>();
+		List<String> alreadyAddedNamespaces = new ArrayList<String>();
 
 		for(DotNetFileArchiveEntry fileEntry : fileList)
 		{
@@ -178,7 +177,7 @@ public class DotNetArchiveFile implements ArchiveFile
 
 			builder.append(part);
 
-			val dirPath = builder.toString();
+			String dirPath = builder.toString();
 			if(!defineList.contains(dirPath))
 			{
 				defineList.add(dirPath);
@@ -213,7 +212,7 @@ public class DotNetArchiveFile implements ArchiveFile
 		{
 			return new ByteArrayInputStream(ArrayUtil.EMPTY_BYTE_ARRAY);
 		}
-		return ((DotNetFileArchiveEntry)archiveEntry).createInputStream();
+		return ((DotNetFileArchiveEntry) archiveEntry).createInputStream();
 	}
 
 	@NotNull
