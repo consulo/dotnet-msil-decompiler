@@ -16,6 +16,8 @@
 
 package org.mustbe.dotnet.msil.decompiler.file;
 
+import gnu.trove.THashMap;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -49,7 +51,7 @@ import edu.arizona.cs.mbel.mbel.TypeDef;
  */
 public class DotNetArchiveFile implements ArchiveFile
 {
-	private final List<ArchiveEntry> myArchiveEntries;
+	private final Map<String, ArchiveEntry> myArchiveEntries;
 
 	public DotNetArchiveFile(@NotNull File originalFile, ModuleParser moduleParser, long l)
 	{
@@ -57,7 +59,7 @@ public class DotNetArchiveFile implements ArchiveFile
 	}
 
 	@NotNull
-	private static List<ArchiveEntry> map(@NotNull File originalFile, @NotNull ModuleParser moduleParser, long lastModifier)
+	private static Map<String, ArchiveEntry> map(@NotNull File originalFile, @NotNull ModuleParser moduleParser, long lastModifier)
 	{
 		Ref<ModuleParser> moduleParserRef = Ref.create(moduleParser);
 		TypeDef[] typeDefs = moduleParser.getTypeDefs();
@@ -139,7 +141,7 @@ public class DotNetArchiveFile implements ArchiveFile
 			}
 		});
 
-		List<ArchiveEntry> list = new ArrayList<ArchiveEntry>(fileList.size() + 10);
+		Map<String, ArchiveEntry> map = new THashMap<String, ArchiveEntry>(fileList.size() + 10);
 
 		List<String> alreadyAddedNamespaces = new ArrayList<String>();
 
@@ -148,12 +150,13 @@ public class DotNetArchiveFile implements ArchiveFile
 			DotNetDirArchiveEntry dirEntry = createNamespaceDirIfNeed(alreadyAddedNamespaces, fileEntry, lastModifier);
 			if(dirEntry != null)
 			{
-				list.add(dirEntry);
+				map.put(dirEntry.getName(), dirEntry);
 			}
-			list.add(fileEntry);
+
+			map.put(fileEntry.getName(), fileEntry);
 		}
 
-		return list;
+		return map;
 	}
 
 	private static DotNetDirArchiveEntry createNamespaceDirIfNeed(List<String> defineList, DotNetFileArchiveEntry position, long lastModified)
@@ -190,18 +193,9 @@ public class DotNetArchiveFile implements ArchiveFile
 
 	@Nullable
 	@Override
-	public ArchiveEntry getEntry(String s)
+	public ArchiveEntry getEntry(String name)
 	{
-		//noinspection ForLoopReplaceableByForEach
-		for(int i = 0; i < myArchiveEntries.size(); i++)
-		{
-			ArchiveEntry entry = myArchiveEntries.get(i);
-			if(StringUtil.equals(entry.getName(), s))
-			{
-				return entry;
-			}
-		}
-		return null;
+		return myArchiveEntries.get(name);
 	}
 
 	@Nullable
@@ -219,7 +213,7 @@ public class DotNetArchiveFile implements ArchiveFile
 	@Override
 	public Iterator<? extends ArchiveEntry> entries()
 	{
-		return myArchiveEntries.iterator();
+		return myArchiveEntries.values().iterator();
 	}
 
 	@Override
