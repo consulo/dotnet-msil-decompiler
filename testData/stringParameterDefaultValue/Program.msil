@@ -13,7 +13,7 @@
 
 	.method public static hidebysig void test(string test, [opt] int32 b)
 	{
-		.param [1]
+		.param [1] = ""
 
 		.custom System.ComponentModel.DefaultValueAttribute::.ctor(string) = 
 		(
