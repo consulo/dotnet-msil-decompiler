@@ -41,6 +41,14 @@ public class MsilFieldBuilder extends MsilSharedBuilder implements FieldAttribut
 		{
 			builder.append("assembly ");
 		}
+		else if(XStubUtil.isSet(field.getFlags(), FieldAccessMask, FamANDAssem))
+		{
+			builder.append("famorassem ");
+		}
+		else if(XStubUtil.isSet(field.getFlags(), FieldAccessMask, Family))
+		{
+			builder.append("protected ");
+		}
 		else if(XStubUtil.isSet(field.getFlags(), FieldAccessMask, Private))
 		{
 			builder.append("private ");
@@ -65,7 +73,7 @@ public class MsilFieldBuilder extends MsilSharedBuilder implements FieldAttribut
 		builder.append(" ");
 		appendValidName(builder, field.getName());
 		appendValue(builder, field.getSignature().getType(), field.getDefaultValue());
- 		builder.append("\n");
+		builder.append("\n");
 
 		block.getBlocks().add(new LineStubBlock(builder));
 
