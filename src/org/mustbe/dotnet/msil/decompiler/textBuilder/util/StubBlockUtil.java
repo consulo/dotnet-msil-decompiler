@@ -21,7 +21,6 @@ import java.util.List;
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import com.intellij.psi.PsiBundle;
 import com.intellij.util.PairFunction;
 
 /**
@@ -30,11 +29,19 @@ import com.intellij.util.PairFunction;
  */
 public class StubBlockUtil
 {
+	private static final String ourHeader = "// Consulo API Decompiler stub source generated from bytecode\n" + "// Implementation of methods is not available";
+
 	@NotNull
 	public static CharSequence buildText(List<? extends StubBlock> blocks)
 	{
+		return buildText(blocks, ourHeader);
+	}
+
+	@NotNull
+	public static CharSequence buildText(List<? extends StubBlock> blocks, @NotNull String header)
+	{
 		StringBuilder builder = new StringBuilder();
-		builder.append(PsiBundle.message("psi.decompiled.text.header")).append('\n').append('\n');
+		builder.append(header).append('\n').append('\n');
 
 		for(int i = 0; i < blocks.size(); i++)
 		{

@@ -16,7 +16,6 @@
 
 package org.mustbe.dotnet.msil.decompiler.file;
 
-import java.io.File;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
@@ -38,9 +37,9 @@ public class DotNetAssemblyFileArchiveEntry extends DotNetAbstractFileArchiveEnt
 
 	private AssemblyInfo myAssemblyInfo;
 
-	public DotNetAssemblyFileArchiveEntry(File originalFile, Ref<ModuleParser> moduleParserRef, AssemblyInfo assemblyInfo, long lastModified)
+	public DotNetAssemblyFileArchiveEntry(String originalFilePath, Ref<ModuleParser> moduleParserRef, AssemblyInfo assemblyInfo, long lastModified)
 	{
-		super(originalFile, moduleParserRef, AssemblyInfo, lastModified);
+		super(originalFilePath, moduleParserRef, AssemblyInfo, lastModified);
 		myAssemblyInfo = assemblyInfo;
 	}
 

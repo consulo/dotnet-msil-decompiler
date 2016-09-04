@@ -16,7 +16,6 @@
 
 package org.mustbe.dotnet.msil.decompiler.file;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -38,9 +37,9 @@ public class DotNetModuleFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 
 	private TypeDef myModuleTypeDef;
 
-	public DotNetModuleFileArchiveEntry(File originalFile, Ref<ModuleParser> moduleParserRef, TypeDef assemblyInfo, long lastModified)
+	public DotNetModuleFileArchiveEntry(String originalFilePath, Ref<ModuleParser> moduleParserRef, TypeDef assemblyInfo, long lastModified)
 	{
-		super(originalFile, moduleParserRef, ModuleInfo, lastModified);
+		super(originalFilePath, moduleParserRef, ModuleInfo, lastModified);
 		myModuleTypeDef = assemblyInfo;
 	}
 

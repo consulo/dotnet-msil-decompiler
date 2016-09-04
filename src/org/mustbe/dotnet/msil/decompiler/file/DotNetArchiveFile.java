@@ -57,7 +57,7 @@ public class DotNetArchiveFile implements ArchiveFile
 
 	public DotNetArchiveFile(@NotNull File originalFile, ModuleParser moduleParser, long l)
 	{
-		myArchiveEntries = map(originalFile, moduleParser, l);
+		myArchiveEntries = map(originalFile.getPath(), moduleParser, l);
 		myName = originalFile.getName();
 	}
 
@@ -69,7 +69,7 @@ public class DotNetArchiveFile implements ArchiveFile
 	}
 
 	@NotNull
-	private static Map<String, ArchiveEntry> map(@NotNull File originalFile, @NotNull ModuleParser moduleParser, long lastModifier)
+	private static Map<String, ArchiveEntry> map(@NotNull String originalFilePath, @NotNull ModuleParser moduleParser, long lastModifier)
 	{
 		Ref<ModuleParser> moduleParserRef = Ref.create(moduleParser);
 		TypeDef[] typeDefs = moduleParser.getTypeDefs();
@@ -114,7 +114,7 @@ public class DotNetArchiveFile implements ArchiveFile
 			}
 			else
 			{
-				DotNetBaseFileArchiveEntry e = new DotNetBaseFileArchiveEntry(originalFile, moduleParserRef, typeDef, path, lastModifier);
+				DotNetBaseFileArchiveEntry e = new DotNetBaseFileArchiveEntry(originalFilePath, moduleParserRef, typeDef, path, lastModifier);
 				fileList.add(e);
 				duplicateMap.put(path, e);
 			}
@@ -123,7 +123,7 @@ public class DotNetArchiveFile implements ArchiveFile
 		AssemblyInfo assemblyInfo = moduleParser.getAssemblyInfo();
 		if(assemblyInfo != null)
 		{
-			fileList.add(new DotNetAssemblyFileArchiveEntry(originalFile, moduleParserRef, assemblyInfo, lastModifier));
+			fileList.add(new DotNetAssemblyFileArchiveEntry(originalFilePath, moduleParserRef, assemblyInfo, lastModifier));
 		}
 
 		if(moduleTypeDef != null)
@@ -131,7 +131,7 @@ public class DotNetArchiveFile implements ArchiveFile
 			List<CustomAttribute> customAttributes = moduleTypeDef.getCustomAttributes();
 			if(!customAttributes.isEmpty())
 			{
-				fileList.add(new DotNetModuleFileArchiveEntry(originalFile, moduleParserRef, moduleTypeDef, lastModifier));
+				fileList.add(new DotNetModuleFileArchiveEntry(originalFilePath, moduleParserRef, moduleTypeDef, lastModifier));
 			}
 		}
 

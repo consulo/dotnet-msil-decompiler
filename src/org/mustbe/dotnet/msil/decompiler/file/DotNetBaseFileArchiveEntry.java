@@ -16,7 +16,6 @@
 
 package org.mustbe.dotnet.msil.decompiler.file;
 
-import java.io.File;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
@@ -39,10 +38,10 @@ public class DotNetBaseFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 
 	private final String myNamespace;
 
-	public DotNetBaseFileArchiveEntry(File originalFile, Ref<ModuleParser> moduleParserRef, TypeDef typeDef, String name, long lastModified)
+	public DotNetBaseFileArchiveEntry(String originalFilePath, Ref<ModuleParser> moduleParserRef, TypeDef typeDef, String name, long lastModified)
 	{
-		super(originalFile, moduleParserRef, name, lastModified);
-		myTypeDefs = new SmartList<TypeDef>(typeDef);
+		super(originalFilePath, moduleParserRef, name, lastModified);
+		myTypeDefs = new SmartList<>(typeDef);
 		myNamespace = typeDef.getNamespace();
 	}
 
