@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.file;
+package consulo.internal.dotnet.msil.decompiler.file;
 
 import gnu.trove.THashMap;
 
@@ -32,8 +32,8 @@ import java.util.Map;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
-import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.util.text.StringUtil;

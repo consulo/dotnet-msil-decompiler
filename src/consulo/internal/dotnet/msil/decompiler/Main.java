@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler;
+package consulo.internal.dotnet.msil.decompiler;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import org.mustbe.dotnet.msil.decompiler.file.DotNetArchiveFile;
+import consulo.internal.dotnet.msil.decompiler.file.DotNetArchiveFile;
 import com.intellij.openapi.util.io.FileUtil;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.vfs.impl.archive.ArchiveEntry;

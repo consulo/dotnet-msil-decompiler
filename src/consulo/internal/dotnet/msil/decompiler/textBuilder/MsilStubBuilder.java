@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.textBuilder;
+package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
 

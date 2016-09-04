@@ -14,41 +14,43 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.textBuilder;
+package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.asm.mbel.Event;
 import consulo.internal.dotnet.asm.mbel.MethodDef;
-import consulo.internal.dotnet.asm.mbel.Property;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.asm.signature.EventAttributes;
 
 /**
  * @author VISTALL
  * @since 21.05.14
  */
-public class MsilPropertyBuilder extends MsilSharedBuilder
+public class MsilEventBuilder extends MsilSharedBuilder implements EventAttributes
 {
-	public static void processProperty(Property property, TypeDef typeDef, StubBlock e)
+	public static void processEvent(Event event, TypeDef typeDef, StubBlock e)
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.append(".property ");
-		typeToString(builder, property.getSignature().getType(), typeDef);
+		builder.append(".event ");
+		toStringFromDefRefSpec(builder, event.getEventType(), typeDef);
 		builder.append(" ");
-		appendValidName(builder, property.getName());
+		appendValidName(builder, event.getName());
 
 		StubBlock e1 = new StubBlock(builder, null, StubBlock.BRACES);
-		processAttributes(e1, property);
+		processAttributes(e1, event);
 
-		MethodDef getter = property.getGetter();
-		if(getter != null)
+		MethodDef addOnMethod = event.getAddOnMethod();
+		if(addOnMethod != null)
 		{
-			appendAccessor(".get", typeDef, getter, e1);
+			appendAccessor(".addon", typeDef, addOnMethod, e1);
 		}
 
-		MethodDef setter = property.getSetter();
-		if(setter != null)
+		MethodDef removeOnMethod = event.getRemoveOnMethod();
+		if(removeOnMethod != null)
 		{
-			appendAccessor(".set", typeDef, setter, e1);
+			appendAccessor(".removeon", typeDef, removeOnMethod, e1);
 		}
+
 		e.getBlocks().add(e1);
 	}
 }

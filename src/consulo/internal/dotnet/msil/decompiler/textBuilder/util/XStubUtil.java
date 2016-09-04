@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.textBuilder.util;
+package consulo.internal.dotnet.msil.decompiler.textBuilder.util;
 
 import java.nio.charset.Charset;
 

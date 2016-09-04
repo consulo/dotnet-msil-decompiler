@@ -14,16 +14,46 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.textBuilder.block;
+package consulo.internal.dotnet.msil.decompiler.file;
+
+import consulo.vfs.impl.archive.ArchiveEntry;
 
 /**
  * @author VISTALL
- * @since 13.12.13.
+ * @since 11.12.13.
  */
-public class LineStubBlock extends StubBlock
+public class DotNetDirArchiveEntry implements ArchiveEntry
 {
-	public LineStubBlock(CharSequence startText)
+	private final String myName;
+	private long myLastModified;
+
+	public DotNetDirArchiveEntry(String name, long lastModified)
 	{
-		super(startText, null, new char[0]);
+		myName = name;
+		myLastModified = lastModified;
+	}
+
+	@Override
+	public String getName()
+	{
+		return myName;
+	}
+
+	@Override
+	public long getSize()
+	{
+		return 0;
+	}
+
+	@Override
+	public long getTime()
+	{
+		return myLastModified;
+	}
+
+	@Override
+	public boolean isDirectory()
+	{
+		return true;
 	}
 }

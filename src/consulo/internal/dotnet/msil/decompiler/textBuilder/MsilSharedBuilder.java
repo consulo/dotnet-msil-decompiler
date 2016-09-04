@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.textBuilder;
+package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
 import java.math.BigInteger;
 import java.util.Collections;
@@ -22,11 +22,11 @@ import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
-import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
-import org.mustbe.dotnet.msil.decompiler.util.MsilUtil;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
+import consulo.internal.dotnet.msil.decompiler.util.MsilUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
@@ -576,7 +576,7 @@ public class MsilSharedBuilder implements SignatureConstants
 				XGenericTypeSignature typeGenericTypeSignature = (XGenericTypeSignature) signature;
 				if(typeDef == null)
 				{
-					LOGGER.error("TypeDef is null", new Exception());
+					MsilSharedBuilder.LOGGER.error("TypeDef is null", new Exception());
 					builder.append("GENERICERROR");
 					return;
 				}

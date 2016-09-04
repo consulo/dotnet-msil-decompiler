@@ -14,22 +14,16 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.file;
-
-import java.io.InputStream;
-
-import org.jetbrains.annotations.NotNull;
-import consulo.vfs.impl.archive.ArchiveEntry;
+package consulo.internal.dotnet.msil.decompiler.textBuilder.block;
 
 /**
  * @author VISTALL
- * @since 06.03.14
+ * @since 13.12.13.
  */
-public interface DotNetFileArchiveEntry extends ArchiveEntry
+public class LineStubBlock extends StubBlock
 {
-	@NotNull
-	String getNamespace();
-
-	@NotNull
-	InputStream createInputStream();
+	public LineStubBlock(CharSequence startText)
+	{
+		super(startText, null, new char[0]);
+	}
 }

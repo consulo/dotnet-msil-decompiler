@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.textBuilder.block;
+package consulo.internal.dotnet.msil.decompiler.textBuilder.block;
 
 import java.util.List;
 

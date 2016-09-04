@@ -1,12 +1,12 @@
-package org.mustbe.dotnet.msil.decompiler.file;
+package consulo.internal.dotnet.msil.decompiler.file;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
 import com.intellij.openapi.util.NotNullLazyValue;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.vfs.CharsetToolkit;
@@ -52,7 +52,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 				}
 				catch(Throwable e)
 				{
-					LOGGER.error("File '" + myOriginalFilePath + "' cant decompiled correctly please create issue with this file", e);
+					DotNetAbstractFileArchiveEntry.LOGGER.error("File '" + myOriginalFilePath + "' cant decompiled correctly please create issue with this file", e);
 					return ArrayUtil.EMPTY_BYTE_ARRAY;
 				}
 
@@ -66,7 +66,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 			}
 			catch(Throwable e)
 			{
-				LOGGER.error("File '" + myOriginalFilePath + "' cant decompiled correctly please create issue with this file", e);
+				DotNetAbstractFileArchiveEntry.LOGGER.error("File '" + myOriginalFilePath + "' cant decompiled correctly please create issue with this file", e);
 				return ArrayUtil.EMPTY_BYTE_ARRAY;
 			}
 		}

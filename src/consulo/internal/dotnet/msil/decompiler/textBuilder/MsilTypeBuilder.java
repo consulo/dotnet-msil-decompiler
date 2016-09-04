@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.textBuilder;
+package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
 import java.util.List;
 
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import com.intellij.util.PairFunction;
 import consulo.internal.dotnet.asm.mbel.Event;
 import consulo.internal.dotnet.asm.mbel.Field;

@@ -18,7 +18,7 @@ package test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
 
 /**
  * @author VISTALL

@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.textBuilder;
+package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
 import consulo.internal.dotnet.asm.mbel.CustomAttribute;
@@ -34,7 +34,6 @@ import consulo.internal.dotnet.asm.signature.MethodSignature;
 import consulo.internal.dotnet.asm.signature.ParamAttributes;
 import consulo.internal.dotnet.asm.signature.ParameterInfo;
 import consulo.internal.dotnet.asm.signature.ParameterSignature;
-import consulo.internal.dotnet.asm.signature.SignatureConstants;
 import consulo.internal.dotnet.asm.signature.TypeSignature;
 
 /**
@@ -143,7 +142,7 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 				StringBuilder lineBuilder = new StringBuilder().append(".param [").append(i + 1).append("]");
 
 				TypeSignature typeSignature = parameterSignature;
-				if(parameterSignature.getType() == SignatureConstants.ELEMENT_TYPE_TYPEONLY)
+				if(parameterSignature.getType() == ELEMENT_TYPE_TYPEONLY)
 				{
 					typeSignature = parameterSignature.getInnerType();
 				}
@@ -191,7 +190,7 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 				}
 
 				TypeSignature typeSignature = parameterSignature;
-				if(parameterSignature.getType() == SignatureConstants.ELEMENT_TYPE_TYPEONLY)
+				if(parameterSignature.getType() == ELEMENT_TYPE_TYPEONLY)
 				{
 					typeSignature = parameterSignature.getInnerType();
 				}

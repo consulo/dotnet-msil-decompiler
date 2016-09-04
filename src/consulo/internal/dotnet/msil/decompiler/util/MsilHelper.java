@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.util;
+package consulo.internal.dotnet.msil.decompiler.util;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.util.text.StringUtil;

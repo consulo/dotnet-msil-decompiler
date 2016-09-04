@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.file;
+package consulo.internal.dotnet.msil.decompiler.file;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
-import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import com.intellij.openapi.util.Ref;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;

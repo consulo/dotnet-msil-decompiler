@@ -14,46 +14,22 @@
  * limitations under the License.
  */
 
-package org.mustbe.dotnet.msil.decompiler.file;
+package consulo.internal.dotnet.msil.decompiler.file;
 
+import java.io.InputStream;
+
+import org.jetbrains.annotations.NotNull;
 import consulo.vfs.impl.archive.ArchiveEntry;
 
 /**
  * @author VISTALL
- * @since 11.12.13.
+ * @since 06.03.14
  */
-public class DotNetDirArchiveEntry implements ArchiveEntry
+public interface DotNetFileArchiveEntry extends ArchiveEntry
 {
-	private final String myName;
-	private long myLastModified;
+	@NotNull
+	String getNamespace();
 
-	public DotNetDirArchiveEntry(String name, long lastModified)
-	{
-		myName = name;
-		myLastModified = lastModified;
-	}
-
-	@Override
-	public String getName()
-	{
-		return myName;
-	}
-
-	@Override
-	public long getSize()
-	{
-		return 0;
-	}
-
-	@Override
-	public long getTime()
-	{
-		return myLastModified;
-	}
-
-	@Override
-	public boolean isDirectory()
-	{
-		return true;
-	}
+	@NotNull
+	InputStream createInputStream();
 }
