@@ -17,10 +17,10 @@
 package org.mustbe.dotnet.msil.decompiler.textBuilder;
 
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import edu.arizona.cs.mbel.mbel.Event;
-import edu.arizona.cs.mbel.mbel.MethodDef;
-import edu.arizona.cs.mbel.mbel.TypeDef;
-import edu.arizona.cs.mbel.signature.EventAttributes;
+import consulo.internal.dotnet.asm.mbel.Event;
+import consulo.internal.dotnet.asm.mbel.MethodDef;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.asm.signature.EventAttributes;
 
 /**
  * @author VISTALL

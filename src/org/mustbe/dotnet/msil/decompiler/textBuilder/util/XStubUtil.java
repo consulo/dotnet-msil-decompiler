@@ -21,8 +21,8 @@ import java.nio.charset.Charset;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.CharsetToolkit;
-import edu.arizona.cs.mbel.io.ByteBuffer;
-import edu.arizona.cs.mbel.signature.Signature;
+import consulo.internal.dotnet.asm.io.ByteBuffer;
+import consulo.internal.dotnet.asm.signature.Signature;
 
 /**
  * @author VISTALL

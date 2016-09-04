@@ -24,8 +24,8 @@ import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import com.intellij.openapi.util.Ref;
-import edu.arizona.cs.mbel.mbel.ModuleParser;
-import edu.arizona.cs.mbel.mbel.TypeDef;
+import consulo.internal.dotnet.asm.mbel.ModuleParser;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
 
 /**
  * @author VISTALL

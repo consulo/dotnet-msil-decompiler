@@ -25,17 +25,17 @@ import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
-import edu.arizona.cs.mbel.mbel.CustomAttribute;
-import edu.arizona.cs.mbel.mbel.MethodDef;
-import edu.arizona.cs.mbel.mbel.TypeDef;
-import edu.arizona.cs.mbel.signature.CallingConvention;
-import edu.arizona.cs.mbel.signature.MethodAttributes;
-import edu.arizona.cs.mbel.signature.MethodSignature;
-import edu.arizona.cs.mbel.signature.ParamAttributes;
-import edu.arizona.cs.mbel.signature.ParameterInfo;
-import edu.arizona.cs.mbel.signature.ParameterSignature;
-import edu.arizona.cs.mbel.signature.SignatureConstants;
-import edu.arizona.cs.mbel.signature.TypeSignature;
+import consulo.internal.dotnet.asm.mbel.CustomAttribute;
+import consulo.internal.dotnet.asm.mbel.MethodDef;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.asm.signature.CallingConvention;
+import consulo.internal.dotnet.asm.signature.MethodAttributes;
+import consulo.internal.dotnet.asm.signature.MethodSignature;
+import consulo.internal.dotnet.asm.signature.ParamAttributes;
+import consulo.internal.dotnet.asm.signature.ParameterInfo;
+import consulo.internal.dotnet.asm.signature.ParameterSignature;
+import consulo.internal.dotnet.asm.signature.SignatureConstants;
+import consulo.internal.dotnet.asm.signature.TypeSignature;
 
 /**
  * @author VISTALL

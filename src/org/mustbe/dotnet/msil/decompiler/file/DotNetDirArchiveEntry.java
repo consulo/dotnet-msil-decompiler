@@ -16,7 +16,7 @@
 
 package org.mustbe.dotnet.msil.decompiler.file;
 
-import com.intellij.openapi.vfs.ArchiveEntry;
+import consulo.vfs.impl.archive.ArchiveEntry;
 
 /**
  * @author VISTALL

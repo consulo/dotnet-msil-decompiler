@@ -25,6 +25,7 @@ import java.util.zip.ZipFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.junit.Assert;
+import org.junit.ComparisonFailure;
 import org.junit.Test;
 import org.mustbe.dotnet.msil.decompiler.Main;
 import org.mustbe.dotnet.msil.decompiler.file.DotNetArchiveFile;
@@ -34,11 +35,10 @@ import org.mustbe.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.ArchiveEntry;
 import com.intellij.psi.util.QualifiedName;
-import com.intellij.util.FileComparisonFailure;
-import edu.arizona.cs.mbel.mbel.ModuleParser;
-import edu.arizona.cs.mbel.mbel.TypeDef;
+import consulo.internal.dotnet.asm.mbel.ModuleParser;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.vfs.impl.archive.ArchiveEntry;
 
 /**
  * @author VISTALL
@@ -137,8 +137,7 @@ public class DecompileTest extends Assert
 		String expectedData = FileUtil.loadFile(targetFile, "UTF-8", true);
 		if(!Comparing.equal(actualData, expectedData))
 		{
-			throw new FileComparisonFailure("File '" + fileToTest + "' content is not equal", expectedData.toString(), actualData.toString(),
-					fileToTest);
+			throw new ComparisonFailure("File '" + fileToTest + "' content is not equal", expectedData.toString(), actualData.toString());
 		}
 	}
 
@@ -177,8 +176,7 @@ public class DecompileTest extends Assert
 			//System.out.println("Testing: " + next.getName());
 			if(entry == null)
 			{
-				throw new FileComparisonFailure("Entry '" + next.getName() + "' in target file is not found",
-						FileUtil.loadTextAndClose(archiveFile.getInputStream(next), true), "", next.getName());
+				throw new ComparisonFailure("Entry '" + next.getName() + "' in target file is not found", FileUtil.loadTextAndClose(archiveFile.getInputStream(next), true), "");
 			}
 			else
 			{
@@ -187,7 +185,7 @@ public class DecompileTest extends Assert
 
 				if(!actual.equals(expected))
 				{
-					throw new FileComparisonFailure("File '" + next.getName() + "' content is not equal", actual, expected, next.getName());
+					throw new ComparisonFailure("File '" + next.getName() + "' content is not equal", actual, expected);
 				}
 			}
 		}

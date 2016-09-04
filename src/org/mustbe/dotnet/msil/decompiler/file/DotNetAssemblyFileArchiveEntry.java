@@ -19,13 +19,13 @@ package org.mustbe.dotnet.msil.decompiler.file;
 import java.io.File;
 import java.util.List;
 
-import org.consulo.lombok.annotations.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import com.intellij.openapi.util.Ref;
-import edu.arizona.cs.mbel.mbel.AssemblyInfo;
-import edu.arizona.cs.mbel.mbel.ModuleParser;
+import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
+import consulo.internal.dotnet.asm.mbel.ModuleParser;
+import consulo.lombok.annotations.Logger;
 
 /**
  * @author VISTALL

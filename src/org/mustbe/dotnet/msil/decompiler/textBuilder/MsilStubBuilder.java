@@ -22,8 +22,8 @@ import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import edu.arizona.cs.mbel.mbel.AssemblyInfo;
-import edu.arizona.cs.mbel.mbel.TypeDef;
+import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
 
 /**
  * @author VISTALL

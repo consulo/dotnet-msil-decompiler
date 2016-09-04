@@ -37,13 +37,13 @@ import org.mustbe.dotnet.msil.decompiler.util.MsilHelper;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.ArchiveEntry;
-import com.intellij.openapi.vfs.ArchiveFile;
 import com.intellij.util.ArrayUtil;
-import edu.arizona.cs.mbel.mbel.AssemblyInfo;
-import edu.arizona.cs.mbel.mbel.CustomAttribute;
-import edu.arizona.cs.mbel.mbel.ModuleParser;
-import edu.arizona.cs.mbel.mbel.TypeDef;
+import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
+import consulo.internal.dotnet.asm.mbel.CustomAttribute;
+import consulo.internal.dotnet.asm.mbel.ModuleParser;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.vfs.impl.archive.ArchiveEntry;
+import consulo.vfs.impl.archive.ArchiveFile;
 
 /**
  * @author VISTALL
@@ -53,9 +53,19 @@ public class DotNetArchiveFile implements ArchiveFile
 {
 	private final Map<String, ArchiveEntry> myArchiveEntries;
 
+	private String myName;
+
 	public DotNetArchiveFile(@NotNull File originalFile, ModuleParser moduleParser, long l)
 	{
 		myArchiveEntries = map(originalFile, moduleParser, l);
+		myName = originalFile.getName();
+	}
+
+	@NotNull
+	@Override
+	public String getName()
+	{
+		return myName;
 	}
 
 	@NotNull

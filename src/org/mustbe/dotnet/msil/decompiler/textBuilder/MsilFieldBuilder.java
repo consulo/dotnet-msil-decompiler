@@ -19,9 +19,9 @@ package org.mustbe.dotnet.msil.decompiler.textBuilder;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
-import edu.arizona.cs.mbel.mbel.Field;
-import edu.arizona.cs.mbel.mbel.TypeDef;
-import edu.arizona.cs.mbel.signature.FieldAttributes;
+import consulo.internal.dotnet.asm.mbel.Field;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.asm.signature.FieldAttributes;
 
 /**
  * @author VISTALL

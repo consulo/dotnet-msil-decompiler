@@ -19,7 +19,7 @@ package org.mustbe.dotnet.msil.decompiler.file;
 import java.io.InputStream;
 
 import org.jetbrains.annotations.NotNull;
-import com.intellij.openapi.vfs.ArchiveEntry;
+import consulo.vfs.impl.archive.ArchiveEntry;
 
 /**
  * @author VISTALL

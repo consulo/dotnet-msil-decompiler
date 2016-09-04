@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
-import org.consulo.lombok.annotations.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
@@ -13,7 +12,8 @@ import com.intellij.openapi.util.NotNullLazyValue;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.vfs.CharsetToolkit;
 import com.intellij.util.ArrayUtil;
-import edu.arizona.cs.mbel.mbel.ModuleParser;
+import consulo.internal.dotnet.asm.mbel.ModuleParser;
+import consulo.lombok.annotations.Logger;
 
 /**
  * @author VISTALL

@@ -17,9 +17,9 @@
 package org.mustbe.dotnet.msil.decompiler.textBuilder;
 
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import edu.arizona.cs.mbel.mbel.MethodDef;
-import edu.arizona.cs.mbel.mbel.Property;
-import edu.arizona.cs.mbel.mbel.TypeDef;
+import consulo.internal.dotnet.asm.mbel.MethodDef;
+import consulo.internal.dotnet.asm.mbel.Property;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
 
 /**
  * @author VISTALL

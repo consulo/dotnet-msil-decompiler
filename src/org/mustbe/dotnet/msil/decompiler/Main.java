@@ -25,8 +25,8 @@ import java.util.zip.ZipOutputStream;
 
 import org.mustbe.dotnet.msil.decompiler.file.DotNetArchiveFile;
 import com.intellij.openapi.util.io.FileUtil;
-import com.intellij.openapi.vfs.ArchiveEntry;
-import edu.arizona.cs.mbel.mbel.ModuleParser;
+import consulo.internal.dotnet.asm.mbel.ModuleParser;
+import consulo.vfs.impl.archive.ArchiveEntry;
 
 /**
  * @author VISTALL

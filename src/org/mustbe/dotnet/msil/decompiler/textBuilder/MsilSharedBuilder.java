@@ -20,7 +20,6 @@ import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
 
-import org.consulo.lombok.annotations.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
@@ -31,8 +30,9 @@ import org.mustbe.dotnet.msil.decompiler.util.MsilUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
-import edu.arizona.cs.mbel.mbel.*;
-import edu.arizona.cs.mbel.signature.*;
+import consulo.internal.dotnet.asm.mbel.*;
+import consulo.internal.dotnet.asm.signature.*;
+import consulo.lombok.annotations.Logger;
 
 /**
  * @author VISTALL

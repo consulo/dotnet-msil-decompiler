@@ -21,13 +21,13 @@ import java.util.List;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import org.mustbe.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import com.intellij.util.PairFunction;
-import edu.arizona.cs.mbel.mbel.Event;
-import edu.arizona.cs.mbel.mbel.Field;
-import edu.arizona.cs.mbel.mbel.InterfaceImplementation;
-import edu.arizona.cs.mbel.mbel.MethodDef;
-import edu.arizona.cs.mbel.mbel.Property;
-import edu.arizona.cs.mbel.mbel.TypeDef;
-import edu.arizona.cs.mbel.signature.TypeAttributes;
+import consulo.internal.dotnet.asm.mbel.Event;
+import consulo.internal.dotnet.asm.mbel.Field;
+import consulo.internal.dotnet.asm.mbel.InterfaceImplementation;
+import consulo.internal.dotnet.asm.mbel.MethodDef;
+import consulo.internal.dotnet.asm.mbel.Property;
+import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.asm.signature.TypeAttributes;
 
 /**
  * @author VISTALL
