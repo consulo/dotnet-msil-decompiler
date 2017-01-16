@@ -24,9 +24,7 @@
     <envs />
     <patterns />
     <RunnerSettings RunnerId="Debug" />
-    <RunnerSettings RunnerId="Debug" />
     <ConfigurationWrapper RunnerId="Cover" />
-    <ConfigurationWrapper RunnerId="Debug" />
     <ConfigurationWrapper RunnerId="Debug" />
     <ConfigurationWrapper RunnerId="Run" />
     <method />

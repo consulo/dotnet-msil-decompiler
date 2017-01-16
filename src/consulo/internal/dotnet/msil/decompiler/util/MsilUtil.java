@@ -16,6 +16,8 @@
 
 package consulo.internal.dotnet.msil.decompiler.util;
 
+import java.util.List;
+
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -24,6 +26,16 @@ import org.jetbrains.annotations.Nullable;
  */
 public class MsilUtil
 {
+	@Nullable
+	public static <T> T safeGet(@Nullable List<T> array, int index)
+	{
+		if(array == null)
+			return null;
+		if(index < 0 || array.size() <= index)
+			return null;
+		return array.get(index);
+	}
+
 	public static int safeGet(@Nullable int[] array, int index)
 	{
 		if(array == null)

@@ -22,16 +22,16 @@ import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
-import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
-import consulo.internal.dotnet.msil.decompiler.util.MsilUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
 import consulo.internal.dotnet.asm.mbel.*;
 import consulo.internal.dotnet.asm.signature.*;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
+import consulo.internal.dotnet.msil.decompiler.util.MsilUtil;
 import consulo.lombok.annotations.Logger;
 
 /**
@@ -284,7 +284,7 @@ public class MsilSharedBuilder implements SignatureConstants
 				case ELEMENT_TYPE_CHAR:
 					builder.append("char(");
 					char aChar = MsilUtil.getChar(defaultValue);
-					builder.append((int)aChar);
+					builder.append((int) aChar);
 					builder.append(")");
 					break;
 				case ELEMENT_TYPE_STRING:
@@ -558,16 +558,17 @@ public class MsilSharedBuilder implements SignatureConstants
 			case ELEMENT_TYPE_GENERIC_INST:
 				TypeSignatureWithGenericParameters mainTypeSignature = (TypeSignatureWithGenericParameters) signature;
 				typeToString(builder, mainTypeSignature.getSignature(), typeDef);
-				if(!mainTypeSignature.getGenericArguments().isEmpty())
+				List<TypeSignature> genericArguments = mainTypeSignature.getGenericArguments();
+				if(!genericArguments.isEmpty())
 				{
 					builder.append("<");
-					for(int i = 0; i < mainTypeSignature.getGenericArguments().size(); i++)
+					for(int i = 0; i < genericArguments.size(); i++)
 					{
 						if(i != 0)
 						{
 							builder.append(", ");
 						}
-						typeToString(builder, mainTypeSignature.getGenericArguments().get(i), typeDef);
+						typeToString(builder, genericArguments.get(i), typeDef);
 					}
 					builder.append(">");
 				}
@@ -576,12 +577,21 @@ public class MsilSharedBuilder implements SignatureConstants
 				XGenericTypeSignature typeGenericTypeSignature = (XGenericTypeSignature) signature;
 				if(typeDef == null)
 				{
-					MsilSharedBuilder.LOGGER.error("TypeDef is null", new Exception());
+					LOGGER.error("TypeDef is null", new Exception());
 					builder.append("GENERICERROR");
 					return;
 				}
 				builder.append("!");
-				builder.append(typeDef.getGenericParams().get(typeGenericTypeSignature.getIndex()).getName());
+				GenericParamDef genericParamDef = MsilUtil.safeGet(typeDef.getGenericParams(), typeGenericTypeSignature.getIndex());
+				if(genericParamDef == null)
+				{
+					LOGGER.error("Invalid generic index for type " + typeDef.getFullName() + ", index: " + typeGenericTypeSignature.getIndex());
+					builder.append("UNK").append(typeGenericTypeSignature.getIndex());
+				}
+				else
+				{
+					builder.append(genericParamDef.getName());
+				}
 				break;
 			case ELEMENT_TYPE_MVAR:
 				XGenericTypeSignature methodGenericTypeSignature = (XGenericTypeSignature) signature;
