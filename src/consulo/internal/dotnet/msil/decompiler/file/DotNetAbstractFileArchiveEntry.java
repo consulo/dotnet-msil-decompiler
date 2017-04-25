@@ -5,22 +5,23 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.NotNullLazyValue;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.vfs.CharsetToolkit;
 import com.intellij.util.ArrayUtil;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
-import consulo.lombok.annotations.Logger;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
 
 /**
  * @author VISTALL
  * @since 21.03.14
  */
-@Logger
 public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiveEntry
 {
+	private static final Logger LOGGER = Logger.getInstance(DotNetAbstractFileArchiveEntry.class);
+
 	private static class LazyValue extends NotNullLazyValue<byte[]>
 	{
 		private final DotNetAbstractFileArchiveEntry myEntry;

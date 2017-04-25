@@ -22,6 +22,7 @@ import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
@@ -32,15 +33,15 @@ import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import consulo.internal.dotnet.msil.decompiler.util.MsilUtil;
-import consulo.lombok.annotations.Logger;
 
 /**
  * @author VISTALL
  * @since 21.05.14
  */
-@Logger
 public class MsilSharedBuilder implements SignatureConstants
 {
+	private static final Logger LOGGER = Logger.getInstance(MsilSharedBuilder.class);
+
 	private static final String[] KEYWORDS = new String[]{
 			"virtual",
 			"vararg",

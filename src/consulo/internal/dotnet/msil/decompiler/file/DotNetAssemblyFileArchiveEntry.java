@@ -19,20 +19,21 @@ package consulo.internal.dotnet.msil.decompiler.file;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.Ref;
 import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
-import consulo.lombok.annotations.Logger;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 
 /**
  * @author VISTALL
  * @since 11.12.13.
  */
-@Logger
 public class DotNetAssemblyFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 {
+	private static final Logger LOGGER = Logger.getInstance(DotNetAssemblyFileArchiveEntry.class);
+
 	public static final String AssemblyInfo = "AssemblyInfo.msil";
 
 	private AssemblyInfo myAssemblyInfo;
