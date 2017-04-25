@@ -1,6 +1,7 @@
 package consulo.internal.dotnet.msil.decompiler.file;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
@@ -47,13 +48,12 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 				{
 					if(moduleParser != null)
 					{
-						moduleParser.parseNext();
 						myModuleParserRef.set(null);
 					}
 				}
 				catch(Throwable e)
 				{
-					DotNetAbstractFileArchiveEntry.LOGGER.error("File '" + myOriginalFilePath + "' cant decompiled correctly please create issue with this file", e);
+					LOGGER.error("File '" + new File(myOriginalFilePath).getName() + "' cant decompiled correctly please create issue with this file", e);
 					return ArrayUtil.EMPTY_BYTE_ARRAY;
 				}
 
@@ -67,7 +67,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 			}
 			catch(Throwable e)
 			{
-				DotNetAbstractFileArchiveEntry.LOGGER.error("File '" + myOriginalFilePath + "' cant decompiled correctly please create issue with this file", e);
+				LOGGER.error("File '" + new File(myOriginalFilePath).getName() + "' cant decompiled correctly please create issue with this file", e);
 				return ArrayUtil.EMPTY_BYTE_ARRAY;
 			}
 		}
