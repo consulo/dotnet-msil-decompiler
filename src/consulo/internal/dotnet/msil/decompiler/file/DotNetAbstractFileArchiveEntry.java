@@ -71,6 +71,10 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 				LOGGER.error("File '" + new File(myOriginalFilePath).getName() + "' cant decompiled correctly please create issue with this file", e);
 				return ArrayUtil.EMPTY_BYTE_ARRAY;
 			}
+			finally
+			{
+				myEntry.drop();
+			}
 		}
 	}
 
@@ -88,6 +92,10 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 
 	@NotNull
 	public abstract List<? extends StubBlock> build();
+
+	public void drop()
+	{
+	}
 
 	@Override
 	public String getName()

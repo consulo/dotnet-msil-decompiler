@@ -17,14 +17,15 @@
 package consulo.internal.dotnet.msil.decompiler.file;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import com.intellij.openapi.util.Ref;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 
 /**
  * @author VISTALL
@@ -47,8 +48,16 @@ public class DotNetModuleFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 	@Override
 	public List<? extends StubBlock> build()
 	{
-		TypeDef moduleTypeDef = myModuleTypeDef;
+		if(myModuleTypeDef == null)
+		{
+			return Collections.emptyList();
+		}
+		return Arrays.asList(MsilTypeBuilder.processTypeDef(myModuleTypeDef));
+	}
+
+	@Override
+	public void drop()
+	{
 		myModuleTypeDef = null;
-		return Arrays.asList(MsilTypeBuilder.processTypeDef(moduleTypeDef));
 	}
 }

@@ -16,6 +16,7 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
@@ -59,8 +60,16 @@ public class DotNetBaseFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 	@Override
 	public List<? extends StubBlock> build()
 	{
-		List<TypeDef> typeDefs = myTypeDefs;
+		if(myTypeDefs == null)
+		{
+			return Collections.emptyList();
+		}
+		return MsilStubBuilder.parseTypeDef(myTypeDefs);
+	}
+
+	@Override
+	public void drop()
+	{
 		myTypeDefs = null;
-		return MsilStubBuilder.parseTypeDef(typeDefs);
 	}
 }
