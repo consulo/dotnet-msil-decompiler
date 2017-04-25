@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.util.AtomicNotNullLazyValue;
 import com.intellij.openapi.util.NotNullLazyValue;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.vfs.CharsetToolkit;
@@ -23,7 +24,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 {
 	private static final Logger LOGGER = Logger.getInstance(DotNetAbstractFileArchiveEntry.class);
 
-	private static class LazyValue extends NotNullLazyValue<byte[]>
+	private static class LazyValue extends AtomicNotNullLazyValue<byte[]>
 	{
 		private final DotNetAbstractFileArchiveEntry myEntry;
 		private final String myOriginalFilePath;
