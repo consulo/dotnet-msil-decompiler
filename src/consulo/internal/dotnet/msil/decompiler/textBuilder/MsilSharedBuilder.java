@@ -373,15 +373,10 @@ public class MsilSharedBuilder implements SignatureConstants
 		appendValidName(builder, methodDef.getName());
 
 		builder.append("(");
-		join(builder, methodDef.getSignature().getParameters(), new PairFunction<StringBuilder, ParameterSignature, Void>()
+		join(builder, methodDef.getSignature().getParameters(), (t, v) ->
 		{
-			@Nullable
-			@Override
-			public Void fun(StringBuilder t, ParameterSignature v)
-			{
-				typeToString(t, v.getInnerType(), typeDef);
-				return null;
-			}
+			typeToString(t, v.getInnerType(), typeDef);
+			return null;
 		}, ", ");
 		builder.append(")\n");
 
@@ -397,61 +392,51 @@ public class MsilSharedBuilder implements SignatureConstants
 		}
 
 		builder.append("<");
-		join(builder, genericParams, new PairFunction<StringBuilder, GenericParamDef, Void>()
+		join(builder, genericParams, (innerBuilder, genericParamDef) ->
 		{
-			@Nullable
-			@Override
-			public Void fun(StringBuilder innerBuilder, GenericParamDef genericParamDef)
+			int flags = genericParamDef.getFlags();
+
+			int specialFlags = flags & GenericParamAttributes.SpecialConstraintMask;
+
+			if(BitUtil.isSet(specialFlags, GenericParamAttributes.NotNullableValueTypeConstraint))
 			{
-				int flags = genericParamDef.getFlags();
-
-				int specialFlags = flags & GenericParamAttributes.SpecialConstraintMask;
-
-				if(BitUtil.isSet(specialFlags, GenericParamAttributes.NotNullableValueTypeConstraint))
-				{
-					innerBuilder.append("valuetype ");
-				}
-
-				if(BitUtil.isSet(specialFlags, GenericParamAttributes.ReferenceTypeConstraint))
-				{
-					innerBuilder.append("class ");
-				}
-
-				if(BitUtil.isSet(specialFlags, GenericParamAttributes.DefaultConstructorConstraint))
-				{
-					innerBuilder.append(".ctor ");
-				}
-
-				List<Object> constraints = genericParamDef.getConstraints();
-				if(!constraints.isEmpty())
-				{
-					innerBuilder.append("(");
-					join(innerBuilder, constraints, new PairFunction<StringBuilder, Object, Void>()
-					{
-						@Nullable
-						@Override
-						public Void fun(StringBuilder t, Object v)
-						{
-							toStringFromDefRefSpec(t, v, typeDef);
-							return null;
-						}
-					}, ", ");
-					innerBuilder.append(")");
-				}
-
-				int varianceMask = flags & GenericParamAttributes.VarianceMask;
-				switch(varianceMask)
-				{
-					case GenericParamAttributes.Covariant:
-						innerBuilder.append("+");
-						break;
-					case GenericParamAttributes.Contravariant:
-						innerBuilder.append("-");
-						break;
-				}
-				innerBuilder.append(genericParamDef.getName());
-				return null;
+				innerBuilder.append("valuetype ");
 			}
+
+			if(BitUtil.isSet(specialFlags, GenericParamAttributes.ReferenceTypeConstraint))
+			{
+				innerBuilder.append("class ");
+			}
+
+			if(BitUtil.isSet(specialFlags, GenericParamAttributes.DefaultConstructorConstraint))
+			{
+				innerBuilder.append(".ctor ");
+			}
+
+			List<Object> constraints = genericParamDef.getConstraints();
+			if(!constraints.isEmpty())
+			{
+				innerBuilder.append("(");
+				join(innerBuilder, constraints, (t, v) ->
+				{
+					toStringFromDefRefSpec(t, v, typeDef);
+					return null;
+				}, ", ");
+				innerBuilder.append(")");
+			}
+
+			int varianceMask = flags & GenericParamAttributes.VarianceMask;
+			switch(varianceMask)
+			{
+				case GenericParamAttributes.Covariant:
+					innerBuilder.append("+");
+					break;
+				case GenericParamAttributes.Contravariant:
+					innerBuilder.append("-");
+					break;
+			}
+			innerBuilder.append(genericParamDef.getName());
+			return null;
 		}, ", ");
 		builder.append(">");
 	}

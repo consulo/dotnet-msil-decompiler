@@ -20,11 +20,7 @@ import java.util.List;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import com.intellij.util.BitUtil;
-import com.intellij.util.PairFunction;
 import consulo.internal.dotnet.asm.mbel.CustomAttribute;
 import consulo.internal.dotnet.asm.mbel.MethodDef;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
@@ -35,6 +31,9 @@ import consulo.internal.dotnet.asm.signature.ParamAttributes;
 import consulo.internal.dotnet.asm.signature.ParameterInfo;
 import consulo.internal.dotnet.asm.signature.ParameterSignature;
 import consulo.internal.dotnet.asm.signature.TypeSignature;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 
 /**
  * @author VISTALL
@@ -165,45 +164,41 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 	{
 		builder.append("(");
 
-		join(builder, parameters, new PairFunction<StringBuilder, ParameterSignature, Void>()
+		join(builder, parameters, (builder1, parameterSignature) ->
 		{
-			@Override
-			public Void fun(StringBuilder builder, ParameterSignature parameterSignature)
+			ParameterInfo parameterInfo = parameterSignature.getParameterInfo();
+			if(parameterInfo != null)
 			{
-				ParameterInfo parameterInfo = parameterSignature.getParameterInfo();
-				if(parameterInfo != null)
+				if(BitUtil.isSet(parameterInfo.getFlags(), ParamAttributes.HasDefault))
 				{
-					if(BitUtil.isSet(parameterInfo.getFlags(), ParamAttributes.HasDefault))
-					{
-						builder.append("[opt] ");
-					}
-
-					if(BitUtil.isSet(parameterInfo.getFlags(), ParamAttributes.In))
-					{
-						builder.append("[in] ");
-					}
-
-					if(BitUtil.isSet(parameterInfo.getFlags(), ParamAttributes.Out))
-					{
-						builder.append("[out] ");
-					}
+					builder1.append("[opt] ");
 				}
 
-				TypeSignature typeSignature = parameterSignature;
-				if(parameterSignature.getType() == ELEMENT_TYPE_TYPEONLY)
+				if(BitUtil.isSet(parameterInfo.getFlags(), ParamAttributes.In))
 				{
-					typeSignature = parameterSignature.getInnerType();
+					builder1.append("[in] ");
 				}
 
-				typeToString(builder, typeSignature, typeDef);
-
-				if(appendName && parameterInfo != null)
+				if(BitUtil.isSet(parameterInfo.getFlags(), ParamAttributes.Out))
 				{
-					builder.append(" ");
-					appendValidName(builder, parameterInfo.getName());
+					builder1.append("[out] ");
 				}
-				return null;
 			}
+
+			TypeSignature typeSignature = parameterSignature;
+			if(parameterSignature.getType() == ELEMENT_TYPE_TYPEONLY)
+			{
+				typeSignature = parameterSignature.getInnerType();
+			}
+
+			typeToString(builder1, typeSignature, typeDef);
+
+			if(appendName && parameterInfo != null)
+			{
+				builder1.append(" ");
+				appendValidName(builder1, parameterInfo.getName());
+			}
+			return null;
 		}, ", ");
 		builder.append(")");
 	}

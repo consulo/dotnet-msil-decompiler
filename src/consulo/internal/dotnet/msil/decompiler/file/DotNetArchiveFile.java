@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -32,8 +31,6 @@ import java.util.Map;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
-import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.util.text.StringUtil;
@@ -42,6 +39,8 @@ import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
 import consulo.internal.dotnet.asm.mbel.CustomAttribute;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import consulo.vfs.impl.archive.ArchiveEntry;
 import consulo.vfs.impl.archive.ArchiveFile;
 
@@ -136,19 +135,15 @@ public class DotNetArchiveFile implements ArchiveFile
 		}
 
 		// sort - at to head, files without namespaces
-		Collections.sort(fileList, new Comparator<DotNetFileArchiveEntry>()
+		Collections.sort(fileList, (o1, o2) ->
 		{
-			@Override
-			public int compare(DotNetFileArchiveEntry o1, DotNetFileArchiveEntry o2)
+			int compare = StringUtil.compare(o1.getNamespace(), o2.getNamespace(), true);
+			if(compare != 0)
 			{
-				int compare = StringUtil.compare(o1.getNamespace(), o2.getNamespace(), true);
-				if(compare != 0)
-				{
-					return compare;
-				}
-
-				return o1.getName().compareToIgnoreCase(o2.getName());
+				return compare;
 			}
+
+			return o1.getName().compareToIgnoreCase(o2.getName());
 		});
 
 		Map<String, ArchiveEntry> map = new THashMap<String, ArchiveEntry>(fileList.size() + 10);

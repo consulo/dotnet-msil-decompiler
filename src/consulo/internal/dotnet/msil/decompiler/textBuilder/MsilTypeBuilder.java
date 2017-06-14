@@ -18,9 +18,6 @@ package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
 import java.util.List;
 
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
-import com.intellij.util.PairFunction;
 import consulo.internal.dotnet.asm.mbel.Event;
 import consulo.internal.dotnet.asm.mbel.Field;
 import consulo.internal.dotnet.asm.mbel.InterfaceImplementation;
@@ -28,6 +25,8 @@ import consulo.internal.dotnet.asm.mbel.MethodDef;
 import consulo.internal.dotnet.asm.mbel.Property;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
 import consulo.internal.dotnet.asm.signature.TypeAttributes;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 
 /**
  * @author VISTALL
@@ -107,14 +106,10 @@ public class MsilTypeBuilder extends MsilSharedBuilder implements TypeAttributes
 		{
 			builder.append(" implements ");
 
-			join(builder, interfaceImplementations, new PairFunction<StringBuilder, InterfaceImplementation, Void>()
+			join(builder, interfaceImplementations, (builder1, o) ->
 			{
-				@Override
-				public Void fun(StringBuilder builder, InterfaceImplementation o)
-				{
-					toStringFromDefRefSpec(builder, o.getInterface(), typeDef);
-					return null;
-				}
+				toStringFromDefRefSpec(builder1, o.getInterface(), typeDef);
+				return null;
 			}, ", ");
 		}
 
