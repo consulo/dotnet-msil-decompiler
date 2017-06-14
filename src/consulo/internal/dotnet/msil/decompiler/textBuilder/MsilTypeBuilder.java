@@ -43,29 +43,28 @@ public class MsilTypeBuilder extends MsilSharedBuilder implements TypeAttributes
 		{
 			builder.append("public ");
 		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, 
-				TypeAttributes.NestedPrivate))
+		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedPrivate))
 		{
 			builder.append("nested private ");
 		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, 
-				TypeAttributes.NestedPublic))
+		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedPublic))
 		{
 			builder.append("nested public ");
 		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, 
-				TypeAttributes.NestedFamily))
+		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedFamily))
 		{
 			builder.append("nested protected ");
 		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, 
-				TypeAttributes.NestedAssembly))
+		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedAssembly))
 		{
 			builder.append("nested assembly ");
 		}
+		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NotPublic))
+		{
+			builder.append("private ");
+		}
 
-		if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.ClassSemanticsMask, 
-				TypeAttributes.Interface))
+		if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.ClassSemanticsMask, TypeAttributes.Interface))
 		{
 			builder.append("interface ");
 		}

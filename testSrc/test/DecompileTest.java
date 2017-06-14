@@ -65,6 +65,13 @@ public class DecompileTest extends Assert
 	}
 
 	@Test
+	public void testInternalType() throws Throwable
+	{
+		doTest("internalType/untitled.dll", "InternalClass.msil");
+		doTest("internalType/untitled.dll", "NoModifierClass.msil");
+	}
+
+	@Test
 	public void testValueTyperef() throws Throwable
 	{
 		doTest("valueTypeRef/untitled168.exe", "Program.msil");
@@ -103,7 +110,6 @@ public class DecompileTest extends Assert
 		}
 
 		ModuleParser moduleParser = new ModuleParser(file);
-		moduleParser.parseNext();
 
 		QualifiedName qualifiedName = QualifiedName.fromComponents(StringUtil.getPackageName(fileToTest).replace("/", "."));
 
@@ -150,7 +156,6 @@ public class DecompileTest extends Assert
 		}
 
 		ModuleParser moduleParser = new ModuleParser(file);
-		moduleParser.parseNext();
 
 		DotNetArchiveFile archiveFile = new DotNetArchiveFile(file, moduleParser, System.currentTimeMillis());
 

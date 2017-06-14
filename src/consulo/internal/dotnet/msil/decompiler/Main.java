@@ -43,7 +43,6 @@ public class Main
 
 		File file = new File(args[0]);
 		ModuleParser moduleParser = new ModuleParser(file);
-		moduleParser.parseNext();
 
 		DotNetArchiveFile archiveFile = new DotNetArchiveFile(file, moduleParser, System.currentTimeMillis());
 
