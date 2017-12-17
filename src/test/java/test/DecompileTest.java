@@ -103,7 +103,7 @@ public class DecompileTest extends Assert
 
 	public static void doTest(@NotNull String path, @Nullable String fileToTest) throws Throwable
 	{
-		File file = new File("testData", path);
+		File file = PathSearcher.getTestPath(path);
 		if(!file.exists())
 		{
 			throw new IllegalArgumentException(file.getAbsolutePath() + " is not exists");
@@ -149,7 +149,7 @@ public class DecompileTest extends Assert
 
 	public static void doTest(@NotNull String path) throws Throwable
 	{
-		File file = new File("testData", path);
+		File file = PathSearcher.getTestPath(path);
 		if(!file.exists())
 		{
 			throw new IllegalArgumentException(file.getAbsolutePath() + " is not exists");

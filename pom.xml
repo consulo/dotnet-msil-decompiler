@@ -48,6 +48,18 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>consulo</groupId>
+			<artifactId>consulo-core-api</artifactId>
+			<version>2-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>consulo.internal</groupId>
+			<artifactId>dotnet.asm</artifactId>
+			<version>2-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
