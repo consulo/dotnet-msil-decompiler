@@ -16,10 +16,10 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import java.io.InputStream;
-
-import org.jetbrains.annotations.NotNull;
 import consulo.vfs.impl.archive.ArchiveEntry;
+
+import javax.annotation.Nonnull;
+import java.io.InputStream;
 
 /**
  * @author VISTALL
@@ -27,9 +27,9 @@ import consulo.vfs.impl.archive.ArchiveEntry;
  */
 public interface DotNetFileArchiveEntry extends ArchiveEntry
 {
-	@NotNull
+	@Nonnull
 	String getNamespace();
 
-	@NotNull
+	@Nonnull
 	InputStream createInputStream();
 }

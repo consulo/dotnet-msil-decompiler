@@ -29,8 +29,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.util.text.StringUtil;
@@ -44,6 +44,8 @@ import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import consulo.vfs.impl.archive.ArchiveEntry;
 import consulo.vfs.impl.archive.ArchiveFile;
 
+import javax.annotation.Nullable;
+
 /**
  * @author VISTALL
  * @since 11.12.13.
@@ -54,21 +56,21 @@ public class DotNetArchiveFile implements ArchiveFile
 
 	private String myName;
 
-	public DotNetArchiveFile(@NotNull File originalFile, ModuleParser moduleParser, long l)
+	public DotNetArchiveFile(@Nonnull File originalFile, ModuleParser moduleParser, long l)
 	{
 		myArchiveEntries = map(originalFile.getPath(), moduleParser, l);
 		myName = originalFile.getName();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getName()
 	{
 		return myName;
 	}
 
-	@NotNull
-	private static Map<String, ArchiveEntry> map(@NotNull String originalFilePath, @NotNull ModuleParser moduleParser, long lastModifier)
+	@Nonnull
+	private static Map<String, ArchiveEntry> map(@Nonnull String originalFilePath, @Nonnull ModuleParser moduleParser, long lastModifier)
 	{
 		Ref<ModuleParser> moduleParserRef = Ref.create(moduleParser);
 		TypeDef[] typeDefs = moduleParser.getTypeDefs();
@@ -214,7 +216,7 @@ public class DotNetArchiveFile implements ArchiveFile
 		return ((DotNetFileArchiveEntry) archiveEntry).createInputStream();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Iterator<? extends ArchiveEntry> entries()
 	{

@@ -18,7 +18,7 @@ package consulo.internal.dotnet.msil.decompiler.textBuilder.util;
 
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import com.intellij.util.PairFunction;
@@ -31,14 +31,14 @@ public class StubBlockUtil
 {
 	private static final String ourHeader = "// Consulo API Decompiler stub source generated from bytecode\n" + "// Implementation of methods is not available";
 
-	@NotNull
+	@Nonnull
 	public static CharSequence buildText(List<? extends StubBlock> blocks)
 	{
 		return buildText(blocks, ourHeader);
 	}
 
-	@NotNull
-	public static CharSequence buildText(List<? extends StubBlock> blocks, @NotNull String header)
+	@Nonnull
+	public static CharSequence buildText(List<? extends StubBlock> blocks, @Nonnull String header)
 	{
 		StringBuilder builder = new StringBuilder();
 		builder.append(header).append('\n').append('\n');

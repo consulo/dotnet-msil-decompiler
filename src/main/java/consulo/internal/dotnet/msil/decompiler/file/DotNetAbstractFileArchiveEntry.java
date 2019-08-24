@@ -1,12 +1,5 @@
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.InputStream;
-import java.util.List;
-
-import org.jetbrains.annotations.NotNull;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.AtomicNotNullLazyValue;
 import com.intellij.openapi.util.NotNullLazyValue;
 import com.intellij.openapi.util.Ref;
@@ -15,6 +8,13 @@ import com.intellij.util.ArrayUtil;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
+import consulo.logging.Logger;
+
+import javax.annotation.Nonnull;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.InputStream;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -22,7 +22,7 @@ import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
  */
 public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiveEntry
 {
-	private static final Logger LOGGER = Logger.getInstance(DotNetAbstractFileArchiveEntry.class);
+	private static final Logger LOG = Logger.getInstance(DotNetAbstractFileArchiveEntry.class);
 
 	private static class LazyValue extends AtomicNotNullLazyValue<byte[]>
 	{
@@ -37,7 +37,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 			myEntry = entry;
 		}
 
-		@NotNull
+		@Nonnull
 		@Override
 		protected byte[] compute()
 		{
@@ -54,7 +54,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 				}
 				catch(Throwable e)
 				{
-					LOGGER.error("File '" + new File(myOriginalFilePath).getName() + "' cant decompiled correctly please create issue with this file", e);
+					LOG.error("File '" + new File(myOriginalFilePath).getName() + "' cant decompiled correctly please create issue with this file", e);
 					return ArrayUtil.EMPTY_BYTE_ARRAY;
 				}
 
@@ -68,7 +68,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 			}
 			catch(Throwable e)
 			{
-				LOGGER.error("File '" + new File(myOriginalFilePath).getName() + "' cant decompiled correctly please create issue with this file", e);
+				LOG.error("File '" + new File(myOriginalFilePath).getName() + "' cant decompiled correctly please create issue with this file", e);
 				return ArrayUtil.EMPTY_BYTE_ARRAY;
 			}
 			finally
@@ -83,14 +83,14 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 
 	private final NotNullLazyValue<byte[]> myByteArrayValue;
 
-	public DotNetAbstractFileArchiveEntry(String originalFilePath, @NotNull Ref<ModuleParser> moduleParserRef, String name, long lastModified)
+	public DotNetAbstractFileArchiveEntry(String originalFilePath, @Nonnull Ref<ModuleParser> moduleParserRef, String name, long lastModified)
 	{
 		myName = name;
 		myLastModified = lastModified;
 		myByteArrayValue = new LazyValue(originalFilePath, moduleParserRef, this);
 	}
 
-	@NotNull
+	@Nonnull
 	public abstract List<? extends StubBlock> build();
 
 	public void drop()
@@ -122,14 +122,14 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getNamespace()
 	{
 		return "";
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public InputStream createInputStream()
 	{
 		return new ByteArrayInputStream(myByteArrayValue.getValue());

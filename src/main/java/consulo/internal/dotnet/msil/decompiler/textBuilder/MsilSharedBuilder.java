@@ -16,13 +16,6 @@
 
 package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
-import java.math.BigInteger;
-import java.util.Collections;
-import java.util.List;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.BitUtil;
 import com.intellij.util.PairFunction;
@@ -33,6 +26,13 @@ import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import consulo.internal.dotnet.msil.decompiler.util.MsilUtil;
+import consulo.logging.Logger;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -40,7 +40,7 @@ import consulo.internal.dotnet.msil.decompiler.util.MsilUtil;
  */
 public class MsilSharedBuilder implements SignatureConstants
 {
-	private static final Logger LOGGER = Logger.getInstance(MsilSharedBuilder.class);
+	private static final Logger LOG = Logger.getInstance(MsilSharedBuilder.class);
 
 	private static final String[] KEYWORDS = new String[]{
 			"virtual",
@@ -383,7 +383,7 @@ public class MsilSharedBuilder implements SignatureConstants
 		block.getBlocks().add(new LineStubBlock(builder));
 	}
 
-	protected static void processGeneric(StringBuilder builder, @NotNull final GenericParamOwner paramOwner, @Nullable final TypeDef typeDef)
+	protected static void processGeneric(StringBuilder builder, @Nonnull final GenericParamOwner paramOwner, @Nullable final TypeDef typeDef)
 	{
 		List<GenericParamDef> genericParams = paramOwner.getGenericParams();
 		if(genericParams.isEmpty())
@@ -563,7 +563,7 @@ public class MsilSharedBuilder implements SignatureConstants
 				XGenericTypeSignature typeGenericTypeSignature = (XGenericTypeSignature) signature;
 				if(typeDef == null)
 				{
-					LOGGER.error("TypeDef is null", new Exception());
+					LOG.error("TypeDef is null", new Exception());
 					builder.append("GENERICERROR");
 					return;
 				}
@@ -571,7 +571,7 @@ public class MsilSharedBuilder implements SignatureConstants
 				GenericParamDef genericParamDef = MsilUtil.safeGet(typeDef.getGenericParams(), typeGenericTypeSignature.getIndex());
 				if(genericParamDef == null)
 				{
-					LOGGER.error("Invalid generic index for type " + typeDef.getFullName() + ", index: " + typeGenericTypeSignature.getIndex());
+					LOG.error("Invalid generic index for type " + typeDef.getFullName() + ", index: " + typeGenericTypeSignature.getIndex());
 					builder.append("UNK").append(typeGenericTypeSignature.getIndex());
 				}
 				else
@@ -595,7 +595,7 @@ public class MsilSharedBuilder implements SignatureConstants
 		}
 	}
 
-	public static void appendTypeRefFullName(@NotNull StringBuilder builder, String namespace, @NotNull String name)
+	public static void appendTypeRefFullName(@Nonnull StringBuilder builder, String namespace, @Nonnull String name)
 	{
 		if(!StringUtil.isEmpty(namespace))
 		{
@@ -621,7 +621,7 @@ public class MsilSharedBuilder implements SignatureConstants
 		}
 	}
 
-	public static void toStringFromDefRefSpec(@NotNull StringBuilder builder, @NotNull Object o, @Nullable TypeDef typeDef)
+	public static void toStringFromDefRefSpec(@Nonnull StringBuilder builder, @Nonnull Object o, @Nullable TypeDef typeDef)
 	{
 		if(o instanceof TypeDef)
 		{

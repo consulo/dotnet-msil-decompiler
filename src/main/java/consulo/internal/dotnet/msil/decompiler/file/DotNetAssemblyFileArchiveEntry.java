@@ -16,15 +16,15 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import java.util.Collections;
-import java.util.List;
-
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.util.Ref;
 import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+
+import javax.annotation.Nonnull;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -42,7 +42,7 @@ public class DotNetAssemblyFileArchiveEntry extends DotNetAbstractFileArchiveEnt
 		myAssemblyInfo = assemblyInfo;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<? extends StubBlock> build()
 	{

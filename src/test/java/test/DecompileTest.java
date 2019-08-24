@@ -22,8 +22,8 @@ import java.util.Iterator;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import org.junit.Assert;
 import org.junit.ComparisonFailure;
 import org.junit.Test;
@@ -101,7 +101,7 @@ public class DecompileTest extends Assert
 		doTest("genericParameterCustomAttributes/FSharpCore.dll");
 	}
 
-	public static void doTest(@NotNull String path, @Nullable String fileToTest) throws Throwable
+	public static void doTest(@Nonnull String path, @Nullable String fileToTest) throws Throwable
 	{
 		File file = PathSearcher.getTestPath(path);
 		if(!file.exists())
@@ -147,7 +147,7 @@ public class DecompileTest extends Assert
 		}
 	}
 
-	public static void doTest(@NotNull String path) throws Throwable
+	public static void doTest(@Nonnull String path) throws Throwable
 	{
 		File file = PathSearcher.getTestPath(path);
 		if(!file.exists())

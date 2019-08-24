@@ -18,7 +18,7 @@ package consulo.internal.dotnet.msil.decompiler.textBuilder.util;
 
 import java.nio.charset.Charset;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.CharsetToolkit;
 import consulo.internal.dotnet.asm.io.ByteBuffer;
@@ -47,8 +47,8 @@ public class XStubUtil
 		return (value & mod) == v;
 	}
 
-	@NotNull
-	public static CharSequence getString(@NotNull ByteBuffer byteBuffer, @NotNull Charset charset)
+	@Nonnull
+	public static CharSequence getString(@Nonnull ByteBuffer byteBuffer, @Nonnull Charset charset)
 	{
 		int b = byteBuffer.get() & 0xFF;
 		if(b == 0xFF)
@@ -70,8 +70,8 @@ public class XStubUtil
 		}
 	}
 
-	@NotNull
-	public static CharSequence escapeChars(@NotNull CharSequence charSequence)
+	@Nonnull
+	public static CharSequence escapeChars(@Nonnull CharSequence charSequence)
 	{
 		final int length = charSequence.length();
 		StringBuilder builder = new StringBuilder(length);
@@ -83,7 +83,7 @@ public class XStubUtil
 		return builder.capacity() == length ? charSequence : builder;
 	}
 
-	@NotNull
+	@Nonnull
 	public static Object escapeChar(char a)
 	{
 		switch(a)

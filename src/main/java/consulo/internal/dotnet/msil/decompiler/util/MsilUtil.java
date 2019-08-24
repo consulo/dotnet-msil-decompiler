@@ -18,7 +18,7 @@ package consulo.internal.dotnet.msil.decompiler.util;
 
 import java.util.List;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL

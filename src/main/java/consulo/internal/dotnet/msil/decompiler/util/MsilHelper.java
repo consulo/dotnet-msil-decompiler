@@ -16,7 +16,7 @@
 
 package consulo.internal.dotnet.msil.decompiler.util;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.openapi.util.text.StringUtil;
 
 /**
@@ -33,16 +33,16 @@ public class MsilHelper
 	public static final String STATIC_CONSTRUCTOR_NAME = ".cctor";
 	public static final String ENUM_VALUE_FIEND_NAME = "value__";
 
-	@NotNull
-	public static String prepareForUser(@NotNull String name)
+	@Nonnull
+	public static String prepareForUser(@Nonnull String name)
 	{
 		String newName = cutGenericMarker(name);
 		newName = newName.replace(NESTED_SEPARATOR_IN_NAME, NORMAL_SEPARATOR_IN_NAME);
 		return newName;
 	}
 
-	@NotNull
-	public static String cutGenericMarker(@NotNull String name)
+	@Nonnull
+	public static String cutGenericMarker(@Nonnull String name)
 	{
 		int nested = name.lastIndexOf(NESTED_SEPARATOR_IN_NAME);
 		int i = name.lastIndexOf(GENERIC_MARKER_IN_NAME);

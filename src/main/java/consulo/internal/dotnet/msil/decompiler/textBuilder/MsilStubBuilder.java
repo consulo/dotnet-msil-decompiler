@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
@@ -31,7 +31,7 @@ import consulo.internal.dotnet.asm.mbel.TypeDef;
  */
 public class MsilStubBuilder extends MsilSharedBuilder
 {
-	@NotNull
+	@Nonnull
 	public static List<? extends StubBlock> parseAssemblyInfo(AssemblyInfo assemblyInfo)
 	{
 		StubBlock stubBlock = new StubBlock(".assembly", null, StubBlock.BRACES);
@@ -39,8 +39,8 @@ public class MsilStubBuilder extends MsilSharedBuilder
 		return Collections.singletonList(stubBlock);
 	}
 
-	@NotNull
-	public static List<? extends StubBlock> parseTypeDef(@NotNull List<TypeDef> typeDefs)
+	@Nonnull
+	public static List<? extends StubBlock> parseTypeDef(@Nonnull List<TypeDef> typeDefs)
 	{
 		List<StubBlock> list = new ArrayList<>(typeDefs.size());
 		for(int i = 0; i < typeDefs.size(); i++)

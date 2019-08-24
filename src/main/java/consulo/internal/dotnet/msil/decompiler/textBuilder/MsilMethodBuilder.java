@@ -16,24 +16,18 @@
 
 package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
-import java.util.List;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.util.BitUtil;
 import consulo.internal.dotnet.asm.mbel.CustomAttribute;
 import consulo.internal.dotnet.asm.mbel.MethodDef;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
-import consulo.internal.dotnet.asm.signature.CallingConvention;
-import consulo.internal.dotnet.asm.signature.MethodAttributes;
-import consulo.internal.dotnet.asm.signature.MethodSignature;
-import consulo.internal.dotnet.asm.signature.ParamAttributes;
-import consulo.internal.dotnet.asm.signature.ParameterInfo;
-import consulo.internal.dotnet.asm.signature.ParameterSignature;
-import consulo.internal.dotnet.asm.signature.TypeSignature;
+import consulo.internal.dotnet.asm.signature.*;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -157,8 +151,8 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 		block.getBlocks().add(e);
 	}
 
-	public static void buildParameters(@NotNull StringBuilder builder,
-			@NotNull final List<ParameterSignature> parameters,
+	public static void buildParameters(@Nonnull StringBuilder builder,
+			@Nonnull final List<ParameterSignature> parameters,
 			@Nullable final TypeDef typeDef,
 			final boolean appendName)
 	{

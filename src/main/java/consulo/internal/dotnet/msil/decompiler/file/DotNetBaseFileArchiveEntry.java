@@ -16,16 +16,16 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import java.util.Collections;
-import java.util.List;
-
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.util.Ref;
 import com.intellij.util.SmartList;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+
+import javax.annotation.Nonnull;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -44,19 +44,19 @@ public class DotNetBaseFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 		myNamespace = typeDef.getNamespace();
 	}
 
-	public void addTypeDef(@NotNull TypeDef typeDef)
+	public void addTypeDef(@Nonnull TypeDef typeDef)
 	{
 		myTypeDefs.add(typeDef);
 	}
 
 	@Override
-	@NotNull
+	@Nonnull
 	public String getNamespace()
 	{
 		return myNamespace;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public List<? extends StubBlock> build()
 	{
