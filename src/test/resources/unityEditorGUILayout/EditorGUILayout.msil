@@ -1,0 +1,3768 @@
+// Consulo API Decompiler stub source generated from bytecode
+// Implementation of methods is not available
+
+.class public sealed UnityEditor.EditorGUILayout extends System.Object
+{
+	.class nested public ToggleGroupScope extends UnityEngine.GUI/Scope
+	{
+		.field private bool '<enabled>k__BackingField'
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.property bool enabled
+		{
+			.get bool UnityEditor.EditorGUILayout/ToggleGroupScope::get_enabled()
+
+			.set void UnityEditor.EditorGUILayout/ToggleGroupScope::set_enabled(bool)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(string label, bool toggle)
+		{
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(class UnityEngine.GUIContent label, bool toggle)
+		{
+		}
+
+		.method public hidebysig specialname bool get_enabled()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig specialname void set_enabled(bool 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig virtual void CloseScope()
+		{
+		}
+	}
+
+	.class nested public HorizontalScope extends UnityEngine.GUI/Scope
+	{
+		.field private valuetype UnityEngine.Rect '<rect>k__BackingField'
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.property valuetype UnityEngine.Rect rect
+		{
+			.get valuetype UnityEngine.Rect UnityEditor.EditorGUILayout/HorizontalScope::get_rect()
+
+			.set void UnityEditor.EditorGUILayout/HorizontalScope::set_rect(valuetype UnityEngine.Rect)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [1]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [2]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method assembly hidebysig specialname rtspecialname void .ctor(class UnityEngine.GUIContent content, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [3]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname valuetype UnityEngine.Rect get_rect()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig specialname void set_rect(valuetype UnityEngine.Rect 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig virtual void CloseScope()
+		{
+		}
+	}
+
+	.class nested public VerticalScope extends UnityEngine.GUI/Scope
+	{
+		.field private valuetype UnityEngine.Rect '<rect>k__BackingField'
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.property valuetype UnityEngine.Rect rect
+		{
+			.get valuetype UnityEngine.Rect UnityEditor.EditorGUILayout/VerticalScope::get_rect()
+
+			.set void UnityEditor.EditorGUILayout/VerticalScope::set_rect(valuetype UnityEngine.Rect)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [1]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [2]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method assembly hidebysig specialname rtspecialname void .ctor(class UnityEngine.GUIContent content, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [3]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname valuetype UnityEngine.Rect get_rect()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig specialname void set_rect(valuetype UnityEngine.Rect 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig virtual void CloseScope()
+		{
+		}
+	}
+
+	.class nested public ScrollViewScope extends UnityEngine.GUI/Scope
+	{
+		.field private valuetype UnityEngine.Vector2 '<scrollPosition>k__BackingField'
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.field private bool '<handleScrollWheel>k__BackingField'
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.property valuetype UnityEngine.Vector2 scrollPosition
+		{
+			.get valuetype UnityEngine.Vector2 UnityEditor.EditorGUILayout/ScrollViewScope::get_scrollPosition()
+
+			.set void UnityEditor.EditorGUILayout/ScrollViewScope::set_scrollPosition(valuetype UnityEngine.Vector2)
+		}
+
+		.property bool handleScrollWheel
+		{
+			.get bool UnityEditor.EditorGUILayout/ScrollViewScope::get_handleScrollWheel()
+
+			.set void UnityEditor.EditorGUILayout/ScrollViewScope::set_handleScrollWheel(bool)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [2]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowHorizontal, bool alwaysShowVertical, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [4]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUIStyle horizontalScrollbar, class UnityEngine.GUIStyle verticalScrollbar, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [4]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [3]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowHorizontal, bool alwaysShowVertical, class UnityEngine.GUIStyle horizontalScrollbar, class UnityEngine.GUIStyle verticalScrollbar, class UnityEngine.GUIStyle background, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [7]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method assembly hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowHorizontal, bool alwaysShowVertical, class UnityEngine.GUIStyle horizontalScrollbar, class UnityEngine.GUIStyle verticalScrollbar, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [6]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname valuetype UnityEngine.Vector2 get_scrollPosition()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig specialname void set_scrollPosition(valuetype UnityEngine.Vector2 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname bool get_handleScrollWheel()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname void set_handleScrollWheel(bool 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig virtual void CloseScope()
+		{
+		}
+	}
+
+	.class nested assembly VerticalScrollViewScope extends UnityEngine.GUI/Scope
+	{
+		.field private valuetype UnityEngine.Vector2 '<scrollPosition>k__BackingField'
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.field private bool '<handleScrollWheel>k__BackingField'
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.property valuetype UnityEngine.Vector2 scrollPosition
+		{
+			.get valuetype UnityEngine.Vector2 UnityEditor.EditorGUILayout/VerticalScrollViewScope::get_scrollPosition()
+
+			.set void UnityEditor.EditorGUILayout/VerticalScrollViewScope::set_scrollPosition(valuetype UnityEngine.Vector2)
+		}
+
+		.property bool handleScrollWheel
+		{
+			.get bool UnityEditor.EditorGUILayout/VerticalScrollViewScope::get_handleScrollWheel()
+
+			.set void UnityEditor.EditorGUILayout/VerticalScrollViewScope::set_handleScrollWheel(bool)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [2]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowVertical, class UnityEngine.GUIStyle verticalScrollbar, class UnityEngine.GUIStyle background, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [5]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname valuetype UnityEngine.Vector2 get_scrollPosition()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig specialname void set_scrollPosition(valuetype UnityEngine.Vector2 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname bool get_handleScrollWheel()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname void set_handleScrollWheel(bool 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig virtual void CloseScope()
+		{
+		}
+	}
+
+	.class nested assembly HorizontalScrollViewScope extends UnityEngine.GUI/Scope
+	{
+		.field private valuetype UnityEngine.Vector2 '<scrollPosition>k__BackingField'
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.field private bool '<handleScrollWheel>k__BackingField'
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.property valuetype UnityEngine.Vector2 scrollPosition
+		{
+			.get valuetype UnityEngine.Vector2 UnityEditor.EditorGUILayout/HorizontalScrollViewScope::get_scrollPosition()
+
+			.set void UnityEditor.EditorGUILayout/HorizontalScrollViewScope::set_scrollPosition(valuetype UnityEngine.Vector2)
+		}
+
+		.property bool handleScrollWheel
+		{
+			.get bool UnityEditor.EditorGUILayout/HorizontalScrollViewScope::get_handleScrollWheel()
+
+			.set void UnityEditor.EditorGUILayout/HorizontalScrollViewScope::set_handleScrollWheel(bool)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [2]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowHorizontal, class UnityEngine.GUIStyle horizontalScrollbar, class UnityEngine.GUIStyle background, class UnityEngine.GUILayoutOption[] options)
+		{
+			.param [5]
+
+			.custom System.ParamArrayAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname valuetype UnityEngine.Vector2 get_scrollPosition()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig specialname void set_scrollPosition(valuetype UnityEngine.Vector2 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname bool get_handleScrollWheel()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method public hidebysig specialname void set_handleScrollWheel(bool 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig virtual void CloseScope()
+		{
+		}
+	}
+
+	.class nested public FadeGroupScope extends UnityEngine.GUI/Scope
+	{
+		.field private bool '<visible>k__BackingField'
+
+		.custom System.Diagnostics.DebuggerBrowsableAttribute::.ctor(valuetype System.Diagnostics.DebuggerBrowsableState) =
+		(
+			01 00 00 00 00 00 00 00
+		)
+
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+
+		.field private initonly float32 m_Value
+
+		.property bool visible
+		{
+			.get bool UnityEditor.EditorGUILayout/FadeGroupScope::get_visible()
+
+			.set void UnityEditor.EditorGUILayout/FadeGroupScope::set_visible(bool)
+		}
+
+		.method public hidebysig specialname rtspecialname void .ctor(float32 'value')
+		{
+		}
+
+		.method public hidebysig specialname bool get_visible()
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig specialname void set_visible(bool 'value')
+		{
+			.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+			(
+				01 00 00 00
+			)
+		}
+
+		.method protected hidebysig virtual void CloseScope()
+		{
+		}
+	}
+
+	.field assembly static valuetype UnityEngine.Rect s_LastRect
+
+	.field assembly static literal float32 kPlatformTabWidth = float32(30.0)
+
+	.field assembly static class UnityEditor.SavedBool s_SelectedDefault
+
+	.field private static class UnityEditor.TargetChoiceHandler/TargetChoiceMenuFunction '<>f__mg$cache0'
+
+	.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+	(
+		01 00 00 00
+	)
+
+	.property float32 kLabelFloatMinW
+	{
+		.get float32 UnityEditor.EditorGUILayout::get_kLabelFloatMinW()
+	}
+
+	.property float32 kLabelFloatMaxW
+	{
+		.get float32 UnityEditor.EditorGUILayout::get_kLabelFloatMaxW()
+	}
+
+	.method public hidebysig specialname rtspecialname void .ctor()
+	{
+	}
+
+	.method assembly static hidebysig specialname float32 get_kLabelFloatMinW()
+	{
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig specialname float32 get_kLabelFloatMaxW()
+	{
+		.custom System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Foldout(bool foldout, string content)
+	{
+		.custom UnityEngine.Internal.ExcludeFromDocsAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Foldout(bool foldout, string content, class UnityEngine.GUIStyle style)
+	{
+		.param [3]
+
+		.custom UnityEngine.Internal.DefaultValueAttribute::.ctor(string) =
+		(
+			01 00 14 45 64 69 74 6F 72 53 74 79 6C 65 73 2E
+			66 6F 6C 64 6F 75 74 00 00
+		)
+	}
+
+	.method public static hidebysig bool Foldout(bool foldout, class UnityEngine.GUIContent content)
+	{
+		.custom UnityEngine.Internal.ExcludeFromDocsAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Foldout(bool foldout, class UnityEngine.GUIContent content, class UnityEngine.GUIStyle style)
+	{
+		.param [3]
+
+		.custom UnityEngine.Internal.DefaultValueAttribute::.ctor(string) =
+		(
+			01 00 14 45 64 69 74 6F 72 53 74 79 6C 65 73 2E
+			66 6F 6C 64 6F 75 74 00 00
+		)
+	}
+
+	.method public static hidebysig bool Foldout(bool foldout, string content, bool toggleOnLabelClick)
+	{
+		.custom UnityEngine.Internal.ExcludeFromDocsAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Foldout(bool foldout, string content, bool toggleOnLabelClick, class UnityEngine.GUIStyle style)
+	{
+		.param [4]
+
+		.custom UnityEngine.Internal.DefaultValueAttribute::.ctor(string) =
+		(
+			01 00 14 45 64 69 74 6F 72 53 74 79 6C 65 73 2E
+			66 6F 6C 64 6F 75 74 00 00
+		)
+	}
+
+	.method public static hidebysig bool Foldout(bool foldout, class UnityEngine.GUIContent content, bool toggleOnLabelClick)
+	{
+		.custom UnityEngine.Internal.ExcludeFromDocsAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Foldout(bool foldout, class UnityEngine.GUIContent content, bool toggleOnLabelClick, class UnityEngine.GUIStyle style)
+	{
+		.param [4]
+
+		.custom UnityEngine.Internal.DefaultValueAttribute::.ctor(string) =
+		(
+			01 00 14 45 64 69 74 6F 72 53 74 79 6C 65 73 2E
+			66 6F 6C 64 6F 75 74 00 00
+		)
+	}
+
+	.method public static hidebysig void PrefixLabel(string label)
+	{
+		.custom UnityEngine.Internal.ExcludeFromDocsAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void PrefixLabel(string label, class UnityEngine.GUIStyle followingStyle)
+	{
+		.param [2]
+
+		.custom UnityEngine.Internal.DefaultValueAttribute::.ctor(string) =
+		(
+			01 00 08 22 42 75 74 74 6F 6E 22 00 00
+		)
+	}
+
+	.method public static hidebysig void PrefixLabel(string label, class UnityEngine.GUIStyle followingStyle, class UnityEngine.GUIStyle labelStyle)
+	{
+	}
+
+	.method public static hidebysig void PrefixLabel(class UnityEngine.GUIContent label)
+	{
+		.custom UnityEngine.Internal.ExcludeFromDocsAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void PrefixLabel(class UnityEngine.GUIContent label, class UnityEngine.GUIStyle followingStyle)
+	{
+		.param [2]
+
+		.custom UnityEngine.Internal.DefaultValueAttribute::.ctor(string) =
+		(
+			01 00 08 22 42 75 74 74 6F 6E 22 00 00
+		)
+	}
+
+	.method public static hidebysig void PrefixLabel(class UnityEngine.GUIContent label, class UnityEngine.GUIStyle followingStyle, class UnityEngine.GUIStyle labelStyle)
+	{
+	}
+
+	.method public static hidebysig void LabelField(string label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void LabelField(string label, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void LabelField(class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void LabelField(class UnityEngine.GUIContent label, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void LabelField(string label, string label2, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void LabelField(string label, string label2, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void LabelField(class UnityEngine.GUIContent label, class UnityEngine.GUIContent label2, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void LabelField(class UnityEngine.GUIContent label, class UnityEngine.GUIContent label2, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig bool LinkLabel(string label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig bool LinkLabel(class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Toggle(bool 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Toggle(string label, bool 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Toggle(class UnityEngine.GUIContent label, bool 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Toggle(bool 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Toggle(string label, bool 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool Toggle(class UnityEngine.GUIContent label, bool 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool ToggleLeft(string label, bool 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool ToggleLeft(class UnityEngine.GUIContent label, bool 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool ToggleLeft(string label, bool 'value', class UnityEngine.GUIStyle labelStyle, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool ToggleLeft(class UnityEngine.GUIContent label, bool 'value', class UnityEngine.GUIStyle labelStyle, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TextField(string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TextField(string text, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TextField(string label, string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TextField(string label, string text, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TextField(class UnityEngine.GUIContent label, string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TextField(class UnityEngine.GUIContent label, string text, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string DelayedTextField(string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string DelayedTextField(string text, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string DelayedTextField(string label, string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string DelayedTextField(string label, string text, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string DelayedTextField(class UnityEngine.GUIContent label, string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string DelayedTextField(class UnityEngine.GUIContent label, string text, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void DelayedTextField(class UnityEditor.SerializedProperty property, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void DelayedTextField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig string ToolbarSearchField(string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig string ToolbarSearchField(string text, string[] searchModes, int32& searchMode, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TextArea(string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TextArea(string text, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void SelectableLabel(string text, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void SelectableLabel(string text, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig class UnityEngine.Event KeyEventField(class UnityEngine.Event e, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string PasswordField(string password, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string PasswordField(string password, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string PasswordField(string label, string password, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string PasswordField(string label, string password, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string PasswordField(class UnityEngine.GUIContent label, string password, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string PasswordField(class UnityEngine.GUIContent label, string password, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void VUMeterHorizontal(float32 'value', float32 peak, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void VUMeterHorizontal(float32 'value', valuetype UnityEditor.EditorGUI/VUMeter/SmoothingData& data, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 FloatField(float32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 FloatField(float32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 FloatField(string label, float32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 FloatField(string label, float32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 FloatField(class UnityEngine.GUIContent label, float32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 FloatField(class UnityEngine.GUIContent label, float32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 DelayedFloatField(float32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 DelayedFloatField(float32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 DelayedFloatField(string label, float32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 DelayedFloatField(string label, float32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 DelayedFloatField(class UnityEngine.GUIContent label, float32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 DelayedFloatField(class UnityEngine.GUIContent label, float32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void DelayedFloatField(class UnityEditor.SerializedProperty property, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void DelayedFloatField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DoubleField(float64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DoubleField(float64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DoubleField(string label, float64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DoubleField(string label, float64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DoubleField(class UnityEngine.GUIContent label, float64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DoubleField(class UnityEngine.GUIContent label, float64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DelayedDoubleField(float64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DelayedDoubleField(float64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DelayedDoubleField(string label, float64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DelayedDoubleField(string label, float64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DelayedDoubleField(class UnityEngine.GUIContent label, float64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float64 DelayedDoubleField(class UnityEngine.GUIContent label, float64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntField(int32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntField(int32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntField(string label, int32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntField(string label, int32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntField(class UnityEngine.GUIContent label, int32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntField(class UnityEngine.GUIContent label, int32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 DelayedIntField(int32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 DelayedIntField(int32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 DelayedIntField(string label, int32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 DelayedIntField(string label, int32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 DelayedIntField(class UnityEngine.GUIContent label, int32 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 DelayedIntField(class UnityEngine.GUIContent label, int32 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void DelayedIntField(class UnityEditor.SerializedProperty property, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void DelayedIntField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int64 LongField(int64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int64 LongField(int64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int64 LongField(string label, int64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int64 LongField(string label, int64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int64 LongField(class UnityEngine.GUIContent label, int64 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int64 LongField(class UnityEngine.GUIContent label, int64 'value', class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 Slider(float32 'value', float32 leftValue, float32 rightValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 Slider(string label, float32 'value', float32 leftValue, float32 rightValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig float32 Slider(class UnityEngine.GUIContent label, float32 'value', float32 leftValue, float32 rightValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void Slider(class UnityEditor.SerializedProperty property, float32 leftValue, float32 rightValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void Slider(class UnityEditor.SerializedProperty property, float32 leftValue, float32 rightValue, string label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void Slider(class UnityEditor.SerializedProperty property, float32 leftValue, float32 rightValue, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig float32 PowerSlider(string label, float32 'value', float32 leftValue, float32 rightValue, float32 power, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig float32 PowerSlider(class UnityEngine.GUIContent label, float32 'value', float32 leftValue, float32 rightValue, float32 power, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntSlider(int32 'value', int32 leftValue, int32 rightValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntSlider(string label, int32 'value', int32 leftValue, int32 rightValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntSlider(class UnityEngine.GUIContent label, int32 'value', int32 leftValue, int32 rightValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void IntSlider(class UnityEditor.SerializedProperty property, int32 leftValue, int32 rightValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void IntSlider(class UnityEditor.SerializedProperty property, int32 leftValue, int32 rightValue, string label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void IntSlider(class UnityEditor.SerializedProperty property, int32 leftValue, int32 rightValue, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void MinMaxSlider(float32& minValue, float32& maxValue, float32 minLimit, float32 maxLimit, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void MinMaxSlider(string label, float32& minValue, float32& maxValue, float32 minLimit, float32 maxLimit, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void MinMaxSlider(class UnityEngine.GUIContent label, float32& minValue, float32& maxValue, float32 minLimit, float32 maxLimit, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(int32 selectedIndex, string[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(int32 selectedIndex, string[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(int32 selectedIndex, class UnityEngine.GUIContent[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(int32 selectedIndex, class UnityEngine.GUIContent[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(string label, int32 selectedIndex, string[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(class UnityEngine.GUIContent label, int32 selectedIndex, string[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(string label, int32 selectedIndex, string[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(class UnityEngine.GUIContent label, int32 selectedIndex, class UnityEngine.GUIContent[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 Popup(class UnityEngine.GUIContent label, int32 selectedIndex, class UnityEngine.GUIContent[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig int32 Popup(class UnityEngine.GUIContent label, int32 selectedIndex, string[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void Popup(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void Popup(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent[] displayedOptions, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumPopup(class System.Enum selected, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumPopup(class System.Enum selected, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumPopup(string label, class System.Enum selected, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumPopup(string label, class System.Enum selected, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumPopup(class UnityEngine.GUIContent label, class System.Enum selected, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumPopup(class UnityEngine.GUIContent label, class System.Enum selected, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntPopup(int32 selectedValue, string[] displayedOptions, int32[] optionValues, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntPopup(int32 selectedValue, string[] displayedOptions, int32[] optionValues, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntPopup(int32 selectedValue, class UnityEngine.GUIContent[] displayedOptions, int32[] optionValues, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntPopup(int32 selectedValue, class UnityEngine.GUIContent[] displayedOptions, int32[] optionValues, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntPopup(string label, int32 selectedValue, string[] displayedOptions, int32[] optionValues, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntPopup(string label, int32 selectedValue, string[] displayedOptions, int32[] optionValues, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntPopup(class UnityEngine.GUIContent label, int32 selectedValue, class UnityEngine.GUIContent[] displayedOptions, int32[] optionValues, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 IntPopup(class UnityEngine.GUIContent label, int32 selectedValue, class UnityEngine.GUIContent[] displayedOptions, int32[] optionValues, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void IntPopup(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent[] displayedOptions, int32[] optionValues, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void IntPopup(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent[] displayedOptions, int32[] optionValues, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void IntPopup(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent[] displayedOptions, int32[] optionValues, class UnityEngine.GUIContent label, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 34 54 68 69 73 20 66 75 6E 63 74 69 6F 6E
+			20 69 73 20 6F 62 73 6F 6C 65 74 65 20 61 6E 64
+			20 74 68 65 20 73 74 79 6C 65 20 69 73 20 6E 6F
+			74 20 75 73 65 64 2E 00 00
+		)
+
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TagField(string tag, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TagField(string tag, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TagField(string label, string tag, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TagField(string label, string tag, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TagField(class UnityEngine.GUIContent label, string tag, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig string TagField(class UnityEngine.GUIContent label, string tag, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 LayerField(int32 layer, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 LayerField(int32 layer, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 LayerField(string label, int32 layer, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 LayerField(string label, int32 layer, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 LayerField(class UnityEngine.GUIContent label, int32 layer, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 LayerField(class UnityEngine.GUIContent label, int32 layer, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 MaskField(class UnityEngine.GUIContent label, int32 mask, string[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 MaskField(string label, int32 mask, string[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 MaskField(class UnityEngine.GUIContent label, int32 mask, string[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 MaskField(string label, int32 mask, string[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 MaskField(int32 mask, string[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig int32 MaskField(int32 mask, string[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumFlagsField(class System.Enum enumValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumFlagsField(class System.Enum enumValue, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumFlagsField(string label, class System.Enum enumValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumFlagsField(string label, class System.Enum enumValue, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumFlagsField(class UnityEngine.GUIContent label, class System.Enum enumValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumFlagsField(class UnityEngine.GUIContent label, class System.Enum enumValue, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.Object ObjectField(class UnityEngine.Object obj, class System.Type objType, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 46 43 68 65 63 6B 20 74 68 65 20 64 6F 63
+			73 20 66 6F 72 20 74 68 65 20 75 73 61 67 65 20
+			6F 66 20 74 68 65 20 6E 65 77 20 70 61 72 61 6D
+			65 74 65 72 20 27 61 6C 6C 6F 77 53 63 65 6E 65
+			4F 62 6A 65 63 74 73 27 2E 00 00
+		)
+
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.Object ObjectField(class UnityEngine.Object obj, class System.Type objType, bool allowSceneObjects, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.Object ObjectField(string label, class UnityEngine.Object obj, class System.Type objType, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 46 43 68 65 63 6B 20 74 68 65 20 64 6F 63
+			73 20 66 6F 72 20 74 68 65 20 75 73 61 67 65 20
+			6F 66 20 74 68 65 20 6E 65 77 20 70 61 72 61 6D
+			65 74 65 72 20 27 61 6C 6C 6F 77 53 63 65 6E 65
+			4F 62 6A 65 63 74 73 27 2E 00 00
+		)
+
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.Object ObjectField(string label, class UnityEngine.Object obj, class System.Type objType, bool allowSceneObjects, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.Object ObjectField(class UnityEngine.GUIContent label, class UnityEngine.Object obj, class System.Type objType, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 46 43 68 65 63 6B 20 74 68 65 20 64 6F 63
+			73 20 66 6F 72 20 74 68 65 20 75 73 61 67 65 20
+			6F 66 20 74 68 65 20 6E 65 77 20 70 61 72 61 6D
+			65 74 65 72 20 27 61 6C 6C 6F 77 53 63 65 6E 65
+			4F 62 6A 65 63 74 73 27 2E 00 00
+		)
+
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.Object ObjectField(class UnityEngine.GUIContent label, class UnityEngine.Object obj, class System.Type objType, bool allowSceneObjects, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void ObjectField(class UnityEditor.SerializedProperty property, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void ObjectField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void ObjectField(class UnityEditor.SerializedProperty property, class System.Type objType, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void ObjectField(class UnityEditor.SerializedProperty property, class System.Type objType, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig class UnityEngine.Object MiniThumbnailObjectField(class UnityEngine.GUIContent label, class UnityEngine.Object obj, class System.Type objType, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2 Vector2Field(string label, valuetype UnityEngine.Vector2 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2 Vector2Field(class UnityEngine.GUIContent label, valuetype UnityEngine.Vector2 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector3 Vector3Field(string label, valuetype UnityEngine.Vector3 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector3 Vector3Field(class UnityEngine.GUIContent label, valuetype UnityEngine.Vector3 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector4 Vector4Field(string label, valuetype UnityEngine.Vector4 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector4 Vector4Field(class UnityEngine.GUIContent label, valuetype UnityEngine.Vector4 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2Int Vector2IntField(string label, valuetype UnityEngine.Vector2Int 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2Int Vector2IntField(class UnityEngine.GUIContent label, valuetype UnityEngine.Vector2Int 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector3Int Vector3IntField(string label, valuetype UnityEngine.Vector3Int 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector3Int Vector3IntField(class UnityEngine.GUIContent label, valuetype UnityEngine.Vector3Int 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect RectField(valuetype UnityEngine.Rect 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect RectField(string label, valuetype UnityEngine.Rect 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect RectField(class UnityEngine.GUIContent label, valuetype UnityEngine.Rect 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.RectInt RectIntField(valuetype UnityEngine.RectInt 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.RectInt RectIntField(string label, valuetype UnityEngine.RectInt 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.RectInt RectIntField(class UnityEngine.GUIContent label, valuetype UnityEngine.RectInt 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Bounds BoundsField(valuetype UnityEngine.Bounds 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Bounds BoundsField(string label, valuetype UnityEngine.Bounds 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Bounds BoundsField(class UnityEngine.GUIContent label, valuetype UnityEngine.Bounds 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.BoundsInt BoundsIntField(valuetype UnityEngine.BoundsInt 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.BoundsInt BoundsIntField(string label, valuetype UnityEngine.BoundsInt 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.BoundsInt BoundsIntField(class UnityEngine.GUIContent label, valuetype UnityEngine.BoundsInt 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void PropertiesField(class UnityEngine.GUIContent label, class UnityEditor.SerializedProperty[] properties, class UnityEngine.GUIContent[] propertyLabels, float32 propertyLabelsWidth, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig int32 CycleButton(int32 selected, class UnityEngine.GUIContent[] options, class UnityEngine.GUIStyle style)
+	{
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Color ColorField(valuetype UnityEngine.Color 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Color ColorField(string label, valuetype UnityEngine.Color 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Color ColorField(class UnityEngine.GUIContent label, valuetype UnityEngine.Color 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Color ColorField(class UnityEngine.GUIContent label, valuetype UnityEngine.Color 'value', bool showEyedropper, bool showAlpha, bool hdr, class UnityEditor.ColorPickerHDRConfig hdrConfig, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 80 8E 55 73 65 20 45 64 69 74 6F 72 47 55
+			49 4C 61 79 6F 75 74 2E 43 6F 6C 6F 72 46 69 65
+			6C 64 28 47 55 49 43 6F 6E 74 65 6E 74 20 6C 61
+			62 65 6C 2C 20 43 6F 6C 6F 72 20 76 61 6C 75 65
+			2C 20 62 6F 6F 6C 20 73 68 6F 77 45 79 65 64 72
+			6F 70 70 65 72 2C 20 62 6F 6F 6C 20 73 68 6F 77
+			41 6C 70 68 61 2C 20 62 6F 6F 6C 20 68 64 72 2C
+			20 70 61 72 61 6D 73 20 47 55 49 4C 61 79 6F 75
+			74 4F 70 74 69 6F 6E 5B 5D 20 6F 70 74 69 6F 6E
+			73 29 00 00
+		)
+
+		.param [7]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Color ColorField(class UnityEngine.GUIContent label, valuetype UnityEngine.Color 'value', bool showEyedropper, bool showAlpha, bool hdr, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.AnimationCurve CurveField(class UnityEngine.AnimationCurve 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.AnimationCurve CurveField(string label, class UnityEngine.AnimationCurve 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.AnimationCurve CurveField(class UnityEngine.GUIContent label, class UnityEngine.AnimationCurve 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.AnimationCurve CurveField(class UnityEngine.AnimationCurve 'value', valuetype UnityEngine.Color color, valuetype UnityEngine.Rect ranges, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.AnimationCurve CurveField(string label, class UnityEngine.AnimationCurve 'value', valuetype UnityEngine.Color color, valuetype UnityEngine.Rect ranges, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class UnityEngine.AnimationCurve CurveField(class UnityEngine.GUIContent label, class UnityEngine.AnimationCurve 'value', valuetype UnityEngine.Color color, valuetype UnityEngine.Rect ranges, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void CurveField(class UnityEditor.SerializedProperty property, valuetype UnityEngine.Color color, valuetype UnityEngine.Rect ranges, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void CurveField(class UnityEditor.SerializedProperty property, valuetype UnityEngine.Color color, valuetype UnityEngine.Rect ranges, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool InspectorTitlebar(bool foldout, class UnityEngine.Object targetObj)
+	{
+	}
+
+	.method public static hidebysig bool InspectorTitlebar(bool foldout, class UnityEngine.Object targetObj, bool expandable)
+	{
+	}
+
+	.method public static hidebysig bool InspectorTitlebar(bool foldout, class UnityEngine.Object[] targetObjs)
+	{
+	}
+
+	.method public static hidebysig bool InspectorTitlebar(bool foldout, class UnityEngine.Object[] targetObjs, bool expandable)
+	{
+	}
+
+	.method public static hidebysig void InspectorTitlebar(class UnityEngine.Object[] targetObjs)
+	{
+	}
+
+	.method assembly static hidebysig bool ToggleTitlebar(bool foldout, class UnityEngine.GUIContent label, bool& toggleValue)
+	{
+	}
+
+	.method assembly static hidebysig bool ToggleTitlebar(bool foldout, class UnityEngine.GUIContent label, class UnityEditor.SerializedProperty property)
+	{
+	}
+
+	.method assembly static hidebysig bool FoldoutTitlebar(bool foldout, class UnityEngine.GUIContent label, bool skipIconSpacing)
+	{
+	}
+
+	.method assembly static hidebysig bool FoldoutInternal(bool foldout, class UnityEngine.GUIContent content, bool toggleOnLabelClick, class UnityEngine.GUIStyle style)
+	{
+	}
+
+	.method assembly static hidebysig uint32 LayerMaskField(uint32 layers, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.LayerMask LayerMaskField(valuetype UnityEngine.LayerMask layers, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void LayerMaskField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void HelpBox(string message, valuetype UnityEditor.MessageType 'type')
+	{
+	}
+
+	.method public static hidebysig void HelpBox(string message, valuetype UnityEditor.MessageType 'type', bool wide)
+	{
+	}
+
+	.method public static hidebysig void HelpBox(class UnityEngine.GUIContent content, [opt] bool wide)
+	{
+		.param [2] = bool(true)
+	}
+
+	.method assembly static hidebysig void PrefixLabelInternal(class UnityEngine.GUIContent label, class UnityEngine.GUIStyle followingStyle, class UnityEngine.GUIStyle labelStyle)
+	{
+	}
+
+	.method public static hidebysig void Space()
+	{
+	}
+
+	.method public static hidebysig void Separator()
+	{
+	}
+
+	.method public static hidebysig bool BeginToggleGroup(string label, bool toggle)
+	{
+	}
+
+	.method public static hidebysig bool BeginToggleGroup(class UnityEngine.GUIContent label, bool toggle)
+	{
+	}
+
+	.method public static hidebysig void EndToggleGroup()
+	{
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect BeginHorizontal(class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [1]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect BeginHorizontal(class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Rect BeginHorizontal(class UnityEngine.GUIContent content, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void EndHorizontal()
+	{
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect BeginVertical(class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [1]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect BeginVertical(class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Rect BeginVertical(class UnityEngine.GUIContent content, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void EndVertical()
+	{
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2 BeginScrollView(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2 BeginScrollView(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowHorizontal, bool alwaysShowVertical, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2 BeginScrollView(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUIStyle horizontalScrollbar, class UnityEngine.GUIStyle verticalScrollbar, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2 BeginScrollView(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Vector2 BeginScrollView(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowHorizontal, bool alwaysShowVertical, class UnityEngine.GUIStyle horizontalScrollbar, class UnityEngine.GUIStyle verticalScrollbar, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Vector2 BeginScrollView(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowHorizontal, bool alwaysShowVertical, class UnityEngine.GUIStyle horizontalScrollbar, class UnityEngine.GUIStyle verticalScrollbar, class UnityEngine.GUIStyle background, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [7]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Vector2 BeginVerticalScrollView(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Vector2 BeginVerticalScrollView(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowVertical, class UnityEngine.GUIStyle verticalScrollbar, class UnityEngine.GUIStyle background, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Vector2 BeginHorizontalScrollView(valuetype UnityEngine.Vector2 scrollPosition, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Vector2 BeginHorizontalScrollView(valuetype UnityEngine.Vector2 scrollPosition, bool alwaysShowHorizontal, class UnityEngine.GUIStyle horizontalScrollbar, class UnityEngine.GUIStyle background, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig void EndScrollView()
+	{
+	}
+
+	.method assembly static hidebysig void EndScrollView(bool handleScrollWheel)
+	{
+	}
+
+	.method public static hidebysig bool PropertyField(class UnityEditor.SerializedProperty property, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool PropertyField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool PropertyField(class UnityEditor.SerializedProperty property, bool includeChildren, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool PropertyField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, bool includeChildren, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect GetControlRect(class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [1]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect GetControlRect(bool hasLabel, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect GetControlRect(bool hasLabel, float32 height, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig valuetype UnityEngine.Rect GetControlRect(bool hasLabel, float32 height, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Rect GetSliderRect(bool hasLabel, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Rect GetToggleRect(bool hasLabel, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool BeginFadeGroup(float32 'value')
+	{
+	}
+
+	.method public static hidebysig void EndFadeGroup()
+	{
+	}
+
+	.method assembly static hidebysig int32 BeginPlatformGrouping(class UnityEditor.Build.BuildPlatform[] platforms, class UnityEngine.GUIContent defaultTab)
+	{
+	}
+
+	.method assembly static hidebysig int32 BeginPlatformGrouping(class UnityEditor.Build.BuildPlatform[] platforms, class UnityEngine.GUIContent defaultTab, class UnityEngine.GUIStyle style)
+	{
+	}
+
+	.method assembly static hidebysig void EndPlatformGrouping()
+	{
+	}
+
+	.method assembly static hidebysig void MultiSelectionObjectTitleBar(class UnityEngine.Object[] objects)
+	{
+	}
+
+	.method assembly static hidebysig bool BitToggleField(string label, class UnityEditor.SerializedProperty bitFieldProperty, int32 flag)
+	{
+	}
+
+	.method assembly static hidebysig void SortingLayerField(class UnityEngine.GUIContent label, class UnityEditor.SerializedProperty layerID, class UnityEngine.GUIStyle style)
+	{
+	}
+
+	.method assembly static hidebysig string TextFieldDropDown(string text, string[] dropDownElement)
+	{
+	}
+
+	.method assembly static hidebysig string TextFieldDropDown(class UnityEngine.GUIContent label, string text, string[] dropDownElement)
+	{
+	}
+
+	.method assembly static hidebysig string DelayedTextFieldDropDown(string text, string[] dropDownElement)
+	{
+	}
+
+	.method assembly static hidebysig string DelayedTextFieldDropDown(class UnityEngine.GUIContent label, string text, string[] dropDownElement)
+	{
+	}
+
+	.method public static hidebysig bool DropdownButton(class UnityEngine.GUIContent content, valuetype UnityEngine.FocusType focusType, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig bool DropdownButton(class UnityEngine.GUIContent content, valuetype UnityEngine.FocusType focusType, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig int32 AdvancedPopup(int32 selectedIndex, string[] displayedOptions, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig int32 AdvancedPopup(int32 selectedIndex, string[] displayedOptions, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskField(class System.Enum enumValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 46 69 65 6C 64
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskField(class System.Enum enumValue, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 46 69 65 6C 64
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskField(string label, class System.Enum enumValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 46 69 65 6C 64
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskField(string label, class System.Enum enumValue, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 46 69 65 6C 64
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskField(class UnityEngine.GUIContent label, class System.Enum enumValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 46 69 65 6C 64
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskField(class UnityEngine.GUIContent label, class System.Enum enumValue, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 46 69 65 6C 64
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskPopup(string label, class System.Enum selected, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 50 6F 70 75 70
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskPopup(string label, class System.Enum selected, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 50 6F 70 75 70
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskPopup(class UnityEngine.GUIContent label, class System.Enum selected, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 50 6F 70 75 70
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method public static hidebysig class System.Enum EnumMaskPopup(class UnityEngine.GUIContent label, class System.Enum selected, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 50 6F 70 75 70
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method private static hidebysig class System.Enum EnumMaskPopup(class UnityEngine.GUIContent label, class System.Enum selected, [out] int32& changedFlags, [out] bool& changedToValue, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.custom System.ObsoleteAttribute::.ctor(string) =
+		(
+			01 00 3E 45 6E 75 6D 4D 61 73 6B 50 6F 70 75 70
+			20 68 61 73 20 62 65 65 6E 20 64 65 70 72 65 63
+			61 74 65 64 2E 20 55 73 65 20 45 6E 75 6D 46 6C
+			61 67 73 46 69 65 6C 64 20 69 6E 73 74 65 61 64
+			2E 00 00
+		)
+
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig float32 AngularDial(class UnityEngine.GUIContent label, float32 angle, class UnityEngine.Texture thumbTexture, class UnityEngine.GUIStyle background, class UnityEngine.GUIStyle thumb, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [6]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig class UnityEngine.Gradient GradientField(class UnityEngine.Gradient 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig class UnityEngine.Gradient GradientField(string label, class UnityEngine.Gradient 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig class UnityEngine.Gradient GradientField(class UnityEngine.GUIContent label, class UnityEngine.Gradient 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig class UnityEngine.Gradient GradientField(class UnityEditor.SerializedProperty 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [2]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig class UnityEngine.Gradient GradientField(string label, class UnityEditor.SerializedProperty 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig class UnityEngine.Gradient GradientField(class UnityEngine.GUIContent label, class UnityEditor.SerializedProperty 'value', class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Color32 HexColorTextField(class UnityEngine.GUIContent label, valuetype UnityEngine.Color32 color, bool showAlpha, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig valuetype UnityEngine.Color32 HexColorTextField(class UnityEngine.GUIContent label, valuetype UnityEngine.Color32 color, bool showAlpha, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig bool IconButton(int32 id, class UnityEngine.GUIContent content, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void GameViewSizePopup(valuetype UnityEditor.GameViewSizeGroupType groupType, int32 selectedIndex, class UnityEditor.IGameViewSizeMenuUser gameView, class UnityEngine.GUIStyle style, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [5]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void SortingLayerField(class UnityEngine.GUIContent label, class UnityEditor.SerializedProperty layerID, class UnityEngine.GUIStyle style, class UnityEngine.GUIStyle labelStyle)
+	{
+	}
+
+	.method public static hidebysig float32 Knob(valuetype UnityEngine.Vector2 knobSize, float32 'value', float32 minValue, float32 maxValue, string unit, valuetype UnityEngine.Color backgroundColor, valuetype UnityEngine.Color activeColor, bool showValue, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [9]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void SliderWithTexture(class UnityEngine.GUIContent label, class UnityEditor.SerializedProperty property, float32 sliderMin, float32 sliderMax, float32 power, class UnityEngine.Texture2D sliderBackground, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [7]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig float32 SliderWithTexture(class UnityEngine.GUIContent label, float32 sliderValue, float32 sliderMin, float32 sliderMax, string formatString, class UnityEngine.Texture2D sliderBackground, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [7]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig float32 SliderWithTexture(class UnityEngine.GUIContent label, float32 sliderValue, float32 sliderMin, float32 sliderMax, string formatString, float32 textFieldMin, float32 textFieldMax, class UnityEngine.Texture2D sliderBackground, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [9]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void TargetChoiceField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [3]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method assembly static hidebysig void TargetChoiceField(class UnityEditor.SerializedProperty property, class UnityEngine.GUIContent label, class UnityEditor.TargetChoiceHandler/TargetChoiceMenuFunction func, class UnityEngine.GUILayoutOption[] options)
+	{
+		.param [4]
+
+		.custom System.ParamArrayAttribute::.ctor() =
+		(
+			01 00 00 00
+		)
+	}
+
+	.method private static hidebysig specialname rtspecialname void .cctor()
+	{
+	}
+}

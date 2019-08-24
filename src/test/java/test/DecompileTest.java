@@ -16,29 +16,29 @@
 
 package test;
 
-import java.io.File;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import org.junit.Assert;
-import org.junit.ComparisonFailure;
-import org.junit.Test;
-import consulo.internal.dotnet.msil.decompiler.Main;
-import consulo.internal.dotnet.msil.decompiler.file.DotNetArchiveFile;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.util.QualifiedName;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.msil.decompiler.Main;
+import consulo.internal.dotnet.msil.decompiler.file.DotNetArchiveFile;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
 import consulo.vfs.impl.archive.ArchiveEntry;
+import org.junit.Assert;
+import org.junit.ComparisonFailure;
+import org.junit.Test;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.io.File;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 /**
  * @author VISTALL
@@ -99,6 +99,12 @@ public class DecompileTest extends Assert
 	public void testGenericParameterCustomAttributes() throws Throwable
 	{
 		doTest("genericParameterCustomAttributes/FSharpCore.dll");
+	}
+
+	@Test
+	public void testUnityEditorGUILayout() throws Throwable
+	{
+		doTest("unityEditorGUILayout/UnityEditor.dll", "UnityEditor/EditorGUILayout.msil");
 	}
 
 	public static void doTest(@Nonnull String path, @Nullable String fileToTest) throws Throwable

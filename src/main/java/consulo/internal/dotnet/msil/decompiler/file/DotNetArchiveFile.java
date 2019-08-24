@@ -16,21 +16,6 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import gnu.trove.THashMap;
-
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Nonnull;
-
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.util.text.StringUtil;
@@ -43,8 +28,15 @@ import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import consulo.vfs.impl.archive.ArchiveEntry;
 import consulo.vfs.impl.archive.ArchiveFile;
+import gnu.trove.THashMap;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 /**
  * @author VISTALL
@@ -52,6 +44,8 @@ import javax.annotation.Nullable;
  */
 public class DotNetArchiveFile implements ArchiveFile
 {
+	public static final int VERSION = 2;
+
 	private final Map<String, ArchiveEntry> myArchiveEntries;
 
 	private String myName;

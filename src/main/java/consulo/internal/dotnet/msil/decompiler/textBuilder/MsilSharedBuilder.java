@@ -637,6 +637,20 @@ public class MsilSharedBuilder implements SignatureConstants
 				appendTypeRefFullName(builder, ((TypeRef) o).getNamespace(), ((TypeRef) o).getName());
 			}
 		}
+		else if(o instanceof NestedTypeRef)
+		{
+			TypeRef enclosingTypeRef = ((NestedTypeRef) o).getEnclosingTypeRef();
+			if(enclosingTypeRef != null)
+			{
+				toStringFromDefRefSpec(builder, enclosingTypeRef, null);
+				builder.append(MsilHelper.NESTED_SEPARATOR_IN_NAME);
+				appendValidName(builder, ((TypeRef) o).getName());
+			}
+			else
+			{
+				appendTypeRefFullName(builder, ((TypeRef) o).getNamespace(), ((TypeRef) o).getName());
+			}
+		}
 		else if(o instanceof TypeRef)
 		{
 			appendTypeRefFullName(builder, ((TypeRef) o).getNamespace(), ((TypeRef) o).getName());

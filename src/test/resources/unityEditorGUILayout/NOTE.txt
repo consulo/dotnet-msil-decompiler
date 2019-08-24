@@ -1,0 +1,7 @@
+From unity distribution
+
+Unity 2018.2.8f1
+
+Only for decompile test
+
+unity3d.com
