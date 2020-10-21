@@ -61,38 +61,38 @@ public class DecompileTest extends Assert
 	@Test
 	public void testNullRef() throws Throwable
 	{
-		doTest("nullRef/untitled168.exe", "Program.msil");
+		doTest("nullRef/untitled168.exe", "Program.il");
 	}
 
 	@Test
 	public void testInternalType() throws Throwable
 	{
-		doTest("internalType/untitled.dll", "InternalClass.msil");
-		doTest("internalType/untitled.dll", "NoModifierClass.msil");
+		doTest("internalType/untitled.dll", "InternalClass.msilil");
+		doTest("internalType/untitled.dll", "NoModifierClass.il");
 	}
 
 	@Test
 	public void testValueTyperef() throws Throwable
 	{
-		doTest("valueTypeRef/untitled168.exe", "Program.msil");
+		doTest("valueTypeRef/untitled168.exe", "Program.il");
 	}
 
 	@Test
 	public void testValueTypeRefByte() throws Throwable
 	{
-		doTest("valueTypeRefByte/untitled168.exe", "Program.msil");
+		doTest("valueTypeRefByte/untitled168.exe", "Program.il");
 	}
 
 	@Test
 	public void testStringEscape() throws Throwable
 	{
-		doTest("stringEscape/untitled194.exe", "Program.msil");
+		doTest("stringEscape/untitled194.exe", "Program.il");
 	}
 
 	@Test
 	public void testStringParameterDefaultValue() throws Throwable
 	{
-		doTest("stringParameterDefaultValue/untitled1.dll", "Program.msil");
+		doTest("stringParameterDefaultValue/untitled1.dll", "Program.il");
 	}
 
 	@Test
@@ -104,7 +104,7 @@ public class DecompileTest extends Assert
 	@Test
 	public void testUnityEditorGUILayout() throws Throwable
 	{
-		doTest("unityEditorGUILayout/UnityEditor.dll", "UnityEditor/EditorGUILayout.msil");
+		doTest("unityEditorGUILayout/UnityEditor.dll", "UnityEditor/EditorGUILayout.il");
 	}
 
 	public static void doTest(@Nonnull String path, @Nullable String fileToTest) throws Throwable

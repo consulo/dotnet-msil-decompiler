@@ -29,6 +29,10 @@
 	<version>2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
+	<properties>
+		<java.level>11</java.level>
+	</properties>
+
 	<repositories>
 		<repository>
 			<id>consulo</id>
