@@ -67,7 +67,7 @@ public class DecompileTest extends Assert
 	@Test
 	public void testInternalType() throws Throwable
 	{
-		doTest("internalType/untitled.dll", "InternalClass.msilil");
+		doTest("internalType/untitled.dll", "InternalClass.il");
 		doTest("internalType/untitled.dll", "NoModifierClass.il");
 	}
 
