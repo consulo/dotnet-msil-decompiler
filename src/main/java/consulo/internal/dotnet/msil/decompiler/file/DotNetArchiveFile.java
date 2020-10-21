@@ -44,7 +44,9 @@ import java.util.*;
  */
 public class DotNetArchiveFile implements ArchiveFile
 {
-	public static final int VERSION = 2;
+	public static final int VERSION = 3;
+
+	public static final String BYTECODE_FILE_EXTENSION = "il";
 
 	private final Map<String, ArchiveEntry> myArchiveEntries;
 
@@ -68,9 +70,9 @@ public class DotNetArchiveFile implements ArchiveFile
 	{
 		Ref<ModuleParser> moduleParserRef = Ref.create(moduleParser);
 		TypeDef[] typeDefs = moduleParser.getTypeDefs();
-		List<DotNetFileArchiveEntry> fileList = new ArrayList<DotNetFileArchiveEntry>();
+		List<DotNetFileArchiveEntry> fileList = new ArrayList<>();
 
-		Map<String, DotNetBaseFileArchiveEntry> duplicateMap = new HashMap<String, DotNetBaseFileArchiveEntry>(); // map used for collect types with same name but different signature
+		Map<String, DotNetBaseFileArchiveEntry> duplicateMap = new HashMap<>(); // map used for collect types with same name but different signature
 
 		TypeDef moduleTypeDef = null;
 
@@ -95,11 +97,11 @@ public class DotNetArchiveFile implements ArchiveFile
 			String namespace = typeDef.getNamespace();
 			if(StringUtil.isEmpty(namespace))
 			{
-				path = userName + ".msil";
+				path = userName + "." + BYTECODE_FILE_EXTENSION;
 			}
 			else
 			{
-				path = namespace.replace(".", "/") + "/" + userName + ".msil";
+				path = namespace.replace(".", "/") + "/" + userName + "." + BYTECODE_FILE_EXTENSION;
 			}
 
 			DotNetBaseFileArchiveEntry fileWithSameName = duplicateMap.get(path);
@@ -142,9 +144,9 @@ public class DotNetArchiveFile implements ArchiveFile
 			return o1.getName().compareToIgnoreCase(o2.getName());
 		});
 
-		Map<String, ArchiveEntry> map = new THashMap<String, ArchiveEntry>(fileList.size() + 10);
+		Map<String, ArchiveEntry> map = new THashMap<>(fileList.size() + 10);
 
-		List<String> alreadyAddedNamespaces = new ArrayList<String>();
+		List<String> alreadyAddedNamespaces = new ArrayList<>();
 
 		for(DotNetFileArchiveEntry fileEntry : fileList)
 		{

@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class DotNetAssemblyFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 {
-	public static final String AssemblyInfo = "AssemblyInfo.msil";
+	public static final String AssemblyInfo = "AssemblyInfo." + DotNetArchiveFile.BYTECODE_FILE_EXTENSION;
 
 	private AssemblyInfo myAssemblyInfo;
 

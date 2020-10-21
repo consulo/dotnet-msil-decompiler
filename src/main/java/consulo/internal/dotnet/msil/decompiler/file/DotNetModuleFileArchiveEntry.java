@@ -33,7 +33,8 @@ import java.util.List;
  */
 public class DotNetModuleFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 {
-	public static final String ModuleInfo = "ModuleInfo.msil";
+	public static final String ModuleInfo = "ModuleInfo." + DotNetArchiveFile.BYTECODE_FILE_EXTENSION;
+
 	public static final String ModuleTypeDef = "<Module>";
 
 	private TypeDef myModuleTypeDef;
