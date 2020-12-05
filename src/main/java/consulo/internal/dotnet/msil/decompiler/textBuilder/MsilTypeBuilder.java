@@ -16,17 +16,12 @@
 
 package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
-import java.util.List;
-
-import consulo.internal.dotnet.asm.mbel.Event;
-import consulo.internal.dotnet.asm.mbel.Field;
-import consulo.internal.dotnet.asm.mbel.InterfaceImplementation;
-import consulo.internal.dotnet.asm.mbel.MethodDef;
-import consulo.internal.dotnet.asm.mbel.Property;
-import consulo.internal.dotnet.asm.mbel.TypeDef;
+import consulo.internal.dotnet.asm.mbel.*;
 import consulo.internal.dotnet.asm.signature.TypeAttributes;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -93,7 +88,7 @@ public class MsilTypeBuilder extends MsilSharedBuilder implements TypeAttributes
 
 		processGeneric(builder, typeDef, typeDef);
 
-		Object superClass = typeDef.getSuperClass();
+		AbstractTypeReference superClass = typeDef.getSuperClass();
 		if(superClass != null)
 		{
 			builder.append(" extends ");

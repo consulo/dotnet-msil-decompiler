@@ -413,13 +413,13 @@ public class MsilSharedBuilder implements SignatureConstants
 				innerBuilder.append(".ctor ");
 			}
 
-			List<Object> constraints = genericParamDef.getConstraints();
+			List<GenericParamConstraintDef> constraints = genericParamDef.getConstraints();
 			if(!constraints.isEmpty())
 			{
 				innerBuilder.append("(");
 				join(innerBuilder, constraints, (t, v) ->
 				{
-					toStringFromDefRefSpec(t, v, typeDef);
+					toStringFromDefRefSpec(t, v.getType(), typeDef);
 					return null;
 				}, ", ");
 				innerBuilder.append(")");
@@ -621,47 +621,47 @@ public class MsilSharedBuilder implements SignatureConstants
 		}
 	}
 
-	public static void toStringFromDefRefSpec(@Nonnull StringBuilder builder, @Nonnull Object o, @Nullable TypeDef typeDef)
+	public static void toStringFromDefRefSpec(@Nonnull StringBuilder builder, @Nonnull AbstractTypeReference typeReference, @Nullable TypeDef typeDef)
 	{
-		if(o instanceof TypeDef)
+		if(typeReference instanceof TypeDef)
 		{
-			TypeDef parent = ((TypeDef) o).getParent();
+			TypeDef parent = ((TypeDef) typeReference).getParent();
 			if(parent != null)
 			{
 				toStringFromDefRefSpec(builder, parent, parent);
 				builder.append(MsilHelper.NESTED_SEPARATOR_IN_NAME);
-				appendValidName(builder, ((TypeDef) o).getName());
+				appendValidName(builder, ((TypeDef) typeReference).getName());
 			}
 			else
 			{
-				appendTypeRefFullName(builder, ((TypeRef) o).getNamespace(), ((TypeRef) o).getName());
+				appendTypeRefFullName(builder, ((TypeRef) typeReference).getNamespace(), ((TypeRef) typeReference).getName());
 			}
 		}
-		else if(o instanceof NestedTypeRef)
+		else if(typeReference instanceof NestedTypeRef)
 		{
-			TypeRef enclosingTypeRef = ((NestedTypeRef) o).getEnclosingTypeRef();
+			TypeRef enclosingTypeRef = ((NestedTypeRef) typeReference).getEnclosingTypeRef();
 			if(enclosingTypeRef != null)
 			{
 				toStringFromDefRefSpec(builder, enclosingTypeRef, null);
 				builder.append(MsilHelper.NESTED_SEPARATOR_IN_NAME);
-				appendValidName(builder, ((TypeRef) o).getName());
+				appendValidName(builder, ((TypeRef) typeReference).getName());
 			}
 			else
 			{
-				appendTypeRefFullName(builder, ((TypeRef) o).getNamespace(), ((TypeRef) o).getName());
+				appendTypeRefFullName(builder, ((TypeRef) typeReference).getNamespace(), ((TypeRef) typeReference).getName());
 			}
 		}
-		else if(o instanceof TypeRef)
+		else if(typeReference instanceof TypeRef)
 		{
-			appendTypeRefFullName(builder, ((TypeRef) o).getNamespace(), ((TypeRef) o).getName());
+			appendTypeRefFullName(builder, ((TypeRef) typeReference).getNamespace(), ((TypeRef) typeReference).getName());
 		}
-		else if(o instanceof TypeSpec)
+		else if(typeReference instanceof TypeSpec)
 		{
-			typeToString(builder, ((TypeSpec) o).getSignature(), typeDef);
+			typeToString(builder, ((TypeSpec) typeReference).getSignature(), typeDef);
 		}
 		else
 		{
-			throw new IllegalArgumentException(o.toString());
+			throw new IllegalArgumentException(typeReference.toString());
 		}
 	}
 }
