@@ -28,7 +28,6 @@ import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import consulo.vfs.impl.archive.ArchiveEntry;
 import consulo.vfs.impl.archive.ArchiveFile;
-import gnu.trove.THashMap;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -144,7 +143,7 @@ public class DotNetArchiveFile implements ArchiveFile
 			return o1.getName().compareToIgnoreCase(o2.getName());
 		});
 
-		Map<String, ArchiveEntry> map = new THashMap<>(fileList.size() + 10);
+		Map<String, ArchiveEntry> map = new HashMap<>(fileList.size() + 10);
 
 		List<String> alreadyAddedNamespaces = new ArrayList<>();
 
