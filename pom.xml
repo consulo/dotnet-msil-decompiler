@@ -49,28 +49,29 @@
 			<groupId>consulo</groupId>
 			<artifactId>consulo-annotation</artifactId>
 			<version>3-SNAPSHOT</version>
-			<scope>provided</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>consulo</groupId>
 			<artifactId>consulo-util-collection</artifactId>
 			<version>3-SNAPSHOT</version>
-			<scope>provided</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>consulo.internal</groupId>
 			<artifactId>dotnet.asm</artifactId>
 			<version>3-SNAPSHOT</version>
-			<scope>provided</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<scope>provided</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
