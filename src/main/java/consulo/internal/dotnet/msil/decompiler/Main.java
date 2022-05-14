@@ -16,17 +16,17 @@
 
 package consulo.internal.dotnet.msil.decompiler;
 
+import consulo.internal.dotnet.asm.mbel.ModuleParser;
+import consulo.internal.dotnet.msil.decompiler.file.DotNetArchiveEntry;
+import consulo.internal.dotnet.msil.decompiler.file.DotNetArchiveFile;
+import consulo.util.lang.StringUtil;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
-import consulo.internal.dotnet.msil.decompiler.file.DotNetArchiveFile;
-import com.intellij.openapi.util.io.FileUtil;
-import consulo.internal.dotnet.asm.mbel.ModuleParser;
-import consulo.vfs.impl.archive.ArchiveEntry;
 
 /**
  * @author VISTALL
@@ -46,15 +46,15 @@ public class Main
 
 		DotNetArchiveFile archiveFile = new DotNetArchiveFile(file, moduleParser, System.currentTimeMillis());
 
-		File outFile = new File(file.getParentFile(), FileUtil.getNameWithoutExtension(file.getName()) + ".zip");
+		File outFile = new File(file.getParentFile(), getNameWithoutExtension(file.getName()) + ".zip");
 
 
 		FileOutputStream fileOutputStream = new FileOutputStream(outFile);
 		ZipOutputStream zipOutputStream = new ZipOutputStream(fileOutputStream);
-		Iterator<? extends ArchiveEntry> entries = archiveFile.entries();
+		Iterator<? extends DotNetArchiveEntry> entries = archiveFile.entries();
 		while(entries.hasNext())
 		{
-			ArchiveEntry next = entries.next();
+			DotNetArchiveEntry next = entries.next();
 
 			ZipEntry zipEntry = new ZipEntry(next.getName());
 			zipOutputStream.putNextEntry(zipEntry);
@@ -74,5 +74,11 @@ public class Main
 
 		zipOutputStream.close();
 		fileOutputStream.close();
+	}
+
+	public static String getNameWithoutExtension(String name)
+	{
+		int i = StringUtil.lastIndexOf(name, '.', 0, name.length());
+		return i < 0 ? name : name.substring(0, i);
 	}
 }

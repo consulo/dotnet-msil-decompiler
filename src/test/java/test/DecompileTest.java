@@ -16,18 +16,16 @@
 
 package test;
 
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.io.FileUtil;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.psi.util.QualifiedName;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
 import consulo.internal.dotnet.msil.decompiler.Main;
+import consulo.internal.dotnet.msil.decompiler.file.DotNetArchiveEntry;
 import consulo.internal.dotnet.msil.decompiler.file.DotNetArchiveFile;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
-import consulo.vfs.impl.archive.ArchiveEntry;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.StringUtil;
 import org.junit.Assert;
 import org.junit.ComparisonFailure;
 import org.junit.Test;
@@ -35,8 +33,13 @@ import org.junit.Test;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -117,10 +120,13 @@ public class DecompileTest extends Assert
 
 		ModuleParser moduleParser = new ModuleParser(file);
 
-		QualifiedName qualifiedName = QualifiedName.fromComponents(StringUtil.getPackageName(fileToTest).replace("/", "."));
+		List<String> parts = StringUtil.split(fileToTest.replace(".", "/"), "/");
+		// drop .il
+		parts = parts.subList(0, parts.size() - 1);
 
 		TypeDef target = null;
-		String qNameAsString = qualifiedName.toString();
+		String qNameAsString = String.join(".", parts);
+		
 		for(TypeDef typeDef : moduleParser.getTypeDefs())
 		{
 			if(qNameAsString.equals(typeDef.getFullName()))
@@ -141,12 +147,12 @@ public class DecompileTest extends Assert
 		File targetFile = new File(file.getParentFile(), fileToTest);
 		if(!targetFile.exists())
 		{
-			FileUtil.writeToFile(targetFile, actualData.toString());
+			Files.write(targetFile.toPath(), actualData.toString().getBytes(StandardCharsets.UTF_8));
 
 			throw new IllegalArgumentException(targetFile.getAbsolutePath() + " is not exists. File generated");
 		}
 
-		String expectedData = FileUtil.loadFile(targetFile, "UTF-8", true);
+		String expectedData = StringUtil.convertLineSeparators(Files.readString(targetFile.toPath(), StandardCharsets.UTF_8));
 		if(!Comparing.equal(actualData, expectedData))
 		{
 			throw new ComparisonFailure("File '" + fileToTest + "' content is not equal", expectedData.toString(), actualData.toString());
@@ -165,7 +171,7 @@ public class DecompileTest extends Assert
 
 		DotNetArchiveFile archiveFile = new DotNetArchiveFile(file, moduleParser, System.currentTimeMillis());
 
-		File targetFile = new File(file.getParentFile(), FileUtil.getNameWithoutExtension(file.getName()) + ".zip");
+		File targetFile = new File(file.getParentFile(), Main.getNameWithoutExtension(file.getName()) + ".zip");
 		if(!targetFile.exists())
 		{
 			Main.main(new String[]{file.getAbsolutePath()});
@@ -174,10 +180,10 @@ public class DecompileTest extends Assert
 
 		ZipFile zipFile = new ZipFile(targetFile);
 
-		Iterator<? extends ArchiveEntry> entries = archiveFile.entries();
+		Iterator<? extends DotNetArchiveEntry> entries = archiveFile.entries();
 		while(entries.hasNext())
 		{
-			ArchiveEntry next = entries.next();
+			DotNetArchiveEntry next = entries.next();
 			if(next.isDirectory())
 			{
 				continue;
@@ -187,18 +193,27 @@ public class DecompileTest extends Assert
 			//System.out.println("Testing: " + next.getName());
 			if(entry == null)
 			{
-				throw new ComparisonFailure("Entry '" + next.getName() + "' in target file is not found", FileUtil.loadTextAndClose(archiveFile.getInputStream(next), true), "");
+				throw new ComparisonFailure("Entry '" + next.getName() + "' in target file is not found", loadTextAndClose(archiveFile.getInputStream(next)), "");
 			}
 			else
 			{
-				String actual = FileUtil.loadTextAndClose(zipFile.getInputStream(entry), true);
-				String expected = FileUtil.loadTextAndClose(archiveFile.getInputStream(next), true);
+				String actual = loadTextAndClose(zipFile.getInputStream(entry));
+				String expected = loadTextAndClose(archiveFile.getInputStream(next));
 
 				if(!actual.equals(expected))
 				{
 					throw new ComparisonFailure("File '" + next.getName() + "' content is not equal", actual, expected);
 				}
 			}
+		}
+	}
+
+	private static String loadTextAndClose(InputStream stream) throws IOException
+	{
+		try (stream)
+		{
+			byte[] bytes = stream.readAllBytes();
+			return StringUtil.convertLineSeparators(new String(bytes, StandardCharsets.UTF_8));
 		}
 	}
 }

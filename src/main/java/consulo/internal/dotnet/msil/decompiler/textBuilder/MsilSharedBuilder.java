@@ -16,9 +16,6 @@
 
 package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.util.BitUtil;
-import com.intellij.util.PairFunction;
 import consulo.internal.dotnet.asm.mbel.*;
 import consulo.internal.dotnet.asm.signature.*;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
@@ -26,13 +23,17 @@ import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
 import consulo.internal.dotnet.msil.decompiler.util.MsilUtil;
-import consulo.logging.Logger;
+import consulo.util.lang.BitUtil;
+import consulo.util.lang.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.BiFunction;
 
 /**
  * @author VISTALL
@@ -40,7 +41,7 @@ import java.util.List;
  */
 public class MsilSharedBuilder implements SignatureConstants
 {
-	private static final Logger LOG = Logger.getInstance(MsilSharedBuilder.class);
+	private static final Logger LOG = LoggerFactory.getLogger(MsilSharedBuilder.class);
 
 	private static final String[] KEYWORDS = new String[]{
 			"virtual",
@@ -297,7 +298,7 @@ public class MsilSharedBuilder implements SignatureConstants
 				case ELEMENT_TYPE_VALUETYPE:
 					if(!(typeSignature instanceof ValueTypeSignature))
 					{
-						builder.append(StringUtil.QUOTER.fun("valuetype is not ValueTypeSignature"));
+						builder.append(StringUtil.QUOTER.apply("valuetype is not ValueTypeSignature"));
 						return;
 					}
 					AbstractTypeReference valueType = ((ValueTypeSignature) typeSignature).getValueType();
@@ -306,7 +307,7 @@ public class MsilSharedBuilder implements SignatureConstants
 						Field field = ((TypeDef) valueType).getFieldByName(MsilHelper.ENUM_VALUE_FIEND_NAME);
 						if(field == null)
 						{
-							builder.append(StringUtil.QUOTER.fun("\'" + MsilHelper.ENUM_VALUE_FIEND_NAME + "\' not found"));
+							builder.append(StringUtil.QUOTER.apply("\'" + MsilHelper.ENUM_VALUE_FIEND_NAME + "\' not found"));
 							return;
 						}
 						appendValueImpl(builder, field.getSignature().getType(), defaultValue);
@@ -316,7 +317,7 @@ public class MsilSharedBuilder implements SignatureConstants
 						TypeSignature guessType = guessTypeFromByteArray(defaultValue);
 						if(guessType == null)
 						{
-							builder.append(StringUtil.QUOTER.fun("no guess type: " + defaultValue.length));
+							builder.append(StringUtil.QUOTER.apply("no guess type: " + defaultValue.length));
 							return;
 						}
 
@@ -324,13 +325,13 @@ public class MsilSharedBuilder implements SignatureConstants
 					}
 					break;
 				default:
-					builder.append(StringUtil.QUOTER.fun("unknown how read 0x" + String.format("%02X", type)));
+					builder.append(StringUtil.QUOTER.apply("unknown how read 0x" + String.format("%02X", type)));
 					break;
 			}
 		}
 		catch(Exception e)
 		{
-			builder.append(StringUtil.QUOTER.fun("error"));
+			builder.append(StringUtil.QUOTER.apply("error"));
 		}
 	}
 
@@ -607,7 +608,7 @@ public class MsilSharedBuilder implements SignatureConstants
 		}
 	}
 
-	public static <T> void join(StringBuilder builder, List<T> list, PairFunction<StringBuilder, T, Void> function, String dem)
+	public static <T> void join(StringBuilder builder, List<T> list, BiFunction<StringBuilder, T, Void> function, String dem)
 	{
 		for(int i = 0; i < list.size(); i++)
 		{
@@ -617,7 +618,7 @@ public class MsilSharedBuilder implements SignatureConstants
 			}
 
 			T t = list.get(i);
-			function.fun(builder, t);
+			function.apply(builder, t);
 		}
 	}
 

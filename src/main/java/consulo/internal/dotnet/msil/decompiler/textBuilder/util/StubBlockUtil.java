@@ -16,12 +16,12 @@
 
 package consulo.internal.dotnet.msil.decompiler.textBuilder.util;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
-import com.intellij.util.PairFunction;
+
+import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.function.BiFunction;
 
 /**
  * @author VISTALL
@@ -101,7 +101,7 @@ public class StubBlockUtil
 		}
 	}
 
-	public static <T> void join(StringBuilder builder, List<T> list, PairFunction<StringBuilder, T, Void> function, String dem)
+	public static <T> void join(StringBuilder builder, List<T> list, BiFunction<StringBuilder, T, Void> function, String dem)
 	{
 		for(int i = 0; i < list.size(); i++)
 		{
@@ -111,11 +111,11 @@ public class StubBlockUtil
 			}
 
 			T t = list.get(i);
-			function.fun(builder, t);
+			function.apply(builder, t);
 		}
 	}
 
-	public static <T> void join(StringBuilder builder, T[] list, PairFunction<StringBuilder, T, Void> function, String dem)
+	public static <T> void join(StringBuilder builder, T[] list, BiFunction<StringBuilder, T, Void> function, String dem)
 	{
 		for(int i = 0; i < list.length; i++)
 		{
@@ -125,7 +125,7 @@ public class StubBlockUtil
 			}
 
 			T t = list[i];
-			function.fun(builder, t);
+			function.apply(builder, t);
 		}
 	}
 }

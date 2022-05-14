@@ -16,13 +16,13 @@
 
 package consulo.internal.dotnet.msil.decompiler.textBuilder.util;
 
-import java.nio.charset.Charset;
-
-import javax.annotation.Nonnull;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.CharsetToolkit;
 import consulo.internal.dotnet.asm.io.ByteBuffer;
 import consulo.internal.dotnet.asm.signature.Signature;
+import consulo.util.lang.StringUtil;
+
+import javax.annotation.Nonnull;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author VISTALL
@@ -30,7 +30,7 @@ import consulo.internal.dotnet.asm.signature.Signature;
  */
 public class XStubUtil
 {
-	public static final Charset STRING_CHARSET = CharsetToolkit.UTF_16LE_CHARSET;
+	public static final Charset STRING_CHARSET = StandardCharsets.UTF_16LE;
 
 	public static final String CONSTRUCTOR_NAME = ".ctor";
 	public static final String STATIC_CONSTRUCTOR_NAME = ".cctor";

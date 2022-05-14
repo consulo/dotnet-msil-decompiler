@@ -16,7 +16,6 @@
 
 package consulo.internal.dotnet.msil.decompiler.textBuilder;
 
-import com.intellij.util.BitUtil;
 import consulo.internal.dotnet.asm.mbel.CustomAttribute;
 import consulo.internal.dotnet.asm.mbel.MethodDef;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
@@ -24,6 +23,7 @@ import consulo.internal.dotnet.asm.signature.*;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
+import consulo.util.lang.BitUtil;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

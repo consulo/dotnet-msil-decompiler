@@ -1,20 +1,21 @@
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import com.intellij.openapi.util.AtomicNotNullLazyValue;
-import com.intellij.openapi.util.NotNullLazyValue;
-import com.intellij.openapi.util.Ref;
-import com.intellij.openapi.vfs.CharsetToolkit;
-import com.intellij.util.ArrayUtil;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.StubBlockUtil;
-import consulo.logging.Logger;
+import consulo.internal.dotnet.msil.decompiler.util.AtomicNotNullLazyValue;
+import consulo.util.collection.ArrayUtil;
+import consulo.util.lang.ref.SimpleReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.function.Supplier;
 
 /**
  * @author VISTALL
@@ -22,15 +23,15 @@ import java.util.List;
  */
 public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiveEntry
 {
-	private static final Logger LOG = Logger.getInstance(DotNetAbstractFileArchiveEntry.class);
+	private static final Logger LOG = LoggerFactory.getLogger(DotNetAbstractFileArchiveEntry.class);
 
 	private static class LazyValue extends AtomicNotNullLazyValue<byte[]>
 	{
 		private final DotNetAbstractFileArchiveEntry myEntry;
 		private final String myOriginalFilePath;
-		private final Ref<ModuleParser> myModuleParserRef;
+		private final SimpleReference<ModuleParser> myModuleParserRef;
 
-		public LazyValue(String originalFilePath, Ref<ModuleParser> moduleParserRef, DotNetAbstractFileArchiveEntry entry)
+		public LazyValue(String originalFilePath, SimpleReference<ModuleParser> moduleParserRef, DotNetAbstractFileArchiveEntry entry)
 		{
 			myOriginalFilePath = originalFilePath;
 			myModuleParserRef = moduleParserRef;
@@ -64,7 +65,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 
 				String text = charSequence.toString();
 
-				return text.getBytes(CharsetToolkit.UTF8_CHARSET);
+				return text.getBytes(StandardCharsets.UTF_8);
 			}
 			catch(Throwable e)
 			{
@@ -81,9 +82,9 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 	private final String myName;
 	private final long myLastModified;
 
-	private final NotNullLazyValue<byte[]> myByteArrayValue;
+	private final Supplier<byte[]> myByteArrayValue;
 
-	public DotNetAbstractFileArchiveEntry(String originalFilePath, @Nonnull Ref<ModuleParser> moduleParserRef, String name, long lastModified)
+	public DotNetAbstractFileArchiveEntry(String originalFilePath, @Nonnull SimpleReference<ModuleParser> moduleParserRef, String name, long lastModified)
 	{
 		myName = name;
 		myLastModified = lastModified;
@@ -97,6 +98,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 	{
 	}
 
+	@Nonnull
 	@Override
 	public String getName()
 	{
@@ -106,7 +108,7 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 	@Override
 	public long getSize()
 	{
-		return myByteArrayValue.getValue().length;
+		return myByteArrayValue.get().length;
 	}
 
 	@Override
@@ -132,6 +134,6 @@ public abstract class DotNetAbstractFileArchiveEntry implements DotNetFileArchiv
 	@Nonnull
 	public InputStream createInputStream()
 	{
-		return new ByteArrayInputStream(myByteArrayValue.getValue());
+		return new ByteArrayInputStream(myByteArrayValue.get());
 	}
 }

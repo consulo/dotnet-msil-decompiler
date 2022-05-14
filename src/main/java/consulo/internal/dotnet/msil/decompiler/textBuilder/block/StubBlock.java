@@ -16,13 +16,10 @@
 
 package consulo.internal.dotnet.msil.decompiler.textBuilder.block;
 
-import java.util.List;
-
 import javax.annotation.Nonnull;
-
-import com.intellij.util.SmartList;
-
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -44,7 +41,7 @@ public class StubBlock
 	private CharSequence myInnerText;
 	private char[] myIndents;
 
-	private List<StubBlock> myBlocks = new SmartList<StubBlock>();
+	private List<StubBlock> myBlocks = new ArrayList<>();
 
 	public StubBlock(@Nonnull CharSequence startText, @Nullable CharSequence innerText, @Nonnull char[] indents)
 	{
