@@ -207,9 +207,9 @@ public class DotNetArchiveFile
 	}
 
 	@Nonnull
-	public Iterator<? extends DotNetArchiveEntry> entries()
+	public Collection<? extends DotNetArchiveEntry> entries()
 	{
-		return myArchiveEntries.values().iterator();
+		return myArchiveEntries.values();
 	}
 
 	public int getSize()
