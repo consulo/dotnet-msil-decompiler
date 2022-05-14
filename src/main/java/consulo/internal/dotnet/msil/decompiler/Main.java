@@ -51,7 +51,7 @@ public class Main
 
 		FileOutputStream fileOutputStream = new FileOutputStream(outFile);
 		ZipOutputStream zipOutputStream = new ZipOutputStream(fileOutputStream);
-		Iterator<? extends DotNetArchiveEntry> entries = archiveFile.entries();
+		Iterator<? extends DotNetArchiveEntry> entries = archiveFile.entries().iterator();
 		while(entries.hasNext())
 		{
 			DotNetArchiveEntry next = entries.next();
