@@ -16,18 +16,16 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.Ref;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.util.ArrayUtil;
 import consulo.internal.dotnet.asm.mbel.AssemblyInfo;
 import consulo.internal.dotnet.asm.mbel.CustomAttribute;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.util.XStubUtil;
 import consulo.internal.dotnet.msil.decompiler.util.MsilHelper;
-import consulo.vfs.impl.archive.ArchiveEntry;
-import consulo.vfs.impl.archive.ArchiveFile;
+import consulo.util.collection.ArrayUtil;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.StringUtil;
+import consulo.util.lang.ref.SimpleReference;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -41,13 +39,13 @@ import java.util.*;
  * @author VISTALL
  * @since 11.12.13.
  */
-public class DotNetArchiveFile implements ArchiveFile
+public class DotNetArchiveFile
 {
-	public static final int VERSION = 4;
+	public static final int VERSION = 5;
 
 	public static final String BYTECODE_FILE_EXTENSION = "il";
 
-	private final Map<String, ArchiveEntry> myArchiveEntries;
+	private final Map<String, DotNetArchiveEntry> myArchiveEntries;
 
 	private String myName;
 
@@ -58,16 +56,15 @@ public class DotNetArchiveFile implements ArchiveFile
 	}
 
 	@Nonnull
-	@Override
 	public String getName()
 	{
 		return myName;
 	}
 
 	@Nonnull
-	private static Map<String, ArchiveEntry> map(@Nonnull String originalFilePath, @Nonnull ModuleParser moduleParser, long lastModifier)
+	private static Map<String, DotNetArchiveEntry> map(@Nonnull String originalFilePath, @Nonnull ModuleParser moduleParser, long lastModifier)
 	{
-		Ref<ModuleParser> moduleParserRef = Ref.create(moduleParser);
+		SimpleReference<ModuleParser> moduleParserRef = SimpleReference.create(moduleParser);
 		TypeDef[] typeDefs = moduleParser.getTypeDefs();
 		List<DotNetFileArchiveEntry> fileList = new ArrayList<>();
 
@@ -143,7 +140,7 @@ public class DotNetArchiveFile implements ArchiveFile
 			return o1.getName().compareToIgnoreCase(o2.getName());
 		});
 
-		Map<String, ArchiveEntry> map = new HashMap<>(fileList.size() + 10);
+		Map<String, DotNetArchiveEntry> map = new HashMap<>(fileList.size() + 10);
 
 		List<String> alreadyAddedNamespaces = new ArrayList<>();
 
@@ -194,15 +191,13 @@ public class DotNetArchiveFile implements ArchiveFile
 	}
 
 	@Nullable
-	@Override
-	public ArchiveEntry getEntry(String name)
+	public DotNetArchiveEntry getEntry(String name)
 	{
 		return myArchiveEntries.get(name);
 	}
 
 	@Nullable
-	@Override
-	public InputStream getInputStream(ArchiveEntry archiveEntry) throws IOException
+	public InputStream getInputStream(DotNetArchiveEntry archiveEntry) throws IOException
 	{
 		if(archiveEntry instanceof DotNetDirArchiveEntry)
 		{
@@ -212,13 +207,11 @@ public class DotNetArchiveFile implements ArchiveFile
 	}
 
 	@Nonnull
-	@Override
-	public Iterator<? extends ArchiveEntry> entries()
+	public Collection<? extends DotNetArchiveEntry> entries()
 	{
-		return myArchiveEntries.values().iterator();
+		return myArchiveEntries.values();
 	}
 
-	@Override
 	public int getSize()
 	{
 		return myArchiveEntries.size();

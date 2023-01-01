@@ -16,13 +16,11 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import consulo.vfs.impl.archive.ArchiveEntry;
-
 /**
  * @author VISTALL
  * @since 11.12.13.
  */
-public class DotNetDirArchiveEntry implements ArchiveEntry
+public class DotNetDirArchiveEntry implements DotNetArchiveEntry
 {
 	private final String myName;
 	private long myLastModified;

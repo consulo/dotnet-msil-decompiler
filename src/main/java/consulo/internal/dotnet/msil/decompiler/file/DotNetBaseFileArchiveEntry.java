@@ -16,12 +16,12 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import com.intellij.openapi.util.Ref;
-import com.intellij.util.SmartList;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.util.collection.SmartList;
+import consulo.util.lang.ref.SimpleReference;
 
 import javax.annotation.Nonnull;
 import java.util.Collections;
@@ -37,7 +37,7 @@ public class DotNetBaseFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 
 	private final String myNamespace;
 
-	public DotNetBaseFileArchiveEntry(String originalFilePath, Ref<ModuleParser> moduleParserRef, TypeDef typeDef, String name, long lastModified)
+	public DotNetBaseFileArchiveEntry(String originalFilePath, SimpleReference<ModuleParser> moduleParserRef, TypeDef typeDef, String name, long lastModified)
 	{
 		super(originalFilePath, moduleParserRef, name, lastModified);
 		myTypeDefs = new SmartList<>(typeDef);

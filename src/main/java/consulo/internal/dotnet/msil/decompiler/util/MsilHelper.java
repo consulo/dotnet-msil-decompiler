@@ -16,8 +16,9 @@
 
 package consulo.internal.dotnet.msil.decompiler.util;
 
+import consulo.util.lang.StringUtil;
+
 import javax.annotation.Nonnull;
-import com.intellij.openapi.util.text.StringUtil;
 
 /**
  * @author VISTALL

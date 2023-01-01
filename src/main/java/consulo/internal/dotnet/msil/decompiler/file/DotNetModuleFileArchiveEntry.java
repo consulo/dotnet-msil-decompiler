@@ -16,11 +16,11 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import com.intellij.openapi.util.Ref;
 import consulo.internal.dotnet.asm.mbel.ModuleParser;
 import consulo.internal.dotnet.asm.mbel.TypeDef;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilTypeBuilder;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
+import consulo.util.lang.ref.SimpleReference;
 
 import javax.annotation.Nonnull;
 import java.util.Arrays;
@@ -39,7 +39,7 @@ public class DotNetModuleFileArchiveEntry extends DotNetAbstractFileArchiveEntry
 
 	private TypeDef myModuleTypeDef;
 
-	public DotNetModuleFileArchiveEntry(String originalFilePath, Ref<ModuleParser> moduleParserRef, TypeDef assemblyInfo, long lastModified)
+	public DotNetModuleFileArchiveEntry(String originalFilePath, SimpleReference<ModuleParser> moduleParserRef, TypeDef assemblyInfo, long lastModified)
 	{
 		super(originalFilePath, moduleParserRef, ModuleInfo, lastModified);
 		myModuleTypeDef = assemblyInfo;
