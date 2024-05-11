@@ -38,7 +38,6 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -126,7 +125,7 @@ public class DecompileTest extends Assert
 
 		TypeDef target = null;
 		String qNameAsString = String.join(".", parts);
-		
+
 		for(TypeDef typeDef : moduleParser.getTypeDefs())
 		{
 			if(qNameAsString.equals(typeDef.getFullName()))
@@ -180,10 +179,8 @@ public class DecompileTest extends Assert
 
 		ZipFile zipFile = new ZipFile(targetFile);
 
-		Iterator<? extends DotNetArchiveEntry> entries = archiveFile.entries().iterator();
-		while(entries.hasNext())
+		for(DotNetArchiveEntry next : archiveFile.entries())
 		{
-			DotNetArchiveEntry next = entries.next();
 			if(next.isDirectory())
 			{
 				continue;
@@ -202,7 +199,7 @@ public class DecompileTest extends Assert
 
 				if(!actual.equals(expected))
 				{
-					throw new ComparisonFailure("File '" + next.getName() + "' content is not equal", actual, expected);
+					throw new ComparisonFailure("File '" + next.getName() + "' content is not equal", expected, actual);
 				}
 			}
 		}
