@@ -22,7 +22,7 @@ import consulo.internal.dotnet.msil.decompiler.textBuilder.MsilStubBuilder;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 import consulo.util.lang.ref.SimpleReference;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Collections;
 import java.util.List;
 

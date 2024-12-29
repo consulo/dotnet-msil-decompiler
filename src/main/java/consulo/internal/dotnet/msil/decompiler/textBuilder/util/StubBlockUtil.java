@@ -19,7 +19,7 @@ package consulo.internal.dotnet.msil.decompiler.textBuilder.util;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.LineStubBlock;
 import consulo.internal.dotnet.msil.decompiler.textBuilder.block.StubBlock;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.List;
 import java.util.function.BiFunction;
 

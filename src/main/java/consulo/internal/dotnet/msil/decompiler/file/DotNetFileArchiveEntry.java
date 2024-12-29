@@ -16,7 +16,7 @@
 
 package consulo.internal.dotnet.msil.decompiler.file;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.io.InputStream;
 
 /**

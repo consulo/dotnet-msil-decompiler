@@ -20,7 +20,7 @@ import consulo.internal.dotnet.asm.io.ByteBuffer;
 import consulo.internal.dotnet.asm.signature.Signature;
 import consulo.util.lang.StringUtil;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
