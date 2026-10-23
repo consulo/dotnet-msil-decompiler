@@ -10,6 +10,7 @@ module consulo.internal.dotnet.msil.decompiler {
 
   exports consulo.internal.dotnet.msil.decompiler;
   exports consulo.internal.dotnet.msil.decompiler.file;
+  exports consulo.internal.dotnet.msil.decompiler.fsharp;
   exports consulo.internal.dotnet.msil.decompiler.textBuilder;
   exports consulo.internal.dotnet.msil.decompiler.textBuilder.block;
   exports consulo.internal.dotnet.msil.decompiler.textBuilder.util;
