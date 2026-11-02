@@ -47,6 +47,12 @@ public class MsilTypeBuilder extends MsilSharedBuilder implements TypeAttributes
         else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedAssembly)) {
             builder.append("nested assembly ");
         }
+        else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedFamORAssem)) {
+            builder.append("nested famorassem ");
+        }
+        else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedFamANDAssem)) {
+            builder.append("nested famandassem ");
+        }
         else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NotPublic)) {
             builder.append("private ");
         }

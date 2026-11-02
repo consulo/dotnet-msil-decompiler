@@ -52,6 +52,9 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
         else if (XStubUtil.isSet(methodDef.getFlags(), MemberAccessMask, FamORAssem)) {
             builder.append("famorassem ");
         }
+        else if (XStubUtil.isSet(methodDef.getFlags(), MemberAccessMask, FamANDAssem)) {
+            builder.append("famandassem ");
+        }
 
         if (XStubUtil.isSet(methodDef.getFlags(), Static)) {
             builder.append("static ");
