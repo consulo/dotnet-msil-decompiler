@@ -27,56 +27,46 @@ import consulo.internal.dotnet.asm.signature.FieldAttributes;
  * @author VISTALL
  * @since 21.05.14
  */
-public class MsilFieldBuilder extends MsilSharedBuilder implements FieldAttributes
-{
-	public static void processField(Field field, TypeDef typeDef, StubBlock block)
-	{
-		StringBuilder builder = new StringBuilder();
-		builder.append(".field ");
-		if(XStubUtil.isSet(field.getFlags(), FieldAccessMask, Public))
-		{
-			builder.append("public ");
-		}
-		else if(XStubUtil.isSet(field.getFlags(), FieldAccessMask, Assembly))
-		{
-			builder.append("assembly ");
-		}
-		else if(XStubUtil.isSet(field.getFlags(), FieldAccessMask, FamANDAssem))
-		{
-			builder.append("famorassem ");
-		}
-		else if(XStubUtil.isSet(field.getFlags(), FieldAccessMask, Family))
-		{
-			builder.append("protected ");
-		}
-		else if(XStubUtil.isSet(field.getFlags(), FieldAccessMask, Private))
-		{
-			builder.append("private ");
-		}
+public class MsilFieldBuilder extends MsilSharedBuilder implements FieldAttributes {
+    public static void processField(Field field, TypeDef typeDef, StubBlock block) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(".field ");
+        if (XStubUtil.isSet(field.getFlags(), FieldAccessMask, Public)) {
+            builder.append("public ");
+        }
+        else if (XStubUtil.isSet(field.getFlags(), FieldAccessMask, Assembly)) {
+            builder.append("assembly ");
+        }
+        else if (XStubUtil.isSet(field.getFlags(), FieldAccessMask, FamANDAssem)) {
+            builder.append("famorassem ");
+        }
+        else if (XStubUtil.isSet(field.getFlags(), FieldAccessMask, Family)) {
+            builder.append("protected ");
+        }
+        else if (XStubUtil.isSet(field.getFlags(), FieldAccessMask, Private)) {
+            builder.append("private ");
+        }
 
-		if(XStubUtil.isSet(field.getFlags(), Static))
-		{
-			builder.append("static ");
-		}
+        if (XStubUtil.isSet(field.getFlags(), Static)) {
+            builder.append("static ");
+        }
 
-		if(XStubUtil.isSet(field.getFlags(), Literal))
-		{
-			builder.append("literal ");
-		}
+        if (XStubUtil.isSet(field.getFlags(), Literal)) {
+            builder.append("literal ");
+        }
 
-		if(XStubUtil.isSet(field.getFlags(), InitOnly))
-		{
-			builder.append("initonly ");
-		}
+        if (XStubUtil.isSet(field.getFlags(), InitOnly)) {
+            builder.append("initonly ");
+        }
 
-		typeToString(builder, field.getSignature().getType(), typeDef);
-		builder.append(" ");
-		appendValidName(builder, field.getName());
-		appendValue(builder, field.getSignature().getType(), field.getDefaultValue());
-		builder.append("\n");
+        typeToString(builder, field.getSignature().getType(), typeDef);
+        builder.append(" ");
+        appendValidName(builder, field.getName());
+        appendValue(builder, field.getSignature().getType(), field.getDefaultValue());
+        builder.append("\n");
 
-		block.getBlocks().add(new LineStubBlock(builder));
+        block.getBlocks().add(new LineStubBlock(builder));
 
-		processAttributes(block, field);
-	}
+        processAttributes(block, field);
+    }
 }

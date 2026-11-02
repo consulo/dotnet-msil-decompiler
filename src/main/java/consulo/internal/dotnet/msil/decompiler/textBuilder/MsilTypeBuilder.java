@@ -27,127 +27,105 @@ import java.util.List;
  * @author VISTALL
  * @since 21.05.14
  */
-public class MsilTypeBuilder extends MsilSharedBuilder implements TypeAttributes
-{
-	public static StubBlock processTypeDef(final TypeDef typeDef)
-	{
-		StringBuilder builder = new StringBuilder();
-		builder.append(".class ");
+public class MsilTypeBuilder extends MsilSharedBuilder implements TypeAttributes {
+    public static StubBlock processTypeDef(final TypeDef typeDef) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(".class ");
 
-		if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.Public))
-		{
-			builder.append("public ");
-		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedPrivate))
-		{
-			builder.append("nested private ");
-		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedPublic))
-		{
-			builder.append("nested public ");
-		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedFamily))
-		{
-			builder.append("nested protected ");
-		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedAssembly))
-		{
-			builder.append("nested assembly ");
-		}
-		else if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NotPublic))
-		{
-			builder.append("private ");
-		}
+        if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.Public)) {
+            builder.append("public ");
+        }
+        else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedPrivate)) {
+            builder.append("nested private ");
+        }
+        else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedPublic)) {
+            builder.append("nested public ");
+        }
+        else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedFamily)) {
+            builder.append("nested protected ");
+        }
+        else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NestedAssembly)) {
+            builder.append("nested assembly ");
+        }
+        else if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.VisibilityMask, TypeAttributes.NotPublic)) {
+            builder.append("private ");
+        }
 
-		if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.ClassSemanticsMask, TypeAttributes.Interface))
-		{
-			builder.append("interface ");
-		}
+        if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.ClassSemanticsMask, TypeAttributes.Interface)) {
+            builder.append("interface ");
+        }
 
-		if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.Abstract))
-		{
-			builder.append("abstract ");
-		}
+        if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.Abstract)) {
+            builder.append("abstract ");
+        }
 
-		if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.Sealed))
-		{
-			builder.append("sealed ");
-		}
+        if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.Sealed)) {
+            builder.append("sealed ");
+        }
 
-		if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.SpecialName))
-		{
-			builder.append("specialname ");
-		}
+        if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.SpecialName)) {
+            builder.append("specialname ");
+        }
 
-		if(XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.Serializable))
-		{
-			builder.append("serializable ");
-		}
+        if (XStubUtil.isSet(typeDef.getFlags(), TypeAttributes.Serializable)) {
+            builder.append("serializable ");
+        }
 
-		appendTypeRefFullName(builder, typeDef.getNamespace(), typeDef.getName());
+        appendTypeRefFullName(builder, typeDef.getNamespace(), typeDef.getName());
 
-		processGeneric(builder, typeDef, typeDef);
+        processGeneric(builder, typeDef, typeDef);
 
-		AbstractTypeReference superClass = typeDef.getSuperClass();
-		if(superClass != null)
-		{
-			builder.append(" extends ");
-			toStringFromDefRefSpec(builder, superClass, typeDef);
-		}
+        AbstractTypeReference superClass = typeDef.getSuperClass();
+        if (superClass != null) {
+            builder.append(" extends ");
+            toStringFromDefRefSpec(builder, superClass, typeDef);
+        }
 
-		List<InterfaceImplementation> interfaceImplementations = typeDef.getInterfaceImplementations();
-		if(!interfaceImplementations.isEmpty())
-		{
-			builder.append(" implements ");
+        List<InterfaceImplementation> interfaceImplementations = typeDef.getInterfaceImplementations();
+        if (!interfaceImplementations.isEmpty()) {
+            builder.append(" implements ");
 
-			join(builder, interfaceImplementations, (builder1, o) ->
-			{
-				toStringFromDefRefSpec(builder1, o.getInterface(), typeDef);
-				return null;
-			}, ", ");
-		}
+            join(builder, interfaceImplementations, (builder1, o) -> {
+                toStringFromDefRefSpec(builder1, o.getInterface(), typeDef);
+                return null;
+            }, ", ");
+        }
 
-		StubBlock e = new StubBlock(builder, null, StubBlock.BRACES);
-		processAttributes(e, typeDef);
-		processGenericParamAttribute(e, typeDef);
+        StubBlock e = new StubBlock(builder, null, StubBlock.BRACES);
+        processAttributes(e, typeDef);
+        processGenericParamAttribute(e, typeDef);
 
-		for(int k = 0; k < typeDef.getNestedClasses().size(); k++)
-		{
-			TypeDef def = typeDef.getNestedClasses().get(k);
-			if(XStubUtil.isInvisibleMember(def.getName()))
-			{
-				continue;
-			}
-			e.getBlocks().add(processTypeDef(def));
-		}
+        for (int k = 0; k < typeDef.getNestedClasses().size(); k++) {
+            TypeDef def = typeDef.getNestedClasses().get(k);
+            if (XStubUtil.isInvisibleMember(def.getName())) {
+                continue;
+            }
+            e.getBlocks().add(processTypeDef(def));
+        }
 
-		for(int j = 0; j < typeDef.getFields().size(); j++)
-		{
-			Field field = typeDef.getFields().get(j);
+        for (int j = 0; j < typeDef.getFields().size(); j++) {
+            Field field = typeDef.getFields().get(j);
 
-			//processAttributes(e, field);
-			MsilFieldBuilder.processField(field, typeDef, e);
-		}
+            //processAttributes(e, field);
+            MsilFieldBuilder.processField(field, typeDef, e);
+        }
 
-		for(int k = 0; k < typeDef.getEvents().size(); k++)
-		{
-			Event event = typeDef.getEvents().get(k);
-			MsilEventBuilder.processEvent(event, typeDef, e);
-		}
+        for (int k = 0; k < typeDef.getEvents().size(); k++) {
+            Event event = typeDef.getEvents().get(k);
+            MsilEventBuilder.processEvent(event, typeDef, e);
+        }
 
-		for(int k = 0; k < typeDef.getProperties().size(); k++)
-		{
-			Property property = typeDef.getProperties().get(k);
-			MsilPropertyBuilder.processProperty(property, typeDef, e);
-		}
+        for (int k = 0; k < typeDef.getProperties().size(); k++) {
+            Property property = typeDef.getProperties().get(k);
+            MsilPropertyBuilder.processProperty(property, typeDef, e);
+        }
 
-		for(int k = 0; k < typeDef.getMethods().size(); k++)
-		{
-			MethodDef methodDef = typeDef.getMethods().get(k);
+        for (int k = 0; k < typeDef.getMethods().size(); k++) {
+            MethodDef methodDef = typeDef.getMethods().get(k);
 
-			MsilMethodBuilder.processMethod(methodDef, typeDef, e);
-		}
+            MsilMethodBuilder.processMethod(methodDef, typeDef, e);
+        }
 
-		return e;
-	}
+        return e;
+    }
 }
