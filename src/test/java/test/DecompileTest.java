@@ -61,6 +61,13 @@ public class DecompileTest extends Assert
 	}
 
 	@Test
+	public void testGenericConstraintAttribute() throws Throwable
+	{
+		// where TSelf : IUnaryPlusOperators<TSelf, TResult>? - .param constraint with NullableAttribute
+		doTest("genericConstraintAttribute/System.Runtime.dll", "System.Numerics.IUnaryPlusOperators`2.il");
+	}
+
+	@Test
 	public void testNullRef() throws Throwable
 	{
 		doTest("nullRef/untitled168.exe", "Program.il");
