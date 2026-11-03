@@ -130,12 +130,23 @@ public class MsilSharedBuilder implements SignatureConstants {
         return true;
     }
 
-    public static void processGenericParamAttribute(StubBlock parent, GenericParamOwner owner) {
+    public static void processGenericParamAttribute(StubBlock parent, GenericParamOwner owner, @Nullable TypeDef typeDef) {
         for (GenericParamDef genericParamDef : owner.getGenericParams()) {
             List<CustomAttribute> customAttributes = genericParamDef.getCustomAttributes();
             if (!customAttributes.isEmpty()) {
                 parent.getBlocks().add(new LineStubBlock(".param type " + genericParamDef.getName() + "\n"));
                 processAttributes(parent, genericParamDef);
+            }
+
+            // where T : IFoo<string?> - the attributes of a constraint, ilasm .param constraint
+            for (GenericParamConstraintDef constraint : genericParamDef.getConstraints()) {
+                if (constraint.getCustomAttributes().isEmpty()) {
+                    continue;
+                }
+                StringBuilder builder = new StringBuilder(".param constraint ").append(genericParamDef.getName()).append(", ");
+                toStringFromDefRefSpec(builder, constraint.getType(), typeDef);
+                parent.getBlocks().add(new LineStubBlock(builder.append("\n")));
+                processAttributes(parent, constraint);
             }
         }
     }

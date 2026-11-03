@@ -103,7 +103,7 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
 
         processAttributes(e, methodDef);
 
-        processGenericParamAttribute(e, methodDef);
+        processGenericParamAttribute(e, methodDef, typeDef);
 
         for (int i = 0; i < parameters.size(); i++) {
             ParameterSignature parameterSignature = parameters.get(i);

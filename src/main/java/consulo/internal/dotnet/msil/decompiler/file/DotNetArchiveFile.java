@@ -41,7 +41,7 @@ import java.util.*;
  */
 public class DotNetArchiveFile
 {
-	public static final int VERSION = 6;
+	public static final int VERSION = 7;
 
 	public static final String BYTECODE_FILE_EXTENSION = "il";
 

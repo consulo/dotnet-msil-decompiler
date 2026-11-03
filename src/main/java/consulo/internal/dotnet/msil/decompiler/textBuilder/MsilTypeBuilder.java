@@ -99,7 +99,7 @@ public class MsilTypeBuilder extends MsilSharedBuilder implements TypeAttributes
 
         StubBlock e = new StubBlock(builder, null, StubBlock.BRACES);
         processAttributes(e, typeDef);
-        processGenericParamAttribute(e, typeDef);
+        processGenericParamAttribute(e, typeDef, typeDef);
 
         for (int k = 0; k < typeDef.getNestedClasses().size(); k++) {
             TypeDef def = typeDef.getNestedClasses().get(k);
