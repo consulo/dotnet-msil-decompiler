@@ -68,6 +68,13 @@ public class DecompileTest extends Assert
 	}
 
 	@Test
+	public void testReturnValue() throws Throwable
+	{
+		// ref and ref readonly return values, the attributes of a return value - .param [0], a property with custom modifiers
+		doTest("returnValue/Returns.dll", "Lib/Returns.il");
+	}
+
+	@Test
 	public void testNullRef() throws Throwable
 	{
 		doTest("nullRef/untitled168.exe", "Program.il");

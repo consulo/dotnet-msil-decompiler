@@ -329,12 +329,22 @@ public class MsilSharedBuilder implements SignatureConstants {
         return null;
     }
 
+    /**
+     * The type of a return value - with {@code &} for ref int Method()
+     */
+    protected static void appendReturnType(StringBuilder builder, ReturnTypeSignature returnType, TypeDef typeDef) {
+        typeToString(builder, returnType.getInnerType(), typeDef);
+        if (returnType.getElementType() == ELEMENT_TYPE_BYREF) {
+            builder.append("&");
+        }
+    }
+
     protected static void appendAccessor(String name, final TypeDef typeDef, MethodDef methodDef, StubBlock block) {
         StringBuilder builder = new StringBuilder();
         builder.append(name);
         builder.append(" ");
 
-        typeToString(builder, methodDef.getSignature().getReturnType().getInnerType(), typeDef);
+        appendReturnType(builder, methodDef.getSignature().getReturnType(), typeDef);
 
         builder.append(" ");
 

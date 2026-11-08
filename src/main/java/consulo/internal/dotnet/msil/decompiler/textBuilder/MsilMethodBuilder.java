@@ -90,7 +90,8 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
             builder.append("vararg ");
         }
 
-        typeToString(builder, signature.getReturnType().getInnerType(), typeDef);
+        ReturnTypeSignature returnType = signature.getReturnType();
+        appendReturnType(builder, returnType, typeDef);
         builder.append(" ");
         appendValidName(builder, methodDef.getName());
         processGeneric(builder, methodDef, typeDef);
@@ -104,6 +105,13 @@ public class MsilMethodBuilder extends MsilSharedBuilder implements MethodAttrib
         processAttributes(e, methodDef);
 
         processGenericParamAttribute(e, methodDef, typeDef);
+
+        // the attributes of the return value - tuple element names, dynamic, ref readonly
+        ParameterInfo returnInfo = returnType.getParameterInfo();
+        if (returnInfo != null && !returnInfo.getCustomAttributes().isEmpty()) {
+            e.getBlocks().add(new LineStubBlock(new StringBuilder(".param [0]\n")));
+            processAttributes(e, returnInfo);
+        }
 
         for (int i = 0; i < parameters.size(); i++) {
             ParameterSignature parameterSignature = parameters.get(i);
