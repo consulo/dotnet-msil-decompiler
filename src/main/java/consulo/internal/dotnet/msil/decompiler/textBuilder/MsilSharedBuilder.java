@@ -468,6 +468,11 @@ public class MsilSharedBuilder implements SignatureConstants {
             case ELEMENT_TYPE_TYPEDBYREF:
                 builder.append("valuetype ").append("System.TypedReference");
                 break;
+            case ELEMENT_TYPE_CMOD_REQD:
+            case ELEMENT_TYPE_CMOD_OPT:
+                // modreq(InAttribute) int32& - the type, its custom modifiers are not a part of the stubs
+                typeToString(builder, ((InnerTypeOwner) signature).getInnerType(), typeDef);
+                break;
             case ELEMENT_TYPE_PTR:
                 PointerTypeSignature pointerTypeSignature = (PointerTypeSignature) signature;
                 typeToString(builder, pointerTypeSignature.getPointerType(), typeDef);
