@@ -131,7 +131,7 @@ public class DecompileTest extends Assert
 			throw new IllegalArgumentException(file.getAbsolutePath() + " is not exists");
 		}
 
-		ModuleParser moduleParser = new ModuleParser(file);
+		ModuleParser moduleParser = new ModuleParser(file.toPath());
 
 		List<String> parts = StringUtil.split(fileToTest.replace(".", "/"), "/");
 		// drop .il
@@ -180,9 +180,9 @@ public class DecompileTest extends Assert
 			throw new IllegalArgumentException(file.getAbsolutePath() + " is not exists");
 		}
 
-		ModuleParser moduleParser = new ModuleParser(file);
+		ModuleParser moduleParser = new ModuleParser(file.toPath());
 
-		DotNetArchiveFile archiveFile = new DotNetArchiveFile(file, moduleParser, System.currentTimeMillis());
+		DotNetArchiveFile archiveFile = new DotNetArchiveFile(file.toPath(), moduleParser, System.currentTimeMillis());
 
 		File targetFile = new File(file.getParentFile(), Main.getNameWithoutExtension(file.getName()) + ".zip");
 		if(!targetFile.exists())

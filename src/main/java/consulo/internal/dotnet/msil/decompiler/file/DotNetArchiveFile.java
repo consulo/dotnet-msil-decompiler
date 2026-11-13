@@ -30,7 +30,7 @@ import consulo.util.lang.ref.SimpleReference;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.io.ByteArrayInputStream;
-import java.io.File;
+import java.nio.file.Path;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -49,10 +49,10 @@ public class DotNetArchiveFile
 
 	private String myName;
 
-	public DotNetArchiveFile(@Nonnull File originalFile, ModuleParser moduleParser, long l)
+	public DotNetArchiveFile(@Nonnull Path originalFile, ModuleParser moduleParser, long l)
 	{
-		myArchiveEntries = map(originalFile.getPath(), moduleParser, l);
-		myName = originalFile.getName();
+		myArchiveEntries = map(originalFile.toString(), moduleParser, l);
+		myName = originalFile.getFileName().toString();
 	}
 
 	@Nonnull

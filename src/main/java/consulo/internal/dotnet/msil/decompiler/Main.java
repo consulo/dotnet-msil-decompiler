@@ -42,9 +42,9 @@ public class Main
 		}
 
 		File file = new File(args[0]);
-		ModuleParser moduleParser = new ModuleParser(file);
+		ModuleParser moduleParser = new ModuleParser(file.toPath());
 
-		DotNetArchiveFile archiveFile = new DotNetArchiveFile(file, moduleParser, System.currentTimeMillis());
+		DotNetArchiveFile archiveFile = new DotNetArchiveFile(file.toPath(), moduleParser, System.currentTimeMillis());
 
 		File outFile = new File(file.getParentFile(), getNameWithoutExtension(file.getName()) + ".zip");
 

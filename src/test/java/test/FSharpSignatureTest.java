@@ -64,7 +64,7 @@ public class FSharpSignatureTest extends Assert
 		File file = findFSharpCore();
 		Assume.assumeNotNull(file);
 
-		FSharpSignature signature = FSharpSignatureReader.read(new ModuleParser(file));
+		FSharpSignature signature = FSharpSignatureReader.read(new ModuleParser(file.toPath()));
 		assertNotNull("no signature data in " + file, signature);
 
 		FSharpSignature.Entity collections = find(signature.root, "Microsoft", "FSharp", "Collections");
